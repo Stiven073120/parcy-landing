@@ -13,8 +13,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Parcy",
-  description: "parcy landing page",
+  title: "Parcy digital | Gestion inmobiliaria",
+  description: "Parcy digital | Gestion inmobiliaria",
+  keywords: ["gestion inmobiliaria", "parcy", "inmobiliaria", "propiedades", "propiedades en venta", "propiedades en alquiler", "propiedades en arriendo", "propiedades en renta", "propiedades en compra", "propiedades en venta", "propiedades en alquiler", "propiedades en arriendo", "propiedades en renta", "propiedades en compra"],
+  authors: [{ name: "Parcy", url: "https://parcydigital.com" }],
+  creator: "Parcy digital",
+  openGraph: {
+    title: "Parcy digital | Gestion inmobiliaria",
+    description: "Parcy digital | Gestion inmobiliaria",
+    url: "https://parcydigital.com",
+  },
 };
 
 export default function RootLayout({
