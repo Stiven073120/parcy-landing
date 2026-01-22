@@ -68,10 +68,10 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Botón Contacto */}
+          {/* Botón Iniciar Sesión */}
           <div className="hidden lg:flex items-center shrink-0">
-            <Button href="#contacto" variant="primary" size="md">
-              Solicita una demo
+            <Button href="https://app.parcydigital.com" variant="primary" size="md">
+              Iniciar sesión
             </Button>
           </div>
 
@@ -114,8 +114,8 @@ export default function Header() {
                   {link.label}
                 </NavigationLink>
               ))}
-              <Button href="#contacto" variant="primary" size="md">
-                Solicita una demo
+              <Button href="https://app.parcydigital.com" variant="primary" size="md">
+                Iniciar sesión
               </Button>
             </nav>
           </motion.div>

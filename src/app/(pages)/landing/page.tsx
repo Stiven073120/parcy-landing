@@ -1,12 +1,11 @@
 import Header from "@/components/layout/Header";
+import Hero from "./sections/Hero";
 
 export default function Landing() {
   return (
     <>
     <Header />
-    <div className="flex flex-col items-center justify-center h-screen">
-      <h1>Parcy</h1>
-    </div>
+    <Hero />
     </>
   );
 }

@@ -50,6 +50,15 @@ export default function Button({
   );
 
   if (href) {
+    // Si es una URL externa, usar <a> tag normal
+    if (href.startsWith('http://') || href.startsWith('https://')) {
+      return (
+        <a href={href} className={combinedClassName}>
+          {content}
+        </a>
+      );
+    }
+    // Si es una ruta interna, usar Link de Next.js
     return (
       <Link href={href} className={combinedClassName}>
         {content}
