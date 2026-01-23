@@ -12,3 +12,13 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Estilos para el carousel de iconos en móvil */
+.hero-carousel {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE y Edge */
+}
+
+.hero-carousel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari y Opera */
+}
