@@ -51,13 +51,13 @@ export default function HowItWorks() {
               >
                 {/* Línea conectora (solo desktop) */}
                 {index < steps.length - 1 && index % 2 === 0 && (
-                  <div className="hidden md:block absolute top-20 left-full w-12 h-0.5 bg-gradient-to-r from-blue-300 to-transparent z-0" />
+                  <div className="hidden md:block absolute top-20 left-full w-12 h-0.5 bg-linear-to-r from-blue-300 to-transparent z-0" />
                 )}
                 
                 <div className="flex gap-6 items-start">
                   <div className="shrink-0">
                     <div className="relative">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                      <div className="w-16 h-16 rounded-full bg-linear-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold text-xl shadow-lg">
                         {step.number}
                       </div>
                     </div>

@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function FinalCTA() {
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-600 relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-linear-to-br from-blue-600 via-blue-700 to-cyan-600 relative overflow-hidden">
       {/* Patrón de fondo decorativo */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl"></div>

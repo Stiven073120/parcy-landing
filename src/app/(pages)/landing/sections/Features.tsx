@@ -50,8 +50,8 @@ export default function Features() {
               key={index}
               className="group"
             >
-              <div className="bg-gradient-to-b from-gray-50 to-white rounded-xl p-8 border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 h-full">
-                <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="bg-linear-to-b from-gray-50 to-white rounded-xl p-8 border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 h-full">
+                <div className="w-14 h-14 rounded-lg bg-linear-to-br from-blue-500 to-cyan-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <feature.icon className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
@@ -66,7 +66,7 @@ export default function Features() {
           
           {/* Card destacado para CTA */}
           <div className="md:col-span-2 lg:col-span-1">
-            <div className="bg-gradient-to-br from-blue-600 to-cyan-500 rounded-xl p-8 h-full flex flex-col justify-center items-center text-center text-white">
+            <div className="bg-linear-to-br from-blue-600 to-cyan-500 rounded-xl p-8 h-full flex flex-col justify-center items-center text-center text-white">
               <h3 className="text-2xl font-bold mb-4">
                 ¿Listo para mejorar la gestión de tu equipo?
               </h3>
