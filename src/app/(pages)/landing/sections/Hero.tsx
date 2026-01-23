@@ -1,14 +1,15 @@
 import Button from "@/components/ui/Button";
-import { Building2, Users, BarChart3, ClipboardCheck, Briefcase, Settings } from "lucide-react";
+import { Map, Clock, Users, ShieldCheck, BarChart3, Layers } from "lucide-react";
+import Image from "next/image";
 
 export default function Hero() {
   const categories = [
-    { icon: Building2, label: "Inmobiliarias" },
+    { icon: Map, label: "Proyecto" },
+    { icon: Clock, label: "Tiempo real" },
     { icon: Users, label: "Equipos" },
-    { icon: BarChart3, label: "Ventas" },
-    { icon: ClipboardCheck, label: "Gestión" },
-    { icon: Briefcase, label: "Negocios" },
-    { icon: Settings, label: "Automatización" },
+    { icon: ShieldCheck, label: "Control" },
+    { icon: BarChart3, label: "Analítica" },
+    { icon: Layers, label: "Visualización" },
   ];
 
   return (
@@ -17,9 +18,9 @@ export default function Hero() {
         {/* Título Principal */}
         <div className="max-w-5xl mx-auto text-center mb-12">
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-            La plataforma de gestión inmobiliaria:{" "}
+            Sistema de control de{" "}
             <span className="relative inline-block">
-              <span className="relative z-10">desde equipos</span>
+              <span className="relative z-10">disponibilidad</span>
               <svg
                 className="absolute -bottom-2 left-0 w-full"
                 height="12"
@@ -41,17 +42,18 @@ export default function Hero() {
                 </defs>
               </svg>
             </span>{" "}
-            hasta resultados
+            y ventas para proyectos de parcelación
           </h1>
           <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-          Parcy es la plataforma de gestión inmobiliaria diseñada para proyectos de urbanismo y parcelaciones.
-          Visualiza cada lote de forma interactiva, controla su estado con claridad, gestiona tu equipo con roles personalizados y toma decisiones basadas en datos reales, todo desde un solo lugar.
+            Controla la disponibilidad de lotes en tiempo real, conecta a tu equipo comercial y técnico, y elimina ventas duplicadas desde un solo lugar.
           </p>
+          
+      
           
           {/* Botón CTA */}
           <div className="flex justify-center">
             <Button href="https://app.parcydigital.com" variant="primary" size="lg">
-              Comenzar ahora
+              Solicita una demo
             </Button>
           </div>
         </div>
@@ -72,6 +74,20 @@ export default function Hero() {
                 </span>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Imagen Hero */}
+        <div className="max-w-4xl mx-auto mt-12 md:mt-16">
+          <div className="relative w-full overflow-hidden">
+            <Image
+              src="/images/hero/AT-prueba.webp"
+              alt="Parcy - Plataforma de gestión inmobiliaria"
+              width={1920}
+              height={1080}
+              className="w-full h-auto"
+              priority
+            />
           </div>
         </div>
       </div>

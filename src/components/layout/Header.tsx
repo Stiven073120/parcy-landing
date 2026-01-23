@@ -34,9 +34,9 @@ export default function Header() {
 
   const navigationLinks = [
     { href: "/products", label: "Productos" },
-    { href: "/services", label: "Servicios" },
     { href: "/about-us", label: "Nosotros" },
-    { href: "/why-parcy", label: "¿Por qué Parcy?" }
+    { href: "/pricing", label: "Precios" },
+    { href: "/why-parcy", label: "¿Por qué Parcy?" },
   ];
 
   return (
