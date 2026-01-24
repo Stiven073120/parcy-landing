@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import NavigationLink from "@/components/layout/NavigationLink";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,8 +48,15 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="text-2xl font-bold text-blue-600">
-            Parcy
+          <Link href="/" className="flex items-center h-full">
+            <Image
+              src="/logos/parcy_principal.png"
+              alt="Parcy Logo"
+              width={160}
+              height={56}
+              className="h-14 w-auto object-contain"
+              priority
+            />
           </Link>
 
           {/* Navegación Desktop */}
