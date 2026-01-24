@@ -167,7 +167,7 @@ export default function Hero() {
             y ventas para proyectos de parcelación
           </h1>
           <p className="text-base md:text-lg lg:text-xl text-gray-600 mb-7 md:mb-8 lg:mb-10 max-w-2xl mx-auto leading-relaxed">
-            Controla la disponibilidad de lotes en tiempo real, conecta a tu equipo comercial y técnico, y elimina ventas duplicadas desde un solo lugar.
+          Centraliza la disponibilidad de lotes, conecta a tu equipo comercial y técnico, y elimina ventas duplicadas desde una sola plataforma.
           </p>
           
           {/* Botón CTA */}
