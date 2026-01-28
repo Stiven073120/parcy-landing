@@ -42,26 +42,26 @@ export default function Header() {
 
   return (
     <header 
-      className="fixed top-0 left-0 right-0 z-1001 transition-all duration-300 bg-white/95 backdrop-blur-sm shadow-md"
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100"
       role="banner"
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className="flex items-center justify-between h-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center h-full">
+          <Link href="/" className="flex items-center flex-shrink-0">
             <Image
               src="/logos/parcy_principal.png"
               alt="Parcy Logo"
-              width={160}
-              height={56}
-              className="h-14 w-auto object-contain"
+              width={140}
+              height={48}
+              className="h-10 md:h-12 w-auto object-contain"
               priority
             />
           </Link>
 
           {/* Navegación Desktop */}
           <nav 
-            className="hidden lg:flex items-center gap-6 xl:gap-8 flex-1 justify-center"
+            className="hidden lg:flex items-center gap-6 xl:gap-8 flex-1 justify-center max-w-2xl mx-8"
             role="navigation"
             aria-label="Navegación principal"
           >
@@ -76,28 +76,42 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Botón Iniciar Sesión */}
-          <div className="hidden lg:flex items-center shrink-0">
+          {/* Botón Iniciar Sesión Desktop */}
+          <div className="hidden lg:flex items-center flex-shrink-0">
             <Button href="https://app.parcydigital.com" variant="primary" size="md">
               Iniciar sesión
             </Button>
           </div>
 
-          {/* Botón Mobile */}
+          {/* Botón Mobile Menu */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 z-1002 min-w-[48px] min-h-[48px] rounded-full hover:bg-gray-100 transition-colors"
+            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors active:bg-gray-200 relative z-50"
             aria-expanded={isOpen}
             aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
           >
             {isOpen ? (
-              <X size={28} className="text-blue-600" aria-hidden="true" />
+              <X size={24} className="text-gray-700" aria-hidden="true" />
             ) : (
-              <Menu size={28} className="text-gray-800" aria-hidden="true" />
+              <Menu size={24} className="text-gray-700" aria-hidden="true" />
             )}
           </button>
         </div>
       </div>
+
+      {/* Overlay de fondo cuando el menú está abierto */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setIsOpen(false)}
+            className="lg:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-40 mt-16 md:mt-20"
+          />
+        )}
+      </AnimatePresence>
 
       {/* Menú Mobile */}
       <AnimatePresence>
@@ -106,26 +120,52 @@ export default function Header() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 bg-white/98 backdrop-blur-md z-1000 lg:hidden flex flex-col items-center justify-center min-h-screen shadow-md border-b border-gray-100"
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="lg:hidden fixed top-16 md:top-20 left-0 right-0 z-50 bg-white/98 backdrop-blur-xl shadow-2xl border-b border-gray-200"
           >
-            <nav 
-              className="flex flex-col items-center justify-center h-full gap-8"
-              role="navigation"
-              aria-label="Menú móvil"
-            >
-              {navigationLinks.map((link) => (
-                <NavigationLink
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => handleLinkClick(link.href)}
+            <div className="relative overflow-hidden">
+              {/* Gradiente decorativo sutil */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500"></div>
+              
+              <nav 
+                className="px-6 py-8 space-y-2"
+                role="navigation"
+                aria-label="Menú móvil"
+              >
+                {navigationLinks.map((link, index) => (
+                  <motion.div
+                    key={link.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1, duration: 0.3 }}
+                  >
+                    <Link
+                      href={link.href}
+                      onClick={() => handleLinkClick(link.href)}
+                      className="block px-4 py-3.5 rounded-xl text-base font-medium text-gray-800 hover:text-cyan-600 hover:bg-gradient-to-r hover:from-cyan-50 hover:to-blue-50 transition-all duration-200 border border-transparent hover:border-cyan-100"
+                    >
+                      {link.label}
+                    </Link>
+                  </motion.div>
+                ))}
+                
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: navigationLinks.length * 0.1, duration: 0.3 }}
+                  className="pt-6 pb-2"
                 >
-                  {link.label}
-                </NavigationLink>
-              ))}
-              <Button href="https://app.parcydigital.com" variant="primary" size="md">
-                Iniciar sesión
-              </Button>
-            </nav>
+                  <Button 
+                    href="https://app.parcydigital.com" 
+                    variant="primary" 
+                    size="md"
+                    className="w-full justify-center bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 shadow-lg"
+                  >
+                    Iniciar sesión
+                  </Button>
+                </motion.div>
+              </nav>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
