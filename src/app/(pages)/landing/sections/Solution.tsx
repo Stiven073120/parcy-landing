@@ -1,73 +1,145 @@
-import { Map, TrendingUp, Shield } from "lucide-react";
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 
 export default function Solution() {
-  const solutions = [
+  const benefits = [
     {
-      icon: Map,
-      title: "Visualización del proyecto",
-      subtitle: "Gestión visual de lotes para tu equipo",
-      description: "Visualiza cada lote de forma clara e interactiva. Tu equipo interno puede gestionar la disponibilidad sin depender de planos estáticos o procesos manuales.",
-      color: "from-blue-500 to-blue-600",
+      number: "01",
+      title: "Visualización clara",
+      description: "Cada lote visible e interactivo para decisiones rápidas",
+      gradient: "from-cyan-500 to-blue-500"
     },
     {
-      icon: TrendingUp,
-      title: "Disponibilidad en tiempo real",
-      subtitle: "Sincronización para equipos internos",
-      description: "Estados por colores actualizados al instante. Evita confusiones, duplicados y errores entre tu equipo técnico y comercial.",
-      color: "from-cyan-500 to-cyan-600",
+      number: "02",
+      title: "Tiempo real",
+      description: "Estados actualizados al instante, cero confusiones",
+      gradient: "from-blue-500 to-purple-500"
     },
     {
-      icon: Shield,
-      title: "Control y trazabilidad interna",
-      subtitle: "Gestión segura para tu equipo",
-      description: "Cada cambio queda registrado. Roles y permisos configurables para tu equipo interno. Información confiable que protege la gestión de disponibilidad.",
-      color: "from-blue-600 to-cyan-500",
+      number: "03",
+      title: "Equipos sincronizados",
+      description: "Técnicos y comerciales con la misma información",
+      gradient: "from-purple-500 to-pink-500"
     },
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-linear-to-b from-gray-50 to-white">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Gestión de disponibilidad{" "}
-            <span className="text-blue-600">para tu equipo interno</span>
+    <section className="relative py-16 sm:py-20 md:py-24 lg:py-32 bg-white overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-100 rounded-full opacity-20 blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-100 rounded-full opacity-20 blur-3xl"></div>
+      </div>
+
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        {/* Header */}
+        <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
+            Control de disponibilidad{" "}
+            <span className="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
+              en tiempo real
+            </span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-600">
-            Parcy centraliza la gestión de disponibilidad de lotes, sincroniza equipos técnicos y comerciales internos, 
-            y garantiza información confiable en tiempo real para evitar errores y conflictos.
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">
+            Parcy centraliza la gestión de disponibilidad, sincroniza tu equipo y garantiza información confiable para evitar errores.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
-          {solutions.map((solution, index) => (
-            <div
-              key={index}
-              className="relative group"
-            >
-              <div className="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 h-full border border-gray-100 hover:border-blue-200">
-                <div className={`w-16 h-16 rounded-xl bg-linear-to-br ${solution.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <solution.icon className="w-8 h-8 text-white" />
+        {/* Main Content - Image + Benefits */}
+        <div className="grid lg:grid-cols-2 gap-10 md:gap-12 lg:gap-16 items-center mb-12 sm:mb-16">
+          {/* Image side */}
+          <div className="order-2 lg:order-1">
+            <div className="relative group">
+              {/* Glow effect */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-2xl opacity-20 blur-xl group-hover:opacity-30 transition-opacity"></div>
+              
+              {/* Image placeholder - DESCRIPCIÓN PARA GENERAR IMAGEN */}
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl border border-gray-200 bg-gradient-to-br from-gray-100 to-gray-200">
+                {/* 
+                  IMAGEN NECESARIA:
+                  - Mockup de interfaz de software mostrando un plano/mapa de parcelación
+                  - Vista de lotes con diferentes colores (verde=disponible, amarillo=reservado, rojo=vendido)
+                  - Interfaz limpia estilo dashboard
+                  - Colores: cyan y azul predominantes
+                  - Aspecto profesional SaaS
+                  - Dimensiones sugeridas: 1200x800px
+                */}
+                <div className="aspect-[3/2] flex items-center justify-center">
+                  <div className="text-center p-8">
+                    <div className="w-20 h-20 mx-auto mb-4 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center">
+                      <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                      </svg>
+                    </div>
+                    <p className="text-sm text-gray-500 font-medium">
+                      Vista de plano con disponibilidad en tiempo real
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                  {solution.title}
-                </h3>
-                <p className="text-sm font-semibold text-blue-600 mb-4">
-                  {solution.subtitle}
-                </p>
-                <p className="text-gray-600">
-                  {solution.description}
-                </p>
               </div>
             </div>
-          ))}
+          </div>
+
+          {/* Benefits side */}
+          <div className="order-1 lg:order-2 space-y-6">
+            {benefits.map((benefit, index) => (
+              <div
+                key={index}
+                className="flex gap-4 items-start group"
+              >
+                <div className={`shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br ${benefit.gradient} flex items-center justify-center text-white font-bold shadow-lg group-hover:scale-110 transition-transform`}>
+                  {benefit.number}
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-base sm:text-lg text-gray-600">
+                    {benefit.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+
+            <div className="pt-6">
+              <Button 
+                href="https://app.parcydigital.com" 
+                variant="primary" 
+                size="lg"
+                className="w-full sm:w-auto bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700"
+              >
+                Ver cómo funciona
+              </Button>
+            </div>
+          </div>
         </div>
 
-        <div className="text-center">
-          <Button href="https://app.parcydigital.com" variant="primary" size="lg">
-            Ver cómo funciona
-          </Button>
+        {/* Bottom cards */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl p-6 border-2 border-cyan-100">
+            <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent mb-2">
+              100%
+            </div>
+            <p className="text-sm sm:text-base font-medium text-gray-700">
+              Información sincronizada
+            </p>
+          </div>
+          <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-6 border-2 border-blue-100">
+            <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+              0
+            </div>
+            <p className="text-sm sm:text-base font-medium text-gray-700">
+              Ventas duplicadas
+            </p>
+          </div>
+          <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border-2 border-purple-100 sm:col-span-2 lg:col-span-1">
+            <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
+              Real-time
+            </div>
+            <p className="text-sm sm:text-base font-medium text-gray-700">
+              Actualización instantánea
+            </p>
+          </div>
         </div>
       </div>
     </section>
