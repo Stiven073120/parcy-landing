@@ -122,26 +122,15 @@ export default function Problem() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
             ¿Trabajas con{" "}
             <span className="relative inline-block">
-              <span className="relative z-10 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
                 información desactualizada
               </span>
-              <svg
-                className="absolute -bottom-2 left-0 w-full"
-                height="10"
-                viewBox="0 0 400 10"
-                fill="none"
-              >
-                <path
-                  d="M2 8C50 4 100 2 150 2C200 2 250 4 298 8C320 9 350 7 398 8"
-                  stroke="url(#problemGradient)"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                />
+              <svg className="absolute -bottom-1 sm:-bottom-2 left-0 w-full" height="8" viewBox="0 0 200 8" fill="none">
+                <path d="M2 6C50 2 150 2 198 6" stroke="url(#gradient)" strokeWidth="2" strokeLinecap="round"/>
                 <defs>
-                  <linearGradient id="problemGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#3b82f6" />
-                    <stop offset="50%" stopColor="#06b6d4" />
-                    <stop offset="100%" stopColor="#3b82f6" />
+                  <linearGradient id="gradient" x1="0" y1="0" x2="200" y2="0">
+                    <stop stopColor="#06b6d4"/>
+                    <stop offset="1" stopColor="#3b82f6"/>
                   </linearGradient>
                 </defs>
               </svg>

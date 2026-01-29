@@ -30,11 +30,11 @@ export default function FinalCTA() {
               <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
                 tu equipo
               </span>
-              <svg className="absolute -bottom-2 left-0 w-full" height="12" viewBox="0 0 200 12" fill="none">
-                <path d="M2 10C50 2 150 2 198 10" stroke="url(#ctaGradient)" strokeWidth="3" strokeLinecap="round"/>
+              <svg className="absolute -bottom-1 sm:-bottom-2 left-0 w-full" height="8" viewBox="0 0 200 8" fill="none">
+                <path d="M2 6C50 2 150 2 198 6" stroke="url(#ctaGradient)" strokeWidth="2" strokeLinecap="round"/>
                 <defs>
                   <linearGradient id="ctaGradient" x1="0" y1="0" x2="200" y2="0">
-                    <stop stopColor="#22d3ee"/>
+                    <stop stopColor="#06b6d4"/>
                     <stop offset="1" stopColor="#3b82f6"/>
                   </linearGradient>
                 </defs>
