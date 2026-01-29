@@ -1,6 +1,6 @@
 // Iconos SVG personalizados con gradientes
 const ProyectoIcon = () => (
-  <svg viewBox="0 0 48 48" className="w-10 h-10 sm:w-12 sm:h-12">
+  <svg viewBox="0 0 48 48" className="w-8 h-8 sm:w-9 sm:h-9">
     <defs>
       <linearGradient id="proyectoGradPricing" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%" stopColor="#06b6d4" />
@@ -14,7 +14,7 @@ const ProyectoIcon = () => (
 );
 
 const UsuariosIcon = () => (
-  <svg viewBox="0 0 48 48" className="w-10 h-10 sm:w-12 sm:h-12">
+  <svg viewBox="0 0 48 48" className="w-8 h-8 sm:w-9 sm:h-9">
     <defs>
       <linearGradient id="usuariosGradPricing" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%" stopColor="#3b82f6" />
@@ -35,7 +35,7 @@ export default function Addons() {
     {
       icon: ProyectoIcon,
       title: "Proyectos adicionales",
-      price: "$200.000",
+      price: "$199.999",
       description: "Agrega proyectos extra a tu plan",
     },
     {
@@ -55,40 +55,40 @@ export default function Addons() {
           <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 text-center mb-8 sm:mb-12">
             Complementos adicionales
           </h3>
-          <div className="grid sm:grid-cols-2 gap-8">
+          <div className="grid sm:grid-cols-2 gap-6">
             {addons.map((addon, index) => {
               const IconComponent = addon.icon;
               return (
                 <div
                   key={index}
-                  className="relative bg-white rounded-3xl p-8 sm:p-10 border-2 border-gray-200 hover:border-blue-300 hover:shadow-2xl transition-all duration-300 group overflow-hidden"
+                  className="relative bg-white rounded-2xl p-6 sm:p-7 border-2 border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300 group overflow-hidden"
                 >
                   {/* Background decoration */}
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-[linear-gradient(to_bottom_right,#cffafe,#dbeafe)] rounded-full opacity-0 group-hover:opacity-30 blur-2xl transition-opacity duration-300"></div>
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-[linear-gradient(to_bottom_right,#cffafe,#dbeafe)] rounded-full opacity-0 group-hover:opacity-30 blur-2xl transition-opacity duration-300"></div>
                   
                   <div className="relative z-10">
                     {/* Icon with glow effect */}
-                    <div className="relative inline-flex mb-6">
-                      <div className="absolute inset-0 bg-[linear-gradient(to_bottom_right,#06b6d4,#3b82f6)] rounded-2xl opacity-20 blur-xl"></div>
-                      <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:border-blue-300 transition-all duration-300">
+                    <div className="relative inline-flex mb-4">
+                      <div className="absolute inset-0 bg-[linear-gradient(to_bottom_right,#06b6d4,#3b82f6)] rounded-xl opacity-20 blur-xl"></div>
+                      <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 flex items-center justify-center shadow-md group-hover:shadow-lg group-hover:border-blue-300 transition-all duration-300">
                         <IconComponent />
                       </div>
                     </div>
                     
-                    <h4 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+                    <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
                       {addon.title}
                     </h4>
                     
-                    <div className="flex items-baseline gap-2 mb-4">
-                      <span className="text-4xl sm:text-5xl font-bold bg-[linear-gradient(to_right,#06b6d4,#3b82f6)] bg-clip-text text-transparent">
+                    <div className="flex items-baseline gap-2 mb-3">
+                      <span className="text-3xl sm:text-4xl font-bold bg-[linear-gradient(to_right,#06b6d4,#3b82f6)] bg-clip-text text-transparent">
                         {addon.price}
                       </span>
                       {addon.price !== "Consultar" && (
-                        <span className="text-lg text-gray-500">/proyecto</span>
+                        <span className="text-base text-gray-500">/proyecto</span>
                       )}
                     </div>
                     
-                    <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                       {addon.description}
                     </p>
                   </div>

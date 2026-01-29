@@ -3,19 +3,19 @@ const VentasDuplicadasIcon = () => (
   <svg viewBox="0 0 48 48" className="w-12 h-12 sm:w-14 sm:h-14">
     <defs>
       <linearGradient id="ventasGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#3b82f6" />
-        <stop offset="100%" stopColor="#06b6d4" />
+        <stop offset="0%" stopColor="#ef4444" />
+        <stop offset="100%" stopColor="#f97316" />
       </linearGradient>
       <linearGradient id="ventasGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#2563eb" />
-        <stop offset="100%" stopColor="#3b82f6" />
+        <stop offset="0%" stopColor="#dc2626" />
+        <stop offset="100%" stopColor="#ef4444" />
       </linearGradient>
     </defs>
     <rect x="12" y="10" width="20" height="26" rx="2" fill="url(#ventasGrad1)" transform="rotate(-5 22 23)" />
     <rect x="16" y="12" width="20" height="26" rx="2" fill="url(#ventasGrad2)" transform="rotate(5 26 25)" />
     <path d="M20 20 L28 20 M20 26 L28 26" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" opacity="0.9" />
     <circle cx="36" cy="14" r="6" fill="#ffffff" opacity="0.95" />
-    <path d="M36 10v3M36 16h.01" stroke="#3b82f6" strokeWidth="2.5" strokeLinecap="round" />
+    <path d="M36 10v3M36 16h.01" stroke="#ef4444" strokeWidth="2.5" strokeLinecap="round" />
   </svg>
 );
 
@@ -23,12 +23,12 @@ const ProcesosManualesIcon = () => (
   <svg viewBox="0 0 48 48" className="w-12 h-12 sm:w-14 sm:h-14">
     <defs>
       <linearGradient id="procesosGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#06b6d4" />
-        <stop offset="100%" stopColor="#3b82f6" />
+        <stop offset="0%" stopColor="#f59e0b" />
+        <stop offset="100%" stopColor="#ef4444" />
       </linearGradient>
       <linearGradient id="procesosGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#22d3ee" />
-        <stop offset="100%" stopColor="#06b6d4" />
+        <stop offset="0%" stopColor="#fbbf24" />
+        <stop offset="100%" stopColor="#f59e0b" />
       </linearGradient>
     </defs>
     <rect x="10" y="12" width="24" height="28" rx="2" fill="url(#procesosGrad1)" />
@@ -44,12 +44,12 @@ const DesconexionEquiposIcon = () => (
   <svg viewBox="0 0 48 48" className="w-12 h-12 sm:w-14 sm:h-14">
     <defs>
       <linearGradient id="desconexionGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#8b5cf6" />
-        <stop offset="100%" stopColor="#3b82f6" />
+        <stop offset="0%" stopColor="#a855f7" />
+        <stop offset="100%" stopColor="#ec4899" />
       </linearGradient>
       <linearGradient id="desconexionGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#3b82f6" />
-        <stop offset="100%" stopColor="#06b6d4" />
+        <stop offset="0%" stopColor="#8b5cf6" />
+        <stop offset="100%" stopColor="#a855f7" />
       </linearGradient>
     </defs>
     <circle cx="14" cy="20" r="7" fill="url(#desconexionGrad1)" />
@@ -57,7 +57,7 @@ const DesconexionEquiposIcon = () => (
     <circle cx="34" cy="20" r="7" fill="url(#desconexionGrad2)" />
     <circle cx="34" cy="20" r="4" fill="#ffffff" opacity="0.8" />
     <line x1="21" y1="20" x2="27" y2="20" stroke="#ffffff" strokeWidth="2" strokeDasharray="2,2" opacity="0.5" />
-    <circle cx="24" cy="20" r="4" fill="#3b82f6" />
+    <circle cx="24" cy="20" r="4" fill="#a855f7" />
     <path d="M22 18 L26 22 M26 18 L22 22" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" />
   </svg>
 );
@@ -66,8 +66,12 @@ const HerramientasGenericasIcon = () => (
   <svg viewBox="0 0 48 48" className="w-12 h-12 sm:w-14 sm:h-14">
     <defs>
       <linearGradient id="herramientasGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#06b6d4" />
-        <stop offset="100%" stopColor="#3b82f6" />
+        <stop offset="0%" stopColor="#10b981" />
+        <stop offset="100%" stopColor="#06b6d4" />
+      </linearGradient>
+      <linearGradient id="herramientasGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#3b82f6" />
+        <stop offset="100%" stopColor="#10b981" />
       </linearGradient>
     </defs>
     <rect x="8" y="16" width="32" height="24" rx="2" fill="url(#herramientasGrad1)" />
@@ -77,7 +81,7 @@ const HerramientasGenericasIcon = () => (
     <rect x="14" y="28" width="6" height="2" rx="1" fill="#ffffff" opacity="0.8" />
     <rect x="22" y="28" width="6" height="2" rx="1" fill="#ffffff" opacity="0.8" />
     <circle cx="38" cy="12" r="6" fill="#ffffff" opacity="0.95" />
-    <path d="M35 12 L41 12" stroke="#3b82f6" strokeWidth="3" strokeLinecap="round" />
+    <path d="M35 12 L41 12" stroke="#10b981" strokeWidth="3" strokeLinecap="round" />
   </svg>
 );
 
@@ -120,7 +124,7 @@ export default function Problem() {
         {/* Header */}
         <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 md:mb-20">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-            ¿Trabajas con{" "}
+            No trabajes con{" "}
             <span className="relative inline-block">
               <span className="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
                 información desactualizada
@@ -134,7 +138,7 @@ export default function Problem() {
                   </linearGradient>
                 </defs>
               </svg>
-            </span>?
+            </span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">
             El problema no es vender. Es gestionar la disponibilidad de lotes sin información confiable, centralizada y sincronizada.
@@ -171,11 +175,18 @@ export default function Problem() {
         </div>
 
         {/* Bottom highlight */}
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="bg-gradient-to-r from-blue-50 via-cyan-50 to-blue-50 border-2 border-blue-100 rounded-2xl p-6 sm:p-8">
-            <p className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">
-              Resultado: Pérdida de tiempo, conflictos internos y ventas frustradas por falta de sincronización.
-            </p>
+        <div className="max-w-3xl mx-auto">
+          <div className="relative bg-white rounded-2xl p-6 sm:p-8 border-2 border-gray-200 shadow-lg">
+            <div className="flex items-start gap-4">
+              <div className="shrink-0 mt-1">
+                <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-red-500 to-orange-500"></div>
+              </div>
+              <div className="flex-1">
+                <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed">
+                  <span className="font-semibold text-gray-900">Resultado:</span> Pérdida de tiempo, conflictos internos y ventas frustradas por falta de sincronización.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

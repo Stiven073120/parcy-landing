@@ -1,25 +1,88 @@
 import Image from "next/image";
 import CTAButton from "@/components/ui/CTAButton";
 
+// Iconos personalizados con gradientes - mismos del Hero
+const VisualizacionIcon = () => (
+  <svg viewBox="0 0 48 48" className="w-12 h-12 sm:w-14 sm:h-14">
+    <defs>
+      <linearGradient id="visualSolGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#06b6d4" />
+        <stop offset="100%" stopColor="#3b82f6" />
+      </linearGradient>
+      <linearGradient id="visualSolGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#8b5cf6" />
+        <stop offset="100%" stopColor="#06b6d4" />
+      </linearGradient>
+      <linearGradient id="visualSolGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#3b82f6" />
+        <stop offset="100%" stopColor="#8b5cf6" />
+      </linearGradient>
+    </defs>
+    <rect x="8" y="12" width="12" height="12" fill="url(#visualSolGrad1)" rx="2" />
+    <rect x="24" y="8" width="12" height="12" fill="url(#visualSolGrad2)" rx="2" />
+    <rect x="8" y="28" width="12" height="12" fill="url(#visualSolGrad3)" rx="2" />
+    <rect x="24" y="24" width="12" height="12" fill="url(#visualSolGrad1)" rx="2" />
+  </svg>
+);
+
+const TiempoRealIcon = () => (
+  <svg viewBox="0 0 48 48" className="w-12 h-12 sm:w-14 sm:h-14">
+    <defs>
+      <linearGradient id="tiempoSolGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#a855f7" />
+        <stop offset="100%" stopColor="#ec4899" />
+      </linearGradient>
+      <linearGradient id="tiempoSolGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#f59e0b" />
+        <stop offset="100%" stopColor="#ef4444" />
+      </linearGradient>
+    </defs>
+    <circle cx="24" cy="24" r="20" fill="url(#tiempoSolGrad1)" />
+    <circle cx="24" cy="24" r="16" fill="url(#tiempoSolGrad2)" />
+    <circle cx="24" cy="24" r="12" fill="#ffffff" />
+    <line x1="24" y1="24" x2="24" y2="14" stroke="#a855f7" strokeWidth="2.5" strokeLinecap="round" />
+    <line x1="24" y1="24" x2="30" y2="24" stroke="#ec4899" strokeWidth="2" strokeLinecap="round" />
+    <circle cx="24" cy="24" r="2" fill="#a855f7" />
+  </svg>
+);
+
+const EquiposIcon = () => (
+  <svg viewBox="0 0 48 48" className="w-12 h-12 sm:w-14 sm:h-14">
+    <defs>
+      <linearGradient id="equiposSolGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#10b981" />
+        <stop offset="100%" stopColor="#06b6d4" />
+      </linearGradient>
+      <linearGradient id="equiposSolGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#3b82f6" />
+        <stop offset="100%" stopColor="#10b981" />
+      </linearGradient>
+    </defs>
+    <circle cx="18" cy="18" r="8" fill="url(#equiposSolGrad1)" />
+    <circle cx="30" cy="18" r="8" fill="url(#equiposSolGrad2)" />
+    <circle cx="24" cy="30" r="8" fill="url(#equiposSolGrad1)" />
+    <circle cx="18" cy="18" r="5" fill="#ffffff" opacity="0.8" />
+    <circle cx="30" cy="18" r="5" fill="#ffffff" opacity="0.8" />
+    <circle cx="24" cy="30" r="5" fill="#ffffff" opacity="0.8" />
+  </svg>
+);
+
 export default function Solution() {
   const benefits = [
     {
-      number: "01",
+      icon: VisualizacionIcon,
       title: "Visualización clara",
       description: "Cada lote visible e interactivo para decisiones rápidas",
-      gradient: "from-cyan-500 to-blue-500"
     },
     {
-      number: "02",
+      icon: TiempoRealIcon,
       title: "Tiempo real",
       description: "Estados actualizados al instante, cero confusiones",
-      gradient: "from-blue-500 to-purple-500"
     },
     {
-      number: "03",
+      icon: EquiposIcon,
       title: "Equipos sincronizados",
       description: "Técnicos y comerciales con la misma información",
-      gradient: "from-purple-500 to-pink-500"
     },
   ];
 
@@ -62,7 +125,7 @@ export default function Solution() {
         {/* Main Content - Image + Benefits */}
         <div className="grid lg:grid-cols-2 gap-10 md:gap-12 lg:gap-16 items-center mb-12 sm:mb-16">
           {/* Image side */}
-          <div className="order-2 lg:order-1">
+          <div className="order-1 lg:order-1">
             <div className="relative group">
               {/* Glow effect */}
               <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-2xl opacity-20 blur-xl group-hover:opacity-30 transition-opacity"></div>
@@ -82,25 +145,28 @@ export default function Solution() {
           </div>
 
           {/* Benefits side */}
-          <div className="order-1 lg:order-2 space-y-6">
-            {benefits.map((benefit, index) => (
-              <div
-                key={index}
-                className="flex gap-4 items-start group"
-              >
-                <div className={`shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br ${benefit.gradient} flex items-center justify-center text-white font-bold shadow-lg group-hover:scale-110 transition-transform`}>
-                  {benefit.number}
+          <div className="order-2 lg:order-2 space-y-6">
+            {benefits.map((benefit, index) => {
+              const IconComponent = benefit.icon;
+              return (
+                <div
+                  key={index}
+                  className="flex gap-4 items-start group"
+                >
+                  <div className="shrink-0 p-2 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                    <IconComponent />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
+                      {benefit.title}
+                    </h3>
+                    <p className="text-base sm:text-lg text-gray-600">
+                      {benefit.description}
+                    </p>
+                  </div>
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-base sm:text-lg text-gray-600">
-                    {benefit.description}
-                  </p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
 
             <div className="pt-6">
               <CTAButton className="w-full sm:w-auto">
