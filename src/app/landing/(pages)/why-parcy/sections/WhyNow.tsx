@@ -1,4 +1,4 @@
-import Button from "@/components/ui/Button";
+import CTAButton from "@/components/ui/CTAButton";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 // Iconos SVG personalizados con gradientes
@@ -110,25 +110,22 @@ export default function WhyNow() {
             
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
-              <Button 
-                href="https://app.parcydigital.com" 
-                variant="secondary" 
-                size="lg"
-                className="group bg-white hover:bg-gray-100 text-gray-900 shadow-2xl text-lg px-8 py-5"
+              <CTAButton 
+                variant="secondary"
+                className="group bg-white hover:bg-gray-100 text-gray-900 shadow-2xl"
               >
                 <span className="flex items-center justify-center gap-3">
                   Solicita una demo
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </span>
-              </Button>
-              <Button 
+              </CTAButton>
+              <CTAButton 
                 href="/landing/pricing" 
-                variant="outline" 
-                size="lg"
-                className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm text-lg px-8 py-5"
+                variant="outline"
+                className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm"
               >
                 Ver planes y precios
-              </Button>
+              </CTAButton>
             </div>
             
             {/* Benefits list */}

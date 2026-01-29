@@ -1,5 +1,5 @@
 import { Upload, Settings, Zap, TrendingUp } from "lucide-react";
-import Button from "@/components/ui/Button";
+import CTAButton from "@/components/ui/CTAButton";
 
 export default function HowItWorks() {
   const steps = [
@@ -172,22 +172,12 @@ export default function HowItWorks() {
         {/* CTA Section */}
         <div className="text-center space-y-6">
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              href="https://app.parcydigital.com" 
-              variant="primary" 
-              size="lg"
-              className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 shadow-lg"
-            >
+            <CTAButton>
               Solicita una demo
-            </Button>
-            <Button 
-              href="https://app.parcydigital.com" 
-              variant="outline" 
-              size="lg"
-              className="border-2"
-            >
+            </CTAButton>
+            <CTAButton variant="outline">
               Hablar con un asesor
-            </Button>
+            </CTAButton>
           </div>
           <p className="text-sm sm:text-base text-gray-500">
             ✓ Implementación incluida · ✓ Soporte dedicado · ✓ Sin permanencia

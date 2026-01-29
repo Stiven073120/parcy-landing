@@ -1,4 +1,4 @@
-import Button from "@/components/ui/Button";
+import CTAButton from "@/components/ui/CTAButton";
 import Image from "next/image";
 
 // Iconos personalizados con gradientes
@@ -171,19 +171,14 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
-              <Button 
-                href="https://app.parcydigital.com" 
-                variant="primary" 
-                size="lg"
-                className="group bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 shadow-lg hover:shadow-xl transition-all"
-              >
+              <CTAButton className="group">
                 <span className="flex items-center justify-center gap-2">
                   Solicita una demo
                   <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </span>
-              </Button>
+              </CTAButton>
               <button className="px-6 sm:px-8 py-3.5 sm:py-4 text-base font-semibold text-gray-700 bg-white border-2 border-gray-200 rounded-xl hover:border-gray-300 hover:shadow-md transition-all">
                 Ver características
               </button>

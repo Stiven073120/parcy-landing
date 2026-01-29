@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import Button from "@/components/ui/Button";
+import CTAButton from "@/components/ui/CTAButton";
 
 // Icono SVG personalizado
 const EmpresaIcon = () => (
@@ -90,17 +90,15 @@ export default function Enterprise() {
                   <p className="text-lg text-cyan-300">Precio personalizado</p>
                 </div>
                 
-                <Button
-                  href="https://app.parcydigital.com"
+                <CTAButton
                   variant="secondary"
-                  size="lg"
                   className="w-full bg-white hover:bg-gray-100 text-gray-900 shadow-xl"
                 >
                   <span className="flex items-center justify-center gap-2">
                     <MailIcon />
                     Contactar ventas
                   </span>
-                </Button>
+                </CTAButton>
               </div>
             </div>
           </div>

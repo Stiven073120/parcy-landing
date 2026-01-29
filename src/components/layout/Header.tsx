@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import NavigationLink from "@/components/layout/NavigationLink";
-import Button from "@/components/ui/Button";
+import CTAButton from "@/components/ui/CTAButton";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -79,9 +79,9 @@ export default function Header() {
 
           {/* Botón Iniciar Sesión Desktop */}
           <div className="hidden lg:flex items-center shrink-0">
-            <Button href="https://app.parcydigital.com" variant="primary" size="md">
+            <CTAButton size="md">
               Iniciar sesión
-            </Button>
+            </CTAButton>
           </div>
 
           {/* Botón Mobile Menu */}
@@ -156,14 +156,12 @@ export default function Header() {
                   transition={{ delay: navigationLinks.length * 0.1, duration: 0.3 }}
                   className="pt-6 pb-2"
                 >
-                  <Button 
-                    href="https://app.parcydigital.com" 
-                    variant="primary" 
+                  <CTAButton 
                     size="md"
-                    className="w-full justify-center bg-linear-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 shadow-lg"
+                    className="w-full justify-center"
                   >
                     Iniciar sesión
-                  </Button>
+                  </CTAButton>
                 </motion.div>
               </nav>
             </div>

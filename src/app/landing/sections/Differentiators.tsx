@@ -1,5 +1,5 @@
 import { Target, Sparkles, Focus, Link2, ShieldCheck, Zap } from "lucide-react";
-import Button from "@/components/ui/Button";
+import CTAButton from "@/components/ui/CTAButton";
 
 export default function Differentiators() {
   const differentiators = [
@@ -180,14 +180,9 @@ export default function Differentiators() {
             <p className="text-base sm:text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
               Una plataforma especializada para equipos internos de proyectos de parcelación
             </p>
-            <Button 
-              href="https://app.parcydigital.com" 
-              variant="primary" 
-              size="lg"
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
-            >
+            <CTAButton>
               Ver la diferencia
-            </Button>
+            </CTAButton>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Button from "@/components/ui/Button";
+import CTAButton from "@/components/ui/CTAButton";
 
 export default function Solution() {
   const benefits = [
@@ -103,14 +103,9 @@ export default function Solution() {
             ))}
 
             <div className="pt-6">
-              <Button 
-                href="https://app.parcydigital.com" 
-                variant="primary" 
-                size="lg"
-                className="w-full sm:w-auto bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700"
-              >
+              <CTAButton className="w-full sm:w-auto">
                 Ver cómo funciona
-              </Button>
+              </CTAButton>
             </div>
           </div>
         </div>

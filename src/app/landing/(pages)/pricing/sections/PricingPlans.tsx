@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import Button from "@/components/ui/Button";
+import CTAButton from "@/components/ui/CTAButton";
 
 export default function PricingPlans() {
   const plans = [
@@ -98,18 +98,16 @@ export default function PricingPlans() {
                   </div>
                 </div>
 
-                <Button
-                  href="https://app.parcydigital.com"
+                <CTAButton
                   variant={plan.popular ? "secondary" : "primary"}
-                  size="lg"
                   className={`w-full mb-8 ${
                     plan.popular
                       ? 'bg-white text-blue-600 hover:bg-gray-100'
-                      : 'bg-[linear-gradient(to_right,#06b6d4,#3b82f6)] hover:bg-[linear-gradient(to_right,#0891b2,#2563eb)]'
+                      : ''
                   }`}
                 >
                   {plan.cta}
-                </Button>
+                </CTAButton>
 
                 <ul className="space-y-4">
                   {plan.features.map((feature, idx) => (

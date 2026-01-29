@@ -1,4 +1,4 @@
-import Button from "@/components/ui/Button";
+import CTAButton from "@/components/ui/CTAButton";
 
 export default function HeroWhy() {
   return (
@@ -41,28 +41,18 @@ export default function HeroWhy() {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 sm:mb-16">
-            <Button 
-              href="https://app.parcydigital.com" 
-              variant="primary" 
-              size="lg"
-              className="group bg-[linear-gradient(to_right,#06b6d4,#3b82f6)] hover:bg-[linear-gradient(to_right,#0891b2,#2563eb)] shadow-lg"
-            >
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 sm:mb-16">
+            <CTAButton className="group">
               <span className="flex items-center justify-center gap-2">
                 Solicita una demo
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </span>
-            </Button>
-            <Button 
-              href="/landing/pricing" 
-              variant="outline" 
-              size="lg"
-              className="border-2 border-gray-300 hover:border-blue-400"
-            >
+            </CTAButton>
+            <button className="px-6 sm:px-8 py-3.5 sm:py-4 text-base font-semibold text-gray-700 bg-white border-2 border-gray-200 rounded-xl hover:border-gray-300 hover:shadow-md transition-all">
               Ver planes
-            </Button>
+            </button>
           </div>
 
           {/* Quick stats */}

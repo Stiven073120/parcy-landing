@@ -1,4 +1,4 @@
-import Button from "@/components/ui/Button";
+import CTAButton from "@/components/ui/CTAButton";
 
 export default function PricingCTA() {
   return (
@@ -14,14 +14,9 @@ export default function PricingCTA() {
             <p className="text-base sm:text-lg text-gray-600 mb-6">
               Agenda una demo personalizada y te ayudamos a encontrar el plan ideal para tu proyecto.
             </p>
-            <Button
-              href="https://app.parcydigital.com"
-              variant="primary"
-              size="lg"
-              className="bg-[linear-gradient(to_right,#06b6d4,#3b82f6)] hover:bg-[linear-gradient(to_right,#0891b2,#2563eb)]"
-            >
+            <CTAButton>
               Agendar demo gratuita
-            </Button>
+            </CTAButton>
           </div>
         </div>
       </div>
