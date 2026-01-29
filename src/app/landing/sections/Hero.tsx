@@ -201,7 +201,7 @@ export default function Hero() {
               {/* Image container */}
               <div className="relative overflow-hidden rounded-xl shadow-2xl border border-gray-200 bg-white">
                 <Image
-                  src="/images/hero/AT-prueba.webp"
+                  src="/images/hero/dashboard_hero.png"
                   alt="Parcy - Plataforma de gestión inmobiliaria"
                   width={1920}
                   height={1080}

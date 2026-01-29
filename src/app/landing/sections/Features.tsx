@@ -1,4 +1,5 @@
 import { Eye, Clock, Users, ShieldCheck, BarChart3, Layers } from "lucide-react";
+import Image from "next/image";
 
 export default function Features() {
   const features = [
@@ -111,28 +112,16 @@ export default function Features() {
                 Interface diseñada para que cualquier miembro de tu equipo pueda gestionar disponibilidad desde el primer día.
               </p>
 
-              {/* Image placeholder */}
+              {/* Image */}
               <div className="bg-gradient-to-br from-gray-800 to-gray-700 rounded-2xl border-2 border-gray-600 overflow-hidden shadow-2xl">
-                {/* 
-                  IMAGEN NECESARIA:
-                  - Screenshot de dashboard con vista general
-                  - Múltiples secciones: plano principal, lista de lotes, estadísticas
-                  - Diseño moderno tipo SaaS
-                  - Colores oscuros con acentos cyan/azul
-                  - Mostrar elementos de UI: botones, filtros, gráficos
-                  - Aspecto profesional y limpio
-                  - Dimensiones sugeridas: 1400x900px
-                */}
-                <div className="aspect-video flex items-center justify-center bg-gradient-to-br from-gray-700 to-gray-600">
-                  <div className="text-center p-8">
-                    <div className="w-20 h-20 mx-auto mb-4 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center">
-                      <Layers className="w-10 h-10 text-white" />
-                    </div>
-                    <p className="text-sm text-gray-400 font-medium">
-                      Dashboard principal de gestión
-                    </p>
-                  </div>
-                </div>
+                <Image
+                  src="/images/features/dashboard.png"
+                  alt="Dashboard principal de Parcy - Vista completa de gestión de disponibilidad"
+                  width={1400}
+                  height={900}
+                  className="w-full h-auto"
+                  priority
+                />
               </div>
             </div>
           </div>

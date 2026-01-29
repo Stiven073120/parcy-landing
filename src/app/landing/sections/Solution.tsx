@@ -56,29 +56,16 @@ export default function Solution() {
               {/* Glow effect */}
               <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-2xl opacity-20 blur-xl group-hover:opacity-30 transition-opacity"></div>
               
-              {/* Image placeholder - DESCRIPCIÓN PARA GENERAR IMAGEN */}
-              <div className="relative overflow-hidden rounded-2xl shadow-2xl border border-gray-200 bg-gradient-to-br from-gray-100 to-gray-200">
-                {/* 
-                  IMAGEN NECESARIA:
-                  - Mockup de interfaz de software mostrando un plano/mapa de parcelación
-                  - Vista de lotes con diferentes colores (verde=disponible, amarillo=reservado, rojo=vendido)
-                  - Interfaz limpia estilo dashboard
-                  - Colores: cyan y azul predominantes
-                  - Aspecto profesional SaaS
-                  - Dimensiones sugeridas: 1200x800px
-                */}
-                <div className="aspect-[3/2] flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <div className="w-20 h-20 mx-auto mb-4 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center">
-                      <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-                      </svg>
-                    </div>
-                    <p className="text-sm text-gray-500 font-medium">
-                      Vista de plano con disponibilidad en tiempo real
-                    </p>
-                  </div>
-                </div>
+              {/* Image */}
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl border border-gray-200 bg-white">
+                <Image
+                  src="/images/solution/dashboard_disponibilidad.jpg"
+                  alt="Dashboard de Parcy - Vista de disponibilidad de lotes en tiempo real"
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto"
+                  priority
+                />
               </div>
             </div>
           </div>

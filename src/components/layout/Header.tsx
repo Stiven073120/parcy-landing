@@ -34,7 +34,7 @@ export default function Header() {
   };
 
   const navigationLinks = [
-    { href: "/landing/products", label: "Productos" },
+    // { href: "/landing/products", label: "Productos" },
     { href: "/landing/about-us", label: "Nosotros" },
     { href: "/landing/pricing", label: "Precios" },
     { href: "/landing/why-parcy", label: "¿Por qué Parcy?" },
@@ -48,7 +48,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center flex-shrink-0">
+          <Link href="/" className="flex items-center shrink-0">
             <Image
               src="/logos/parcy_principal.png"
               alt="Parcy Logo"
@@ -77,7 +77,7 @@ export default function Header() {
           </nav>
 
           {/* Botón Iniciar Sesión Desktop */}
-          <div className="hidden lg:flex items-center flex-shrink-0">
+          <div className="hidden lg:flex items-center shrink-0">
             <Button href="https://app.parcydigital.com" variant="primary" size="md">
               Iniciar sesión
             </Button>
@@ -125,7 +125,7 @@ export default function Header() {
           >
             <div className="relative overflow-hidden">
               {/* Gradiente decorativo sutil */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500"></div>
+              <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-cyan-500 via-blue-500 to-purple-500"></div>
               
               <nav 
                 className="px-6 py-8 space-y-2"
@@ -142,7 +142,7 @@ export default function Header() {
                     <Link
                       href={link.href}
                       onClick={() => handleLinkClick(link.href)}
-                      className="block px-4 py-3.5 rounded-xl text-base font-medium text-gray-800 hover:text-cyan-600 hover:bg-gradient-to-r hover:from-cyan-50 hover:to-blue-50 transition-all duration-200 border border-transparent hover:border-cyan-100"
+                      className="block px-4 py-3.5 rounded-xl text-base font-medium text-gray-800 hover:text-cyan-600 hover:bg-linear-to-r hover:from-cyan-50 hover:to-blue-50 transition-all duration-200 border border-transparent hover:border-cyan-100"
                     >
                       {link.label}
                     </Link>
@@ -159,7 +159,7 @@ export default function Header() {
                     href="https://app.parcydigital.com" 
                     variant="primary" 
                     size="md"
-                    className="w-full justify-center bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 shadow-lg"
+                    className="w-full justify-center bg-linear-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 shadow-lg"
                   >
                     Iniciar sesión
                   </Button>

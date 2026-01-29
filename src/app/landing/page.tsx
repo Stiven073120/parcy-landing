@@ -4,7 +4,7 @@ import Problem from "./sections/Problem";
 import Solution from "./sections/Solution";
 import Features from "./sections/Features";
 import Differentiators from "./sections/Differentiators";
-import HowItWorks from "./sections/HowItWorks";
+// import HowItWorks from "./sections/HowItWorks";
 import FinalCTA from "./sections/FinalCTA";
 
 export default function Landing() {
@@ -16,7 +16,7 @@ export default function Landing() {
       <Solution />
       <Features />
       <Differentiators />
-      <HowItWorks />
+      {/* <HowItWorks /> */}
       <FinalCTA />
     </>
   );

@@ -1,5 +1,5 @@
 import Header from "@/components/layout/Header";
-import PricingSection from "./sections/pricingSection";
+import PricingSection from "./sections/PricingSection";
 
 export default function Pricing() {
     return (
