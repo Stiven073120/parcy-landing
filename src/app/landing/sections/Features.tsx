@@ -1,49 +1,193 @@
-import { Eye, Clock, Users, ShieldCheck, BarChart3, Layers } from "lucide-react";
 import Image from "next/image";
+
+// Iconos personalizados con gradientes multicolor
+// Mismo icono del Hero
+const VisualizacionInteractivaIcon = () => (
+  <svg viewBox="0 0 48 48" className="w-12 h-12 sm:w-14 sm:h-14">
+    <defs>
+      <linearGradient id="visualFeatGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#06b6d4" />
+        <stop offset="100%" stopColor="#3b82f6" />
+      </linearGradient>
+      <linearGradient id="visualFeatGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#8b5cf6" />
+        <stop offset="100%" stopColor="#06b6d4" />
+      </linearGradient>
+      <linearGradient id="visualFeatGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#3b82f6" />
+        <stop offset="100%" stopColor="#8b5cf6" />
+      </linearGradient>
+    </defs>
+    <rect x="8" y="12" width="12" height="12" fill="url(#visualFeatGrad1)" rx="2" />
+    <rect x="24" y="8" width="12" height="12" fill="url(#visualFeatGrad2)" rx="2" />
+    <rect x="8" y="28" width="12" height="12" fill="url(#visualFeatGrad3)" rx="2" />
+    <rect x="24" y="24" width="12" height="12" fill="url(#visualFeatGrad1)" rx="2" />
+  </svg>
+);
+
+// Mismo icono del Hero
+const TiempoRealIcon = () => (
+  <svg viewBox="0 0 48 48" className="w-12 h-12 sm:w-14 sm:h-14">
+    <defs>
+      <linearGradient id="tiempoFeatGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#a855f7" />
+        <stop offset="100%" stopColor="#ec4899" />
+      </linearGradient>
+      <linearGradient id="tiempoFeatGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#f59e0b" />
+        <stop offset="100%" stopColor="#ef4444" />
+      </linearGradient>
+    </defs>
+    <circle cx="24" cy="24" r="20" fill="url(#tiempoFeatGrad1)" />
+    <circle cx="24" cy="24" r="16" fill="url(#tiempoFeatGrad2)" />
+    <circle cx="24" cy="24" r="12" fill="#ffffff" />
+    <line x1="24" y1="24" x2="24" y2="14" stroke="#a855f7" strokeWidth="2.5" strokeLinecap="round" />
+    <line x1="24" y1="24" x2="30" y2="24" stroke="#ec4899" strokeWidth="2" strokeLinecap="round" />
+    <circle cx="24" cy="24" r="2" fill="#a855f7" />
+  </svg>
+);
+
+// Mismo icono del Hero
+const GestionEquiposIcon = () => (
+  <svg viewBox="0 0 48 48" className="w-12 h-12 sm:w-14 sm:h-14">
+    <defs>
+      <linearGradient id="equiposFeatGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#10b981" />
+        <stop offset="100%" stopColor="#06b6d4" />
+      </linearGradient>
+      <linearGradient id="equiposFeatGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#3b82f6" />
+        <stop offset="100%" stopColor="#10b981" />
+      </linearGradient>
+    </defs>
+    <circle cx="18" cy="18" r="8" fill="url(#equiposFeatGrad1)" />
+    <circle cx="30" cy="18" r="8" fill="url(#equiposFeatGrad2)" />
+    <circle cx="24" cy="30" r="8" fill="url(#equiposFeatGrad1)" />
+    <circle cx="18" cy="18" r="5" fill="#ffffff" opacity="0.8" />
+    <circle cx="30" cy="18" r="5" fill="#ffffff" opacity="0.8" />
+    <circle cx="24" cy="30" r="5" fill="#ffffff" opacity="0.8" />
+  </svg>
+);
+
+const ControlTrazabilidadIcon = () => (
+  <svg viewBox="0 0 48 48" className="w-12 h-12 sm:w-14 sm:h-14">
+    <defs>
+      <linearGradient id="controlFeatGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#3b82f6" />
+        <stop offset="100%" stopColor="#06b6d4" />
+      </linearGradient>
+      <linearGradient id="controlFeatGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#06b6d4" />
+        <stop offset="100%" stopColor="#3b82f6" />
+      </linearGradient>
+    </defs>
+    {/* Escudo simplificado */}
+    <path d="M24 4L8 10v12c0 10 8 18 16 20 8-2 16-10 16-20V10L24 4z" fill="url(#controlFeatGrad1)" />
+    <path d="M24 8L12 14v10c0 6 4 10 12 12 8-2 12-6 12-12V14L24 8z" fill="url(#controlFeatGrad2)" />
+    {/* Check de verificación */}
+    <path d="M18 24l4 4 8-8" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+  </svg>
+);
+
+const InformesTiempoRealIcon = () => (
+  <svg viewBox="0 0 48 48" className="w-12 h-12 sm:w-14 sm:h-14">
+    <defs>
+      <linearGradient id="informesFeatGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#f59e0b" />
+        <stop offset="100%" stopColor="#ef4444" />
+      </linearGradient>
+      <linearGradient id="informesFeatGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#fbbf24" />
+        <stop offset="100%" stopColor="#f59e0b" />
+      </linearGradient>
+    </defs>
+    {/* Documento */}
+    <rect x="10" y="6" width="28" height="36" rx="2" fill="url(#informesFeatGrad1)" />
+    <rect x="12" y="8" width="24" height="32" rx="1.5" fill="url(#informesFeatGrad2)" />
+    {/* Líneas del documento */}
+    <line x1="16" y1="14" x2="32" y2="14" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" opacity="0.9" />
+    <line x1="16" y1="20" x2="28" y2="20" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" opacity="0.7" />
+    {/* Gráfico pequeño */}
+    <rect x="16" y="26" width="3" height="8" fill="#ffffff" opacity="0.9" rx="1" />
+    <rect x="21" y="24" width="3" height="10" fill="#ffffff" opacity="0.9" rx="1" />
+    <rect x="26" y="22" width="3" height="12" fill="#ffffff" opacity="0.9" rx="1" />
+    <rect x="31" y="25" width="3" height="9" fill="#ffffff" opacity="0.9" rx="1" />
+  </svg>
+);
+
+const EstadosPersonalizadosIcon = () => (
+  <svg viewBox="0 0 48 48" className="w-12 h-12 sm:w-14 sm:h-14">
+    <defs>
+      <linearGradient id="estadosFeatGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#10b981" />
+        <stop offset="100%" stopColor="#06b6d4" />
+      </linearGradient>
+      <linearGradient id="estadosFeatGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#06b6d4" />
+        <stop offset="100%" stopColor="#3b82f6" />
+      </linearGradient>
+      <linearGradient id="estadosFeatGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#3b82f6" />
+        <stop offset="100%" stopColor="#10b981" />
+      </linearGradient>
+    </defs>
+    {/* Capas superpuestas con efecto de profundidad */}
+    <rect x="4" y="8" width="28" height="32" rx="3" fill="url(#estadosFeatGrad1)" opacity="0.5" />
+    <rect x="8" y="12" width="28" height="28" rx="3" fill="url(#estadosFeatGrad2)" opacity="0.7" />
+    <rect x="12" y="16" width="28" height="24" rx="3" fill="url(#estadosFeatGrad3)" />
+    {/* Etiquetas de estado */}
+    <rect x="16" y="20" width="20" height="3" rx="1.5" fill="#ffffff" opacity="0.9" />
+    <rect x="16" y="26" width="16" height="3" rx="1.5" fill="#ffffff" opacity="0.8" />
+    <rect x="16" y="32" width="18" height="3" rx="1.5" fill="#ffffff" opacity="0.7" />
+    {/* Iconos de check */}
+    <circle cx="42" cy="12" r="6" fill="#ffffff" opacity="0.95" />
+    <path d="M39.5 12 L41 13.5 L44.5 10" stroke="#10b981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+  </svg>
+);
 
 export default function Features() {
   const features = [
     {
-      icon: Eye,
+      icon: VisualizacionInteractivaIcon,
       title: "Visualización interactiva",
       description: "Cada lote visible de forma clara e interactiva. Gestiona disponibilidad sin depender de planos PDF estáticos.",
       color: "from-cyan-500 to-blue-500",
-      borderColor: "border-cyan-200 hover:border-cyan-400"
+      hoverBorderColor: "hover:border-cyan-300"
     },
     {
-      icon: Clock,
+      icon: TiempoRealIcon,
       title: "Tiempo real",
       description: "Estados actualizados al instante para todo el equipo. Evita confusiones, duplicados y errores entre departamentos.",
       color: "from-blue-500 to-purple-500",
-      borderColor: "border-blue-200 hover:border-blue-400"
+      hoverBorderColor: "hover:border-purple-300"
     },
     {
-      icon: Users,
+      icon: GestionEquiposIcon,
       title: "Gestión de equipos",
       description: "Usuarios con roles y permisos configurables. Control total de acceso según responsabilidades de cada miembro.",
       color: "from-purple-500 to-pink-500",
-      borderColor: "border-purple-200 hover:border-purple-400"
+      hoverBorderColor: "hover:border-green-300"
     },
     {
-      icon: ShieldCheck,
+      icon: ControlTrazabilidadIcon,
       title: "Control y trazabilidad",
       description: "Cada cambio queda registrado con auditoría completa. Transparencia total para el equipo interno.",
-      color: "from-pink-500 to-red-500",
-      borderColor: "border-pink-200 hover:border-pink-400"
+      color: "from-blue-500 to-cyan-500",
+      hoverBorderColor: "hover:border-blue-300"
     },
     {
-      icon: BarChart3,
+      icon: InformesTiempoRealIcon,
       title: "Informes en tiempo real",
       description: "Datos e indicadores actualizados sobre disponibilidad. Dashboards para toma de decisiones operativas.",
       color: "from-orange-500 to-red-500",
-      borderColor: "border-orange-200 hover:border-orange-400"
+      hoverBorderColor: "hover:border-orange-300"
     },
     {
-      icon: Layers,
+      icon: EstadosPersonalizadosIcon,
       title: "Estados personalizados",
       description: "Define estados específicos para tu proceso. Adaptado a la forma de trabajo de tu equipo y proyecto.",
       color: "from-green-500 to-cyan-500",
-      borderColor: "border-green-200 hover:border-green-400"
+      hoverBorderColor: "hover:border-green-300"
     },
   ];
 
@@ -85,28 +229,31 @@ export default function Features() {
 
         {/* Features Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto mb-12 sm:mb-16">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className={`group relative bg-white rounded-2xl p-6 sm:p-8 border-2 ${feature.borderColor} hover:shadow-2xl transition-all duration-300`}
-            >
-              {/* Icon */}
-              <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-5 sm:mb-6 group-hover:scale-110 transition-transform shadow-lg`}>
-                <feature.icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
-              </div>
-              
-              {/* Content */}
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">
-                {feature.title}
-              </h3>
-              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                {feature.description}
-              </p>
+          {features.map((feature, index) => {
+            const IconComponent = feature.icon;
+            return (
+              <div
+                key={index}
+                className={`group relative bg-white rounded-2xl p-6 sm:p-8 border-2 border-gray-200 ${feature.hoverBorderColor} hover:shadow-xl transition-all duration-300`}
+              >
+                {/* Icon */}
+                <div className="mb-5 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <IconComponent />
+                </div>
+                
+                {/* Content */}
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                  {feature.description}
+                </p>
 
-              {/* Hover gradient effect */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300`}></div>
-            </div>
-          ))}
+                {/* Hover gradient effect - más sutil */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-3 rounded-2xl transition-opacity duration-300`}></div>
+              </div>
+            );
+          })}
         </div>
 
         {/* Bottom Image Section */}

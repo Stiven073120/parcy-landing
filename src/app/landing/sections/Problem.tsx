@@ -91,21 +91,25 @@ export default function Problem() {
       icon: VentasDuplicadasIcon,
       title: "Ventas duplicadas",
       description: "Información desactualizada que genera reservas cruzadas, conflictos internos y pérdida de confianza en el proceso comercial.",
+      hoverBorderColor: "hover:border-red-300",
     },
     {
       icon: ProcesosManualesIcon,
       title: "Procesos manuales",
       description: "Hojas de cálculo y planos editados manualmente que consumen tiempo y aumentan el margen de error del equipo.",
+      hoverBorderColor: "hover:border-orange-300",
     },
     {
       icon: DesconexionEquiposIcon,
       title: "Equipos desconectados",
       description: "Falta de sincronización entre equipos técnicos y comerciales. Cada uno trabaja con información diferente.",
+      hoverBorderColor: "hover:border-purple-300",
     },
     {
       icon: HerramientasGenericasIcon,
       title: "Software no especializado",
       description: "Herramientas genéricas que no entienden la gestión de disponibilidad de lotes en parcelaciones.",
+      hoverBorderColor: "hover:border-green-300",
     },
   ];
 
@@ -152,7 +156,7 @@ export default function Problem() {
             return (
               <div
                 key={index}
-                className="group relative bg-white rounded-2xl p-6 sm:p-8 border-2 border-gray-100 hover:border-blue-200 hover:shadow-xl transition-all duration-300"
+                className={`group relative bg-white rounded-2xl p-6 sm:p-8 border-2 border-gray-200 ${problem.hoverBorderColor} hover:shadow-xl transition-all duration-300`}
               >
                 <div className="flex gap-5 items-start">
                   <div className="shrink-0">
@@ -176,16 +180,11 @@ export default function Problem() {
 
         {/* Bottom highlight */}
         <div className="max-w-3xl mx-auto">
-          <div className="relative bg-white rounded-2xl p-6 sm:p-8 border-2 border-gray-200 shadow-lg">
-            <div className="flex items-start gap-4">
-              <div className="shrink-0 mt-1">
-                <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-red-500 to-orange-500"></div>
-              </div>
-              <div className="flex-1">
-                <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed">
-                  <span className="font-semibold text-gray-900">Resultado:</span> Pérdida de tiempo, conflictos internos y ventas frustradas por falta de sincronización.
-                </p>
-              </div>
+          <div className="bg-white rounded-2xl p-6 sm:p-8 border-2 border-gray-200 shadow-lg">
+            <div className="text-center">
+              <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto">
+                <span className="font-semibold text-gray-900">Consecuencia:</span> Errores, pérdida de confianza y oportunidades desperdiciadas.
+              </p>
             </div>
           </div>
         </div>

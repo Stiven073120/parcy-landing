@@ -176,31 +176,14 @@ export default function Solution() {
           </div>
         </div>
 
-        {/* Bottom cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl p-6 border-2 border-cyan-100">
-            <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent mb-2">
-              100%
+        {/* Bottom highlight - Results */}
+        <div className="max-w-3xl mx-auto">
+          <div className="bg-white rounded-2xl p-6 sm:p-8 border-2 border-gray-200 shadow-lg">
+            <div className="text-center">
+              <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto">
+                <span className="font-semibold text-gray-900">Beneficio:</span> Decisiones precisas, ventas gestionadas correctamente y servicio confiable.
+              </p>
             </div>
-            <p className="text-sm sm:text-base font-medium text-gray-700">
-              Información sincronizada
-            </p>
-          </div>
-          <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-6 border-2 border-blue-100">
-            <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
-              0
-            </div>
-            <p className="text-sm sm:text-base font-medium text-gray-700">
-              Ventas duplicadas
-            </p>
-          </div>
-          <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border-2 border-purple-100 sm:col-span-2 lg:col-span-1">
-            <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
-              Real-time
-            </div>
-            <p className="text-sm sm:text-base font-medium text-gray-700">
-              Actualización instantánea
-            </p>
           </div>
         </div>
       </div>
