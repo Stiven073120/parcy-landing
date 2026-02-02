@@ -9,7 +9,7 @@ export default function PricingPlans() {
 
   const plans = [
     {
-      name: "Básico",
+      name: "Start",
       description: "Ideal para empezar con tu primer proyecto",
       priceMonthly: 299999,
       priceAnnual: 2999990, // 2 meses gratis (10 meses)
@@ -26,7 +26,7 @@ export default function PricingPlans() {
       cta: "Comenzar ahora",
     },
     {
-      name: "Profesional",
+      name: "Pro",
       description: "Para equipos en crecimiento",
       priceMonthly: 549999,
       priceAnnual: 5499990, // 2 meses gratis (10 meses)
@@ -46,7 +46,7 @@ export default function PricingPlans() {
       cta: "Comenzar ahora",
     },
     {
-      name: "Empresa",
+      name: "Enterprise",
       description: "Para operaciones a gran escala",
       priceMonthly: 849999,
       priceAnnual: 8499990, // 2 meses gratis (10 meses)
@@ -54,7 +54,7 @@ export default function PricingPlans() {
       originalPriceAnnual: 13199988,
       popular: false,
       features: [
-        "Hasta 25 usuarios",
+        "Hasta 20 usuarios",
         "5 proyectos incluidos",
         "Todo en Profesional +",
         "Integraciones personalizadas",
