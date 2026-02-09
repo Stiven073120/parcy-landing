@@ -52,7 +52,7 @@ export default function Header() {
           <Link href="/" className="flex items-center shrink-0">
             <Image
               src="/logos/parcy_principal.png"
-              alt="Parcy Logo"
+              alt="Parcy Digital - Plataforma de Gestión para Parcelaciones"
               width={140}
               height={48}
               className="h-10 md:h-12 w-auto object-contain"
