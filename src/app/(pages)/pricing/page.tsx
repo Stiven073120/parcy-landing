@@ -8,15 +8,15 @@ import AllPlansInclude from "./sections/AllPlansInclude";
 import PricingCTA from "./sections/PricingCTA";
 
 export const metadata: Metadata = {
-  title: "Precios y Planes - Parcy Digital",
+  title: "Precios y Planes",
   description: "Descubre nuestros planes de gestión inmobiliaria para parcelaciones. Desde proyectos pequeños hasta empresas constructoras. Implementación y soporte incluidos.",
   openGraph: {
     title: "Planes y Precios - Parcy Digital",
     description: "Planes flexibles para gestión de parcelaciones. Desde proyectos pequeños hasta empresas constructoras.",
-    url: "https://parcydigital.com/landing/pricing",
+    url: "https://parcydigital.com/pricing",
   },
   alternates: {
-    canonical: "https://parcydigital.com/landing/pricing",
+    canonical: "https://parcydigital.com/pricing",
   },
 };
 

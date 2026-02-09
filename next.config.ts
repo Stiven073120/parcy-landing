@@ -2,15 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  async redirects() {
-    return [
-      {
-        source: "/",
-        destination: "/landing",
-        permanent: true,
-      },
-    ];
-  },
+
   // Optimización para SEO
   compress: true,
   poweredByHeader: false,

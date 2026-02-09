@@ -41,36 +41,6 @@ export const metadata: Metadata = {
   authors: [{ name: "Parcy Digital", url: baseUrl }],
   creator: "Parcy Digital",
   publisher: "Parcy Digital",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/icon.png', type: 'image/png', sizes: '32x32' },
-    ],
-    apple: [
-      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
-    other: [
-      {
-        rel: 'mask-icon',
-        url: '/safari-pinned-tab.svg',
-      },
-    ],
-  },
-  manifest: '/site.webmanifest',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#ffffff' },
-  ],
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-  },
   openGraph: {
     type: "website",
     locale: "es_ES",
@@ -104,8 +74,14 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  // El canonical se define en cada página específica
-  // La raíz (/) redirige a /landing, así que no necesita canonical aquí
+};
+
+// Viewport configuration (required by Next.js 16+)
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: '#ffffff',
 };
 
 export default function RootLayout({

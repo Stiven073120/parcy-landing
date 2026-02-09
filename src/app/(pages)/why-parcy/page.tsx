@@ -9,15 +9,15 @@ import CompetitiveAdvantages from "./sections/CompetitiveAdvantages";
 import WhyNow from "./sections/WhyNow";
 
 export const metadata: Metadata = {
-  title: "¿Por qué Parcy? - Ventajas y Beneficios",
+  title: "¿Por qué Parcy?",
   description: "Descubre por qué Parcy Digital es la solución especializada para gestión de parcelaciones. Beneficios, casos de uso y ventajas competitivas frente a CRM genéricos.",
   openGraph: {
     title: "¿Por qué elegir Parcy Digital?",
     description: "La solución especializada en gestión de parcelaciones que conecta proyecto, ventas y gestión en un solo lugar.",
-    url: "https://parcydigital.com/landing/why-parcy",
+    url: "https://parcydigital.com/why-parcy",
   },
   alternates: {
-    canonical: "https://parcydigital.com/landing/why-parcy",
+    canonical: "https://parcydigital.com/why-parcy",
   },
 };
 
