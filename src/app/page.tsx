@@ -1,5 +1,7 @@
 import { Metadata } from "next";
 import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import Contact from "@/components/sections/Contact";
 import Hero from "./sections/Hero";
 import Problem from "./sections/Problem";
 import Solution from "./sections/Solution";
@@ -39,6 +41,8 @@ export default function Landing() {
       <Differentiators />
       {/* <HowItWorks /> */}
       <FinalCTA />
+      <Contact />
+      <Footer />
     </>
   );
 }

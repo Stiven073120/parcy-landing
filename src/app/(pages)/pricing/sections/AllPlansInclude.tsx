@@ -4,7 +4,7 @@ export default function AllPlansInclude() {
       category: "Usuarios",
       basic: "Hasta 5 usuarios",
       professional: "Hasta 12 usuarios",
-      enterprise: "Hasta 25 usuarios",
+      enterprise: "Hasta 20 usuarios",
     },
     {
       category: "Proyectos incluidos",
@@ -134,18 +134,18 @@ export default function AllPlansInclude() {
                       Característica
                     </th>
                     <th className="text-center py-5 px-6 font-bold text-sm uppercase tracking-wide text-gray-700">
-                      Básico
+                      Start
                     </th>
                     <th className="text-center py-5 px-6 font-bold text-sm uppercase tracking-wide text-gray-900 bg-gradient-to-br from-cyan-50 via-blue-50 to-cyan-50 border-l border-r border-cyan-200 relative">
                       <div className="flex items-center justify-center gap-2">
-                        Profesional
+                        Pro
                         <span className="px-2 py-0.5 text-xs font-semibold bg-gradient-to-r from-cyan-600 to-blue-600 text-white rounded-full">
                           Popular
                         </span>
                       </div>
                     </th>
                     <th className="text-center py-5 px-6 font-bold text-sm uppercase tracking-wide text-gray-700">
-                      Empresa
+                      Enterprise
                     </th>
                   </tr>
                 </thead>
@@ -182,8 +182,8 @@ export default function AllPlansInclude() {
 
           {/* Mobile/Tablet Cards */}
           <div className="lg:hidden space-y-6">
-            {["Básico", "Profesional", "Empresa"].map((planName, planIndex) => {
-              const isPopular = planName === "Profesional";
+            {["Start", "Pro", "Enterprise"].map((planName, planIndex) => {
+              const isPopular = planName === "Pro";
               return (
                 <div
                   key={planIndex}
@@ -210,9 +210,9 @@ export default function AllPlansInclude() {
                   <div className="divide-y divide-gray-100">
                     {comparisonFeatures.map((feature, featureIndex) => {
                       const value =
-                        planName === "Básico"
+                        planName === "Start"
                           ? feature.basic
-                          : planName === "Profesional"
+                          : planName === "Pro"
                           ? feature.professional
                           : feature.enterprise;
                       return (

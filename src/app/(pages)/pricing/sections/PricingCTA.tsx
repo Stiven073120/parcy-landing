@@ -31,6 +31,7 @@ export default function PricingCTA() {
               </p>
               
               <CTAButton
+                href="#contacto"
                 variant="secondary"
                 className="bg-white hover:bg-gray-100 text-gray-900 shadow-xl group"
               >

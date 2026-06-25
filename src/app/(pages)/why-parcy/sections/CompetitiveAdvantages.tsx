@@ -203,7 +203,7 @@ export default function CompetitiveAdvantages() {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="https://app.parcydigital.com"
+                  href="#contacto"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-gray-900 font-semibold rounded-xl transition-all shadow-lg text-lg"
                 >
                   Solicita una demo
@@ -212,7 +212,7 @@ export default function CompetitiveAdvantages() {
                   </svg>
                 </a>
                 <a
-                  href="/landing/pricing"
+                  href="/pricing"
                   className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white hover:bg-white/10 font-semibold rounded-xl transition-all backdrop-blur-sm text-lg"
                 >
                   Ver planes

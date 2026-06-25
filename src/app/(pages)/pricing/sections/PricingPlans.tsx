@@ -36,7 +36,7 @@ export default function PricingPlans() {
       features: [
         "Hasta 12 usuarios",
         "3 proyectos incluidos",
-        "Todo en Básico +",
+        "Todo en Start +",
         "Analítica avanzada",
         "Informes personalizados",
         "Trazabilidad completa",
@@ -56,7 +56,7 @@ export default function PricingPlans() {
       features: [
         "Hasta 20 usuarios",
         "5 proyectos incluidos",
-        "Todo en Profesional +",
+        "Todo en Pro +",
         "Integraciones personalizadas",
         "API de acceso",
         "Soporte dedicado 24/7",

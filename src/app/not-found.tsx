@@ -26,7 +26,7 @@ export default function NotFound() {
 
             {/* Botones de acción */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-              <Button href="/landing" variant="primary" size="lg">
+              <Button href="/" variant="primary" size="lg">
                 Volver al inicio
               </Button>
               <Button href="https://app.parcydigital.com" variant="secondary" size="lg">
@@ -38,29 +38,29 @@ export default function NotFound() {
             <div className="pt-8 md:pt-12 border-t border-gray-200">
               <p className="text-sm text-gray-500 mb-4">Enlaces útiles:</p>
               <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-                <Link 
-                  href="/landing" 
+                <Link
+                  href="/"
                   className="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200"
                 >
                   Inicio
                 </Link>
-                <Link 
-                  href="/products" 
-                  className="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200"
-                >
-                  Productos
-                </Link>
-                <Link 
-                  href="/about-us" 
-                  className="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200"
-                >
-                  Nosotros
-                </Link>
-                <Link 
-                  href="/pricing" 
+                <Link
+                  href="/pricing"
                   className="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200"
                 >
                   Precios
+                </Link>
+                <Link
+                  href="/why-parcy"
+                  className="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200"
+                >
+                  ¿Por qué Parcy?
+                </Link>
+                <Link
+                  href="/#contacto"
+                  className="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200"
+                >
+                  Contacto
                 </Link>
               </div>
             </div>

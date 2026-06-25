@@ -131,7 +131,7 @@ export default function UseCases() {
                 <div className="relative z-10 grid md:grid-cols-[auto_1fr] gap-8 items-start">
                   {/* Icon */}
                   <div className="flex justify-center md:justify-start">
-                    <div className={`p-4 sm:p-5 bg-[linear-gradient(to_bottom_right,${useCase.gradient})] rounded-3xl shadow-lg`}>
+                    <div className={`p-4 sm:p-5 bg-gradient-to-br ${useCase.gradient} rounded-3xl shadow-lg`}>
                       <IconComponent />
                     </div>
                   </div>

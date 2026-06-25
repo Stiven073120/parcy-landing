@@ -151,9 +151,9 @@ export default function Hero() {
                     disponibilidad
                   </span>
                   <svg className="absolute -bottom-1 sm:-bottom-2 left-0 w-full" height="8" viewBox="0 0 200 8" fill="none">
-                    <path d="M2 6C50 2 150 2 198 6" stroke="url(#gradient)" strokeWidth="2" strokeLinecap="round"/>
+                    <path d="M2 6C50 2 150 2 198 6" stroke="url(#heroUnderline)" strokeWidth="2" strokeLinecap="round"/>
                     <defs>
-                      <linearGradient id="gradient" x1="0" y1="0" x2="200" y2="0">
+                      <linearGradient id="heroUnderline" x1="0" y1="0" x2="200" y2="0">
                         <stop stopColor="#06b6d4"/>
                         <stop offset="1" stopColor="#3b82f6"/>
                       </linearGradient>
@@ -171,7 +171,7 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
-              <CTAButton className="group">
+              <CTAButton href="#contacto" className="group">
                 <span className="flex items-center justify-center gap-2">
                   Solicita una demo
                   <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -179,9 +179,9 @@ export default function Hero() {
                   </svg>
                 </span>
               </CTAButton>
-              <button className="px-6 sm:px-8 py-3.5 sm:py-4 text-base font-semibold text-gray-700 bg-white border-2 border-gray-200 rounded-xl hover:border-gray-300 hover:shadow-md transition-all">
+              <a href="#caracteristicas" className="inline-flex items-center justify-center px-6 sm:px-8 py-3.5 sm:py-4 text-base font-semibold text-gray-700 bg-white border-2 border-gray-200 rounded-xl hover:border-gray-300 hover:shadow-md transition-all">
                 Ver características
-              </button>
+              </a>
             </div>
           </div>
 

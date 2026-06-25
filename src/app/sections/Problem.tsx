@@ -134,9 +134,9 @@ export default function Problem() {
                 información desactualizada
               </span>
               <svg className="absolute -bottom-1 sm:-bottom-2 left-0 w-full" height="8" viewBox="0 0 200 8" fill="none">
-                <path d="M2 6C50 2 150 2 198 6" stroke="url(#gradient)" strokeWidth="2" strokeLinecap="round"/>
+                <path d="M2 6C50 2 150 2 198 6" stroke="url(#problemUnderline)" strokeWidth="2" strokeLinecap="round"/>
                 <defs>
-                  <linearGradient id="gradient" x1="0" y1="0" x2="200" y2="0">
+                  <linearGradient id="problemUnderline" x1="0" y1="0" x2="200" y2="0">
                     <stop stopColor="#06b6d4"/>
                     <stop offset="1" stopColor="#3b82f6"/>
                   </linearGradient>

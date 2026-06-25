@@ -110,7 +110,8 @@ export default function WhyNow() {
             
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
-              <CTAButton 
+              <CTAButton
+                href="#contacto"
                 variant="secondary"
                 className="group bg-white hover:bg-gray-100 text-gray-900 shadow-2xl"
               >
@@ -119,8 +120,8 @@ export default function WhyNow() {
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </span>
               </CTAButton>
-              <CTAButton 
-                href="/landing/pricing" 
+              <CTAButton
+                href="/pricing"
                 variant="outline"
                 className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm"
               >

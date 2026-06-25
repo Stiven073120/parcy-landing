@@ -192,7 +192,7 @@ export default function Features() {
   ];
 
   return (
-    <section className="relative py-16 sm:py-20 md:py-24 lg:py-32 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden">
+    <section id="caracteristicas" className="relative py-16 sm:py-20 md:py-24 lg:py-32 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden scroll-mt-20">
       {/* Background pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:64px_64px] opacity-30"></div>
       
@@ -212,9 +212,9 @@ export default function Features() {
                 gestionar disponibilidad
               </span>
               <svg className="absolute -bottom-1 sm:-bottom-2 left-0 w-full" height="8" viewBox="0 0 200 8" fill="none">
-                <path d="M2 6C50 2 150 2 198 6" stroke="url(#gradient)" strokeWidth="2" strokeLinecap="round"/>
+                <path d="M2 6C50 2 150 2 198 6" stroke="url(#featuresUnderline)" strokeWidth="2" strokeLinecap="round"/>
                 <defs>
-                  <linearGradient id="gradient" x1="0" y1="0" x2="200" y2="0">
+                  <linearGradient id="featuresUnderline" x1="0" y1="0" x2="200" y2="0">
                     <stop stopColor="#06b6d4"/>
                     <stop offset="1" stopColor="#3b82f6"/>
                   </linearGradient>
@@ -250,7 +250,7 @@ export default function Features() {
                 </p>
 
                 {/* Hover gradient effect - más sutil */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-3 rounded-2xl transition-opacity duration-300`}></div>
+                <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300`}></div>
               </div>
             );
           })}
