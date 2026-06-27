@@ -1,294 +1,261 @@
-import Image from "next/image";
+import {
+  Map,
+  Timer,
+  ClipboardCheck,
+  ShieldCheck,
+  Users,
+  FileSpreadsheet,
+  BarChart3,
+  Calculator,
+  Building2,
+  Clock,
+} from "lucide-react";
+import Reveal from "@/components/ui/Reveal";
 
-// Iconos personalizados con gradientes multicolor
-// Mismo icono del Hero
-const VisualizacionInteractivaIcon = () => (
-  <svg viewBox="0 0 48 48" className="w-12 h-12 sm:w-14 sm:h-14">
-    <defs>
-      <linearGradient id="visualFeatGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#06b6d4" />
-        <stop offset="100%" stopColor="#3b82f6" />
-      </linearGradient>
-      <linearGradient id="visualFeatGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#8b5cf6" />
-        <stop offset="100%" stopColor="#06b6d4" />
-      </linearGradient>
-      <linearGradient id="visualFeatGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#3b82f6" />
-        <stop offset="100%" stopColor="#8b5cf6" />
-      </linearGradient>
-    </defs>
-    <rect x="8" y="12" width="12" height="12" fill="url(#visualFeatGrad1)" rx="2" />
-    <rect x="24" y="8" width="12" height="12" fill="url(#visualFeatGrad2)" rx="2" />
-    <rect x="8" y="28" width="12" height="12" fill="url(#visualFeatGrad3)" rx="2" />
-    <rect x="24" y="24" width="12" height="12" fill="url(#visualFeatGrad1)" rx="2" />
-  </svg>
-);
+// ── Mini-visual: plano de lotes por estado ─────────────────────────────────
+const MINI_LOTS = [
+  "#22c55e", "#22c55e", "#f43f5e",
+  "#f59e0b", "#22c55e", "#22c55e",
+  "#22c55e", "#f43f5e", "#f59e0b",
+];
 
-// Mismo icono del Hero
-const TiempoRealIcon = () => (
-  <svg viewBox="0 0 48 48" className="w-12 h-12 sm:w-14 sm:h-14">
-    <defs>
-      <linearGradient id="tiempoFeatGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#a855f7" />
-        <stop offset="100%" stopColor="#ec4899" />
-      </linearGradient>
-      <linearGradient id="tiempoFeatGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#f59e0b" />
-        <stop offset="100%" stopColor="#ef4444" />
-      </linearGradient>
-    </defs>
-    <circle cx="24" cy="24" r="20" fill="url(#tiempoFeatGrad1)" />
-    <circle cx="24" cy="24" r="16" fill="url(#tiempoFeatGrad2)" />
-    <circle cx="24" cy="24" r="12" fill="#ffffff" />
-    <line x1="24" y1="24" x2="24" y2="14" stroke="#a855f7" strokeWidth="2.5" strokeLinecap="round" />
-    <line x1="24" y1="24" x2="30" y2="24" stroke="#ec4899" strokeWidth="2" strokeLinecap="round" />
-    <circle cx="24" cy="24" r="2" fill="#a855f7" />
-  </svg>
-);
+function MiniPlano() {
+  return (
+    <svg viewBox="0 0 220 150" className="w-full max-w-[220px]" role="img" aria-label="Plano de lotes">
+      <rect x="2" y="2" width="216" height="146" rx="12" fill="#f2f8fc" stroke="#e2e5e9" />
+      {MINI_LOTS.map((color, idx) => {
+        const col = idx % 3;
+        const row = Math.floor(idx / 3);
+        const x = 14 + col * 68;
+        const y = 14 + row * 44;
+        return (
+          <rect
+            key={idx}
+            x={x}
+            y={y}
+            width={60}
+            height={36}
+            rx={8}
+            fill={color}
+            fillOpacity={0.9}
+          />
+        );
+      })}
+    </svg>
+  );
+}
 
-// Mismo icono del Hero
-const GestionEquiposIcon = () => (
-  <svg viewBox="0 0 48 48" className="w-12 h-12 sm:w-14 sm:h-14">
-    <defs>
-      <linearGradient id="equiposFeatGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#10b981" />
-        <stop offset="100%" stopColor="#06b6d4" />
-      </linearGradient>
-      <linearGradient id="equiposFeatGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#3b82f6" />
-        <stop offset="100%" stopColor="#10b981" />
-      </linearGradient>
-    </defs>
-    <circle cx="18" cy="18" r="8" fill="url(#equiposFeatGrad1)" />
-    <circle cx="30" cy="18" r="8" fill="url(#equiposFeatGrad2)" />
-    <circle cx="24" cy="30" r="8" fill="url(#equiposFeatGrad1)" />
-    <circle cx="18" cy="18" r="5" fill="#ffffff" opacity="0.8" />
-    <circle cx="30" cy="18" r="5" fill="#ffffff" opacity="0.8" />
-    <circle cx="24" cy="30" r="5" fill="#ffffff" opacity="0.8" />
-  </svg>
-);
+// ── Mini-visual: barras de reporte ─────────────────────────────────────────
+function MiniBars() {
+  const bars = [42, 68, 54, 82, 96, 73];
+  return (
+    <div className="flex h-20 items-end gap-2">
+      {bars.map((h, i) => (
+        <div
+          key={i}
+          className="w-4 rounded-t bg-gradient-to-t from-brand-700 to-brand-400"
+          style={{ height: `${h}%` }}
+        />
+      ))}
+    </div>
+  );
+}
 
-const ControlTrazabilidadIcon = () => (
-  <svg viewBox="0 0 48 48" className="w-12 h-12 sm:w-14 sm:h-14">
-    <defs>
-      <linearGradient id="controlFeatGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#3b82f6" />
-        <stop offset="100%" stopColor="#06b6d4" />
-      </linearGradient>
-      <linearGradient id="controlFeatGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#06b6d4" />
-        <stop offset="100%" stopColor="#3b82f6" />
-      </linearGradient>
-    </defs>
-    {/* Escudo simplificado */}
-    <path d="M24 4L8 10v12c0 10 8 18 16 20 8-2 16-10 16-20V10L24 4z" fill="url(#controlFeatGrad1)" />
-    <path d="M24 8L12 14v10c0 6 4 10 12 12 8-2 12-6 12-12V14L24 8z" fill="url(#controlFeatGrad2)" />
-    {/* Check de verificación */}
-    <path d="M18 24l4 4 8-8" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-  </svg>
-);
+const STATUS_CHIPS = [
+  { label: "Disponible", color: "#22c55e" },
+  { label: "Reservado", color: "#f59e0b" },
+  { label: "Vendido", color: "#f43f5e" },
+  { label: "Bloqueado", color: "#64748b" },
+];
 
-const InformesTiempoRealIcon = () => (
-  <svg viewBox="0 0 48 48" className="w-12 h-12 sm:w-14 sm:h-14">
-    <defs>
-      <linearGradient id="informesFeatGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#f59e0b" />
-        <stop offset="100%" stopColor="#ef4444" />
-      </linearGradient>
-      <linearGradient id="informesFeatGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#fbbf24" />
-        <stop offset="100%" stopColor="#f59e0b" />
-      </linearGradient>
-    </defs>
-    {/* Documento */}
-    <rect x="10" y="6" width="28" height="36" rx="2" fill="url(#informesFeatGrad1)" />
-    <rect x="12" y="8" width="24" height="32" rx="1.5" fill="url(#informesFeatGrad2)" />
-    {/* Líneas del documento */}
-    <line x1="16" y1="14" x2="32" y2="14" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" opacity="0.9" />
-    <line x1="16" y1="20" x2="28" y2="20" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" opacity="0.7" />
-    {/* Gráfico pequeño */}
-    <rect x="16" y="26" width="3" height="8" fill="#ffffff" opacity="0.9" rx="1" />
-    <rect x="21" y="24" width="3" height="10" fill="#ffffff" opacity="0.9" rx="1" />
-    <rect x="26" y="22" width="3" height="12" fill="#ffffff" opacity="0.9" rx="1" />
-    <rect x="31" y="25" width="3" height="9" fill="#ffffff" opacity="0.9" rx="1" />
-  </svg>
-);
+function IconBadge({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition-colors group-hover:bg-brand-100">
+      {children}
+    </span>
+  );
+}
 
-const EstadosPersonalizadosIcon = () => (
-  <svg viewBox="0 0 48 48" className="w-12 h-12 sm:w-14 sm:h-14">
-    <defs>
-      <linearGradient id="estadosFeatGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#10b981" />
-        <stop offset="100%" stopColor="#06b6d4" />
-      </linearGradient>
-      <linearGradient id="estadosFeatGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#06b6d4" />
-        <stop offset="100%" stopColor="#3b82f6" />
-      </linearGradient>
-      <linearGradient id="estadosFeatGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#3b82f6" />
-        <stop offset="100%" stopColor="#10b981" />
-      </linearGradient>
-    </defs>
-    {/* Capas superpuestas con efecto de profundidad */}
-    <rect x="4" y="8" width="28" height="32" rx="3" fill="url(#estadosFeatGrad1)" opacity="0.5" />
-    <rect x="8" y="12" width="28" height="28" rx="3" fill="url(#estadosFeatGrad2)" opacity="0.7" />
-    <rect x="12" y="16" width="28" height="24" rx="3" fill="url(#estadosFeatGrad3)" />
-    {/* Etiquetas de estado */}
-    <rect x="16" y="20" width="20" height="3" rx="1.5" fill="#ffffff" opacity="0.9" />
-    <rect x="16" y="26" width="16" height="3" rx="1.5" fill="#ffffff" opacity="0.8" />
-    <rect x="16" y="32" width="18" height="3" rx="1.5" fill="#ffffff" opacity="0.7" />
-    {/* Iconos de check */}
-    <circle cx="42" cy="12" r="6" fill="#ffffff" opacity="0.95" />
-    <path d="M39.5 12 L41 13.5 L44.5 10" stroke="#10b981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-  </svg>
-);
+const cardClass =
+  "group h-full rounded-2xl border border-line bg-panel p-6 transition-all duration-300 hover:border-brand-200 hover:shadow-[0_20px_50px_-24px_rgba(12,30,48,0.2)]";
 
 export default function Features() {
-  const features = [
-    {
-      icon: VisualizacionInteractivaIcon,
-      title: "Visualización interactiva",
-      description: "Cada lote visible de forma clara e interactiva. Gestiona disponibilidad sin depender de planos PDF estáticos.",
-      color: "from-cyan-500 to-blue-500",
-      hoverBorderColor: "hover:border-cyan-300"
-    },
-    {
-      icon: TiempoRealIcon,
-      title: "Tiempo real",
-      description: "Estados actualizados al instante para todo el equipo. Evita confusiones, duplicados y errores entre departamentos.",
-      color: "from-blue-500 to-purple-500",
-      hoverBorderColor: "hover:border-purple-300"
-    },
-    {
-      icon: GestionEquiposIcon,
-      title: "Gestión de equipos",
-      description: "Usuarios con roles y permisos configurables. Control total de acceso según responsabilidades de cada miembro.",
-      color: "from-purple-500 to-pink-500",
-      hoverBorderColor: "hover:border-green-300"
-    },
-    {
-      icon: ControlTrazabilidadIcon,
-      title: "Control y trazabilidad",
-      description: "Cada cambio queda registrado con auditoría completa. Transparencia total para el equipo interno.",
-      color: "from-blue-500 to-cyan-500",
-      hoverBorderColor: "hover:border-blue-300"
-    },
-    {
-      icon: InformesTiempoRealIcon,
-      title: "Informes en tiempo real",
-      description: "Datos e indicadores actualizados sobre disponibilidad. Dashboards para toma de decisiones operativas.",
-      color: "from-orange-500 to-red-500",
-      hoverBorderColor: "hover:border-orange-300"
-    },
-    {
-      icon: EstadosPersonalizadosIcon,
-      title: "Estados personalizados",
-      description: "Define estados específicos para tu proceso. Adaptado a la forma de trabajo de tu equipo y proyecto.",
-      color: "from-green-500 to-cyan-500",
-      hoverBorderColor: "hover:border-green-300"
-    },
-  ];
-
   return (
-    <section id="caracteristicas" className="relative py-16 sm:py-20 md:py-24 lg:py-32 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden scroll-mt-20">
-      {/* Background pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:64px_64px] opacity-30"></div>
-      
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 -left-20 w-72 h-72 bg-blue-100 rounded-full opacity-20 blur-3xl"></div>
-        <div className="absolute bottom-20 -right-20 w-96 h-96 bg-cyan-100 rounded-full opacity-20 blur-3xl"></div>
-      </div>
-
-      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        {/* Header */}
-        <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 md:mb-20">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-            Todo lo que necesitas para{" "}
-            <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
-                gestionar disponibilidad
-              </span>
-              <svg className="absolute -bottom-1 sm:-bottom-2 left-0 w-full" height="8" viewBox="0 0 200 8" fill="none">
-                <path d="M2 6C50 2 150 2 198 6" stroke="url(#featuresUnderline)" strokeWidth="2" strokeLinecap="round"/>
-                <defs>
-                  <linearGradient id="featuresUnderline" x1="0" y1="0" x2="200" y2="0">
-                    <stop stopColor="#06b6d4"/>
-                    <stop offset="1" stopColor="#3b82f6"/>
-                  </linearGradient>
-                </defs>
-              </svg>
-            </span>
+    <section
+      id="caracteristicas"
+      className="relative scroll-mt-20 bg-surface py-20 sm:py-28 lg:py-32"
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-line bg-panel px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-ink-soft">
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-600" />
+            Capacidades
+          </span>
+          <h2 className="mt-5 text-balance text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
+            Diseñado para <span className="text-brand-600">parcelación</span>, no un CRM
+            genérico adaptado.
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">
-            Funciones diseñadas específicamente para la gestión de lotes en proyectos de parcelación.
+          <p className="mx-auto mt-5 max-w-xl text-pretty text-lg leading-relaxed text-ink-soft">
+            Cada función responde a cómo se vende un lote de verdad: del plano y la reserva
+            hasta la aprobación, el reporte y la financiación.
           </p>
-        </div>
+        </Reveal>
 
-        {/* Features Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto mb-12 sm:mb-16">
-          {features.map((feature, index) => {
-            const IconComponent = feature.icon;
-            return (
-              <div
-                key={index}
-                className={`group relative bg-white rounded-2xl p-6 sm:p-8 border-2 border-gray-200 ${feature.hoverBorderColor} hover:shadow-xl transition-all duration-300`}
-              >
-                {/* Icon */}
-                <div className="mb-5 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <IconComponent />
-                </div>
-                
-                {/* Content */}
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  {feature.description}
+        <div className="mt-14 grid gap-5 md:grid-cols-3">
+          {/* Plano interactivo (grande) */}
+          <Reveal className="md:col-span-2" i={0}>
+            <div className={`${cardClass} flex flex-col gap-6 sm:flex-row sm:items-center`}>
+              <div className="flex-1">
+                <IconBadge>
+                  <Map className="h-5 w-5" />
+                </IconBadge>
+                <h3 className="mt-4 text-lg font-semibold text-ink">Plano interactivo</h3>
+                <p className="mt-1.5 text-pretty text-sm leading-relaxed text-ink-soft">
+                  Cada lote como hotspot sobre el plano real de tu proyecto, organizado por
+                  etapas y manzanas. Lo que tu equipo ve es la disponibilidad real.
                 </p>
-
-                {/* Hover gradient effect - más sutil */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300`}></div>
               </div>
-            );
-          })}
-        </div>
-
-        {/* Bottom Image Section */}
-        <div className="max-w-5xl mx-auto">
-          <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 sm:p-12 md:p-16 relative overflow-hidden">
-            {/* Background decoration */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-400 rounded-full blur-3xl"></div>
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-400 rounded-full blur-3xl"></div>
+              <div className="shrink-0 sm:w-56">
+                <MiniPlano />
+              </div>
             </div>
+          </Reveal>
 
-            <div className="relative z-10 text-center">
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
-                Visualiza tu proyecto en{" "}
-                <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                  una sola pantalla
-                </span>
-              </h3>
-              <p className="text-base sm:text-lg text-gray-300 mb-8 sm:mb-10 max-w-2xl mx-auto">
-                Interface diseñada para que cualquier miembro de tu equipo pueda gestionar disponibilidad desde el primer día.
+          {/* Reservas con cronómetro */}
+          <Reveal i={1}>
+            <div className={cardClass}>
+              <IconBadge>
+                <Timer className="h-5 w-5" />
+              </IconBadge>
+              <h3 className="mt-4 text-lg font-semibold text-ink">Reservas con cronómetro</h3>
+              <p className="mt-1.5 text-pretty text-sm leading-relaxed text-ink-soft">
+                Reserva temporizada con auto-liberación si la venta no se concreta.
               </p>
-
-              {/* Image */}
-              <div className="bg-gradient-to-br from-gray-800 to-gray-700 rounded-2xl border-2 border-gray-600 overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/features/dashboard.png"
-                  alt="Dashboard principal de Parcy - Vista completa de gestión de disponibilidad"
-                  width={1400}
-                  height={900}
-                  className="w-full h-auto"
-                  priority
-                />
+              <div className="mt-4 inline-flex items-center gap-2 rounded-lg bg-[#fff7ed] px-2.5 py-1.5">
+                <Clock className="h-3.5 w-3.5 text-amber-600" />
+                <span className="text-xs font-medium text-amber-700">Libera en 23:41</span>
               </div>
             </div>
-          </div>
+          </Reveal>
+
+          {/* Aprobación de ventas */}
+          <Reveal i={2}>
+            <div className={cardClass}>
+              <IconBadge>
+                <ClipboardCheck className="h-5 w-5" />
+              </IconBadge>
+              <h3 className="mt-4 text-lg font-semibold text-ink">Aprobación de ventas</h3>
+              <p className="mt-1.5 text-pretty text-sm leading-relaxed text-ink-soft">
+                El asesor solicita con los datos del cliente; el administrador aprueba o rechaza.
+              </p>
+            </div>
+          </Reveal>
+
+          {/* Estados auditados (ancho) */}
+          <Reveal className="md:col-span-2" i={1}>
+            <div className={`${cardClass} flex flex-col gap-6 sm:flex-row sm:items-center`}>
+              <div className="flex-1">
+                <IconBadge>
+                  <ShieldCheck className="h-5 w-5" />
+                </IconBadge>
+                <h3 className="mt-4 text-lg font-semibold text-ink">Estados auditados</h3>
+                <p className="mt-1.5 text-pretty text-sm leading-relaxed text-ink-soft">
+                  Disponible, Reservado, Vendido y Bloqueado. Cada cambio queda registrado
+                  con su autor y la fecha, lote por lote.
+                </p>
+              </div>
+              <div className="shrink-0 space-y-2.5 sm:w-52">
+                {STATUS_CHIPS.map((s, idx) => (
+                  <div key={s.label} className="flex items-center gap-3">
+                    <span
+                      className="h-2.5 w-2.5 shrink-0 rounded-full"
+                      style={{ backgroundColor: s.color }}
+                    />
+                    <span className="w-20 shrink-0 text-xs font-medium text-ink-soft">
+                      {s.label}
+                    </span>
+                    <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-surface">
+                      <div
+                        className="h-full rounded-full"
+                        style={{ width: `${[72, 48, 60, 28][idx]}%`, backgroundColor: s.color }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Simulador de financiación */}
+          <Reveal i={1}>
+            <div className={cardClass}>
+              <IconBadge>
+                <Calculator className="h-5 w-5" />
+              </IconBadge>
+              <h3 className="mt-4 text-lg font-semibold text-ink">Simulador de financiación</h3>
+              <p className="mt-1.5 text-pretty text-sm leading-relaxed text-ink-soft">
+                Planes de pago con o sin interés, separación y cuotas, frente al cliente.
+              </p>
+            </div>
+          </Reveal>
+
+          {/* Reportes con exportación (grande) */}
+          <Reveal className="md:col-span-2" i={2}>
+            <div className={`${cardClass} flex flex-col gap-6 sm:flex-row sm:items-center`}>
+              <div className="flex-1">
+                <IconBadge>
+                  <BarChart3 className="h-5 w-5" />
+                </IconBadge>
+                <h3 className="mt-4 text-lg font-semibold text-ink">Reportes con exportación</h3>
+                <p className="mt-1.5 text-pretty text-sm leading-relaxed text-ink-soft">
+                  Ventas, conversión por asesor y % vendido por etapa. Exportables a Excel y
+                  CSV para que el dato salga de Parcy cuando lo necesites.
+                </p>
+              </div>
+              <div className="shrink-0 rounded-xl border border-line bg-surface p-4">
+                <MiniBars />
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Roles y permisos */}
+          <Reveal i={0}>
+            <div className={cardClass}>
+              <IconBadge>
+                <Users className="h-5 w-5" />
+              </IconBadge>
+              <h3 className="mt-4 text-lg font-semibold text-ink">Roles y permisos</h3>
+              <p className="mt-1.5 text-pretty text-sm leading-relaxed text-ink-soft">
+                Administrador, asesor y soporte: cada quien ve y hace solo lo suyo.
+              </p>
+            </div>
+          </Reveal>
+
+          {/* Importación por Excel */}
+          <Reveal i={1}>
+            <div className={cardClass}>
+              <IconBadge>
+                <FileSpreadsheet className="h-5 w-5" />
+              </IconBadge>
+              <h3 className="mt-4 text-lg font-semibold text-ink">Importación por Excel</h3>
+              <p className="mt-1.5 text-pretty text-sm leading-relaxed text-ink-soft">
+                Carga cientos de lotes desde una hoja de cálculo, por etapa y número.
+              </p>
+            </div>
+          </Reveal>
+
+          {/* Multiempresa (ancho) */}
+          <Reveal className="md:col-span-1" i={2}>
+            <div className={cardClass}>
+              <IconBadge>
+                <Building2 className="h-5 w-5" />
+              </IconBadge>
+              <h3 className="mt-4 text-lg font-semibold text-ink">Multiempresa y cupos</h3>
+              <p className="mt-1.5 text-pretty text-sm leading-relaxed text-ink-soft">
+                Varias empresas y proyectos en una sola plataforma, con cupos por plan.
+              </p>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>

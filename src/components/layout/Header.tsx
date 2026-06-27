@@ -8,99 +8,74 @@ import CTAButton from "@/components/ui/CTAButton";
 import Link from "next/link";
 import Image from "next/image";
 
+const navigationLinks = [
+  { href: "/", label: "Inicio" },
+  { href: "/pricing", label: "Precios" },
+  { href: "/why-parcy", label: "¿Por qué Parcy?" },
+];
+
+const APP_URL = "https://app.parcydigital.com";
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-
-  const handleLinkClick = (href: string) => {
-    setIsOpen(false);
-    
-    // Si es un ancla (empieza con #), hacer scroll suave
-    if (href.startsWith('#')) {
-      const id = href.replace('#', '');
-      const element = document.getElementById(id);
-      
-      if (element) {
-        const headerOffset = 80;
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
-    }
-    // Si es una ruta normal, dejar que Next.js Link maneje la navegación
-  };
-
-  const navigationLinks = [
-    // { href: "/landing/products", label: "Productos" },
-    { href: "/", label: "Inicio" },
-    // { href: "/landing/about-us", label: "Nosotros" },
-    { href: "/pricing", label: "Precios" },
-    { href: "/why-parcy", label: "¿Por qué Parcy?" },
-  ];
+  const close = () => setIsOpen(false);
 
   return (
-    <header 
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100"
+    <header
+      className="fixed inset-x-0 top-0 z-50 border-b border-line bg-white/80 backdrop-blur-xl"
       role="banner"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center shrink-0">
+          <Link href="/" className="flex shrink-0 items-center" onClick={close}>
             <Image
               src="/logos/parcy_principal.png"
-              alt="Parcy Digital - Plataforma de Gestión para Parcelaciones"
+              alt="Parcy Digital - Gestión para parcelaciones"
               width={140}
               height={48}
-              className="h-10 md:h-12 w-auto object-contain"
+              className="h-9 w-auto object-contain md:h-10"
               priority
             />
           </Link>
 
-          {/* Navegación Desktop */}
-          <nav 
-            className="hidden lg:flex items-center gap-6 xl:gap-8 flex-1 justify-center max-w-2xl mx-8"
+          {/* Navegación desktop */}
+          <nav
+            className="hidden items-center gap-8 lg:flex"
             role="navigation"
             aria-label="Navegación principal"
           >
             {navigationLinks.map((link) => (
-              <NavigationLink 
-                key={link.href}
-                href={link.href}
-                onClick={() => handleLinkClick(link.href)}
-              >
+              <NavigationLink key={link.href} href={link.href} onClick={close}>
                 {link.label}
               </NavigationLink>
             ))}
           </nav>
 
-          {/* Botón Iniciar Sesión Desktop */}
-          <div className="hidden lg:flex items-center shrink-0">
-            <CTAButton size="md">
+          {/* Acciones desktop */}
+          <div className="hidden items-center gap-1 lg:flex">
+            <a
+              href={APP_URL}
+              className="rounded-lg px-4 py-2 text-sm font-medium text-ink-soft transition-colors hover:text-brand-600"
+            >
               Iniciar sesión
-            </CTAButton>
+            </a>
+            <CTAButton size="md" href="/#contacto">Solicita una demo</CTAButton>
           </div>
 
-          {/* Botón Mobile Menu */}
+          {/* Botón menú mobile */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors active:bg-gray-200 relative z-50"
+            className="relative z-50 rounded-lg p-2 text-ink-soft transition-colors hover:bg-surface active:bg-surface lg:hidden"
             aria-expanded={isOpen}
             aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
           >
-            {isOpen ? (
-              <X size={24} className="text-gray-700" aria-hidden="true" />
-            ) : (
-              <Menu size={24} className="text-gray-700" aria-hidden="true" />
-            )}
+            {isOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
           </button>
         </div>
       </div>
 
-      {/* Overlay de fondo cuando el menú está abierto */}
+      {/* Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -108,61 +83,54 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            onClick={() => setIsOpen(false)}
-            className="lg:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-40 mt-16 md:mt-20"
+            onClick={close}
+            className="fixed inset-0 z-40 mt-16 bg-ink/20 backdrop-blur-sm md:mt-20 lg:hidden"
           />
         )}
       </AnimatePresence>
 
-      {/* Menú Mobile */}
+      {/* Menú mobile */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -16 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="lg:hidden fixed top-16 md:top-20 left-0 right-0 z-50 bg-white/98 backdrop-blur-xl shadow-2xl border-b border-gray-200"
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.28, ease: "easeOut" }}
+            className="fixed inset-x-0 top-16 z-50 border-b border-line bg-white/98 shadow-[0_24px_60px_-24px_rgba(12,30,48,0.25)] backdrop-blur-xl md:top-20 lg:hidden"
           >
             <div className="relative overflow-hidden">
-              {/* Gradiente decorativo sutil */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-cyan-500 via-blue-500 to-purple-500"></div>
-              
-              <nav 
-                className="px-6 py-8 space-y-2"
-                role="navigation"
-                aria-label="Menú móvil"
-              >
+              <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-brand-600 via-accent-500 to-accent-400" />
+              <nav className="space-y-1 px-6 py-6" aria-label="Menú móvil">
                 {navigationLinks.map((link, index) => (
                   <motion.div
                     key={link.href}
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0, x: -16 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1, duration: 0.3 }}
+                    transition={{ delay: index * 0.06, duration: 0.25 }}
                   >
                     <Link
                       href={link.href}
-                      onClick={() => handleLinkClick(link.href)}
-                      className="block px-4 py-3.5 rounded-xl text-base font-medium text-gray-800 hover:text-cyan-600 hover:bg-linear-to-r hover:from-cyan-50 hover:to-blue-50 transition-all duration-200 border border-transparent hover:border-cyan-100"
+                      onClick={close}
+                      className="block rounded-xl px-4 py-3 text-base font-medium text-ink transition-colors hover:bg-surface hover:text-brand-600"
                     >
                       {link.label}
                     </Link>
                   </motion.div>
                 ))}
-                
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: navigationLinks.length * 0.1, duration: 0.3 }}
-                  className="pt-6 pb-2"
-                >
-                  <CTAButton 
-                    size="md"
-                    className="w-full justify-center"
+
+                <div className="space-y-2 pt-4">
+                  <a
+                    href={APP_URL}
+                    onClick={close}
+                    className="block rounded-xl border border-line px-4 py-3 text-center text-base font-medium text-ink-soft transition-colors hover:text-brand-600"
                   >
                     Iniciar sesión
+                  </a>
+                  <CTAButton size="md" href="/#contacto" className="w-full justify-center">
+                    Solicita una demo
                   </CTAButton>
-                </motion.div>
+                </div>
               </nav>
             </div>
           </motion.div>

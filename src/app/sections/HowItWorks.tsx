@@ -1,188 +1,148 @@
-import { Upload, Settings, Zap, TrendingUp } from "lucide-react";
-import CTAButton from "@/components/ui/CTAButton";
+import Image from "next/image";
+import { Timer, ClipboardList, ShieldCheck, BadgeCheck } from "lucide-react";
+import Reveal from "@/components/ui/Reveal";
+
+const steps = [
+  {
+    n: "01",
+    icon: Timer,
+    role: "Asesor",
+    title: "Reserva el lote",
+    description:
+      "El asesor reserva y arranca un cronómetro. Si no se concreta, el lote se libera solo.",
+    status: { label: "Reservado", color: "#f59e0b" },
+  },
+  {
+    n: "02",
+    icon: ClipboardList,
+    role: "Asesor",
+    title: "Solicita la venta",
+    description:
+      "Adjunta los datos del cliente y el documento. La reserva deja de expirar mientras se revisa.",
+    status: { label: "Con solicitud", color: "#f59e0b" },
+  },
+  {
+    n: "03",
+    icon: ShieldCheck,
+    role: "Administrador",
+    title: "Aprueba o rechaza",
+    description:
+      "El administrador revisa la solicitud. Cada decisión queda registrada y auditada por lote.",
+    status: { label: "En revisión", color: "#0088cc" },
+  },
+  {
+    n: "04",
+    icon: BadgeCheck,
+    role: "Todo el equipo",
+    title: "Lote vendido",
+    description:
+      "Al aprobar, el lote pasa a Vendido para todos. Sin posibilidad de venderlo dos veces.",
+    status: { label: "Vendido", color: "#f43f5e" },
+  },
+];
 
 export default function HowItWorks() {
-  const steps = [
-    {
-      number: "01",
-      icon: Upload,
-      title: "Carga tu proyecto",
-      description: "Importa tu plano y configura los lotes en minutos. Proceso simple que tu equipo técnico puede hacer sin complicaciones.",
-      color: "from-cyan-500 to-blue-500",
-    },
-    {
-      number: "02",
-      icon: Settings,
-      title: "Configura tu equipo",
-      description: "Crea usuarios para equipos técnico y comercial. Asigna roles y permisos según responsabilidades de cada miembro.",
-      color: "from-blue-500 to-purple-500",
-    },
-    {
-      number: "03",
-      icon: Zap,
-      title: "Gestiona en tiempo real",
-      description: "Tu equipo actualiza disponibilidad al instante. Reservas y ventas sincronizadas para todos los miembros.",
-      color: "from-purple-500 to-pink-500",
-    },
-    {
-      number: "04",
-      icon: TrendingUp,
-      title: "Toma decisiones",
-      description: "Accede a informes y analítica en tiempo real. Optimiza la gestión operativa con datos actualizados.",
-      color: "from-pink-500 to-red-500",
-    },
-  ];
-
   return (
-    <section className="relative py-16 sm:py-20 md:py-24 lg:py-32 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden">
-      {/* Grid pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:64px_64px] opacity-30"></div>
-      
-      {/* Background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-0 w-96 h-96 bg-gradient-to-br from-cyan-100 to-blue-100 rounded-full opacity-20 blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full opacity-20 blur-3xl"></div>
+    <section className="relative overflow-hidden bg-gradient-to-b from-night-2 to-night py-20 sm:py-28 lg:py-32">
+      {/* Decoración */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-1/2 top-10 h-[460px] w-[900px] -translate-x-1/2 rounded-full bg-brand-600/15 blur-[150px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_70%_at_50%_20%,#000_45%,transparent_100%)]" />
       </div>
 
-      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        {/* Header */}
-        <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 md:mb-20">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-            Comienza en{" "}
-            <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
-                minutos
-              </span>
-              <svg className="absolute -bottom-1 sm:-bottom-2 left-0 w-full" height="8" viewBox="0 0 200 8" fill="none">
-                <path d="M2 6C50 2 150 2 198 6" stroke="url(#gradient)" strokeWidth="2" strokeLinecap="round"/>
-                <defs>
-                  <linearGradient id="gradient" x1="0" y1="0" x2="200" y2="0">
-                    <stop stopColor="#06b6d4"/>
-                    <stop offset="1" stopColor="#3b82f6"/>
-                  </linearGradient>
-                </defs>
-              </svg>
-            </span>
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-white/70">
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-300" />
+            Cómo funciona
+          </span>
+          <h2 className="mt-5 text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
+            Del interés a la venta, con{" "}
+            <span className="text-brand-300">control en cada paso.</span>
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">
-            Configuración rápida y sencilla. Tu equipo estará gestionando disponibilidad con información sincronizada desde el primer día.
+          <p className="mx-auto mt-5 max-w-xl text-pretty text-lg leading-relaxed text-white/60">
+            Un flujo pensado para equipos de parcelación: reservas temporizadas, aprobación
+            de ventas y trazabilidad completa del estado de cada lote.
           </p>
-        </div>
+        </Reveal>
 
-        {/* Steps */}
-        <div className="max-w-6xl mx-auto mb-12 sm:mb-16 md:mb-20">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-x-16 md:gap-y-12 lg:gap-x-20 lg:gap-y-16">
-            {steps.map((step, index) => (
-              <div
-                key={index}
-                className="relative group"
-              >
-                {/* Connector line for desktop */}
-                {index % 2 === 0 && index < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-24 left-[calc(100%+2rem)] w-16 lg:w-20">
-                    <svg className="w-full h-2" viewBox="0 0 100 8" fill="none">
-                      <path
-                        d="M0 4 L100 4"
-                        stroke="url(#lineGradient)"
-                        strokeWidth="2"
-                        strokeDasharray="4 4"
-                      />
-                      <defs>
-                        <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                          <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.5" />
-                          <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.5" />
-                        </linearGradient>
-                      </defs>
-                    </svg>
-                  </div>
-                )}
+        {/* Timeline */}
+        <div className="relative mt-16">
+          {/* Línea conectora con degradado de estados (desktop) */}
+          <div className="pointer-events-none absolute inset-x-0 top-7 hidden px-20 lg:block">
+            <div className="h-px w-full bg-gradient-to-r from-amber-400/50 via-brand-400/50 to-rose-400/50" />
+          </div>
 
-                <div className="flex gap-6 items-start">
-                  {/* Number badge */}
-                  <div className="shrink-0">
-                    <div className={`relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300`}>
-                      <span className="text-2xl sm:text-3xl font-bold text-white">
-                        {step.number}
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {steps.map((s, i) => {
+              const Icon = s.icon;
+              return (
+                <Reveal key={s.n} i={i}>
+                  <div className="flex h-full flex-col">
+                    {/* Ícono con glow del color de estado */}
+                    <div className="mb-5 flex items-center justify-between">
+                      <span
+                        className="relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl border border-white/15 bg-night-2 text-white"
+                        style={{
+                          color: s.status.color,
+                          boxShadow: `0 0 32px -6px ${s.status.color}80`,
+                        }}
+                      >
+                        <Icon className="h-6 w-6" />
+                      </span>
+                      <span className="text-xs font-semibold tracking-wide text-white/35">
+                        {s.n}
+                      </span>
+                    </div>
+
+                    <h3 className="text-lg font-semibold text-white">{s.title}</h3>
+                    <p className="mt-1.5 flex-1 text-pretty text-sm leading-relaxed text-white/55">
+                      {s.description}
+                    </p>
+
+                    <div className="mt-5 flex items-center justify-between border-t border-white/10 pt-4">
+                      <span className="text-[11px] font-medium uppercase tracking-wide text-white/40">
+                        {s.role}
+                      </span>
+                      <span
+                        className="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[11px] font-medium text-white/80"
+                        style={{
+                          backgroundColor: `${s.status.color}1f`,
+                          borderColor: `${s.status.color}4d`,
+                        }}
+                      >
+                        <span
+                          className="h-1.5 w-1.5 rounded-full"
+                          style={{ backgroundColor: s.status.color }}
+                        />
+                        {s.status.label}
                       </span>
                     </div>
                   </div>
-                  
-                  {/* Content */}
-                  <div className="flex-1 pt-2">
-                    <div className="flex items-center gap-3 mb-3 sm:mb-4">
-                      <div className="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center group-hover:bg-gray-200 transition-colors">
-                        <step.icon className="w-5 h-5 text-gray-700" />
-                      </div>
-                      <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
-                        {step.title}
-                      </h3>
-                    </div>
-                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                      {step.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
+                </Reveal>
+              );
+            })}
           </div>
         </div>
 
-        {/* Visual mockup section */}
-        <div className="max-w-5xl mx-auto mb-12 sm:mb-16">
-          <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-8 sm:p-12 border-2 border-gray-200">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-                Interfaz intuitiva desde el día uno
-              </h3>
-              <p className="text-base sm:text-lg text-gray-600">
-                Sin curvas de aprendizaje complicadas
-              </p>
+        {/* Ventana de producto brillando sobre lo oscuro */}
+        <Reveal className="relative mx-auto mt-16 max-w-4xl">
+          <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-brand-500/20 blur-3xl" />
+          <div className="overflow-hidden rounded-2xl border border-white/10 bg-night-2 shadow-[0_40px_120px_-30px_rgba(0,0,0,0.7)] ring-1 ring-white/10">
+            <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
+              <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
+              <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
+              <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
             </div>
-
-            {/* Image placeholder */}
-            <div className="bg-white rounded-2xl shadow-2xl border-2 border-gray-200 overflow-hidden">
-              {/* 
-                IMAGEN NECESARIA:
-                - Secuencia de 4 pasos en formato visual (timeline o proceso)
-                - Mostrar pantallas/estados del proceso de configuración
-                - Iconos de: Upload, Settings, Zap, TrendingUp integrados
-                - Flechas o conectores entre pasos
-                - Colores gradientes cyan → purple → pink
-                - Aspecto moderno y profesional
-                - Dimensiones sugeridas: 1200x600px
-              */}
-              <div className="aspect-[2/1] flex items-center justify-center bg-gradient-to-br from-gray-50 to-white">
-                <div className="text-center p-8">
-                  <div className="flex gap-4 justify-center mb-4">
-                    {steps.map((step, index) => (
-                      <div key={index} className={`w-12 h-12 rounded-lg bg-gradient-to-br ${step.color} flex items-center justify-center`}>
-                        <step.icon className="w-6 h-6 text-white" />
-                      </div>
-                    ))}
-                  </div>
-                  <p className="text-sm text-gray-500 font-medium">
-                    Proceso de configuración paso a paso
-                  </p>
-                </div>
-              </div>
-            </div>
+            <Image
+              src="/images/features/dashboard.png"
+              alt="Tablero de Parcy Digital con la gestión de lotes y su estado"
+              width={1400}
+              height={900}
+              className="h-auto w-full"
+            />
           </div>
-        </div>
-
-        {/* CTA Section */}
-        <div className="text-center space-y-6">
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CTAButton>
-              Solicita una demo
-            </CTAButton>
-            <CTAButton variant="outline">
-              Hablar con un asesor
-            </CTAButton>
-          </div>
-          <p className="text-sm sm:text-base text-gray-500">
-            ✓ Implementación incluida · ✓ Soporte dedicado · ✓ Sin permanencia
-          </p>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

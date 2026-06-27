@@ -15,7 +15,7 @@ interface ButtonProps {
 }
 
 const variantStyles = {
-  primary: 'bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white shadow-lg hover:shadow-xl',
+  primary: 'bg-brand-600 text-white hover:bg-brand-700 shadow-sm hover:shadow-md focus:ring-brand-600/25',
   secondary: 'bg-white text-blue-600 shadow-md border border-gray-200 hover:border-blue-600/30',
   outline: 'border-2 border-blue-600 text-blue-600 hover:bg-blue-600/5',
 };

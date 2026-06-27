@@ -1,191 +1,99 @@
 import Image from "next/image";
+import { Map, RefreshCcw, Users } from "lucide-react";
 import CTAButton from "@/components/ui/CTAButton";
+import Reveal from "@/components/ui/Reveal";
 
-// Iconos personalizados con gradientes - mismos del Hero
-const VisualizacionIcon = () => (
-  <svg viewBox="0 0 48 48" className="w-12 h-12 sm:w-14 sm:h-14">
-    <defs>
-      <linearGradient id="visualSolGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#06b6d4" />
-        <stop offset="100%" stopColor="#3b82f6" />
-      </linearGradient>
-      <linearGradient id="visualSolGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#8b5cf6" />
-        <stop offset="100%" stopColor="#06b6d4" />
-      </linearGradient>
-      <linearGradient id="visualSolGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#3b82f6" />
-        <stop offset="100%" stopColor="#8b5cf6" />
-      </linearGradient>
-    </defs>
-    <rect x="8" y="12" width="12" height="12" fill="url(#visualSolGrad1)" rx="2" />
-    <rect x="24" y="8" width="12" height="12" fill="url(#visualSolGrad2)" rx="2" />
-    <rect x="8" y="28" width="12" height="12" fill="url(#visualSolGrad3)" rx="2" />
-    <rect x="24" y="24" width="12" height="12" fill="url(#visualSolGrad1)" rx="2" />
-  </svg>
-);
-
-const TiempoRealIcon = () => (
-  <svg viewBox="0 0 48 48" className="w-12 h-12 sm:w-14 sm:h-14">
-    <defs>
-      <linearGradient id="tiempoSolGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#a855f7" />
-        <stop offset="100%" stopColor="#ec4899" />
-      </linearGradient>
-      <linearGradient id="tiempoSolGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#f59e0b" />
-        <stop offset="100%" stopColor="#ef4444" />
-      </linearGradient>
-    </defs>
-    <circle cx="24" cy="24" r="20" fill="url(#tiempoSolGrad1)" />
-    <circle cx="24" cy="24" r="16" fill="url(#tiempoSolGrad2)" />
-    <circle cx="24" cy="24" r="12" fill="#ffffff" />
-    <line x1="24" y1="24" x2="24" y2="14" stroke="#a855f7" strokeWidth="2.5" strokeLinecap="round" />
-    <line x1="24" y1="24" x2="30" y2="24" stroke="#ec4899" strokeWidth="2" strokeLinecap="round" />
-    <circle cx="24" cy="24" r="2" fill="#a855f7" />
-  </svg>
-);
-
-const EquiposIcon = () => (
-  <svg viewBox="0 0 48 48" className="w-12 h-12 sm:w-14 sm:h-14">
-    <defs>
-      <linearGradient id="equiposSolGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#10b981" />
-        <stop offset="100%" stopColor="#06b6d4" />
-      </linearGradient>
-      <linearGradient id="equiposSolGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#3b82f6" />
-        <stop offset="100%" stopColor="#10b981" />
-      </linearGradient>
-    </defs>
-    <circle cx="18" cy="18" r="8" fill="url(#equiposSolGrad1)" />
-    <circle cx="30" cy="18" r="8" fill="url(#equiposSolGrad2)" />
-    <circle cx="24" cy="30" r="8" fill="url(#equiposSolGrad1)" />
-    <circle cx="18" cy="18" r="5" fill="#ffffff" opacity="0.8" />
-    <circle cx="30" cy="18" r="5" fill="#ffffff" opacity="0.8" />
-    <circle cx="24" cy="30" r="5" fill="#ffffff" opacity="0.8" />
-  </svg>
-);
+const benefits = [
+  {
+    icon: Map,
+    title: "Cada lote en un plano",
+    description:
+      "Disponibilidad, precio y estado de cada lote sobre el plano real de tu proyecto, por etapas.",
+  },
+  {
+    icon: RefreshCcw,
+    title: "Disponibilidad al día",
+    description:
+      "Cuando un lote se reserva o se vende, su estado se actualiza para todo el equipo.",
+  },
+  {
+    icon: Users,
+    title: "Una sola verdad",
+    description:
+      "Comercial y técnico ven la misma información. Se acabaron las versiones paralelas.",
+  },
+];
 
 export default function Solution() {
-  const benefits = [
-    {
-      icon: VisualizacionIcon,
-      title: "Visualización clara",
-      description: "Cada lote visible e interactivo para decisiones rápidas",
-    },
-    {
-      icon: TiempoRealIcon,
-      title: "Tiempo real",
-      description: "Estados actualizados al instante, cero confusiones",
-    },
-    {
-      icon: EquiposIcon,
-      title: "Equipos sincronizados",
-      description: "Técnicos y comerciales con la misma información",
-    },
-  ];
-
   return (
-    <section className="relative py-16 sm:py-20 md:py-24 lg:py-32 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden">
-      {/* Grid pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:64px_64px] opacity-30"></div>
-      
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 -left-20 w-72 h-72 bg-blue-100 rounded-full opacity-20 blur-3xl"></div>
-        <div className="absolute bottom-20 -right-20 w-96 h-96 bg-cyan-100 rounded-full opacity-20 blur-3xl"></div>
-      </div>
-
-      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        {/* Header */}
-        <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 md:mb-20">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-            Control de disponibilidad{" "}
-            <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
-                en tiempo real
-              </span>
-              <svg className="absolute -bottom-1 sm:-bottom-2 left-0 w-full" height="8" viewBox="0 0 200 8" fill="none">
-                <path d="M2 6C50 2 150 2 198 6" stroke="url(#solutionUnderline)" strokeWidth="2" strokeLinecap="round"/>
-                <defs>
-                  <linearGradient id="solutionUnderline" x1="0" y1="0" x2="200" y2="0">
-                    <stop stopColor="#06b6d4"/>
-                    <stop offset="1" stopColor="#3b82f6"/>
-                  </linearGradient>
-                </defs>
-              </svg>
-            </span>
+    <section className="relative overflow-hidden bg-surface py-20 sm:py-28 lg:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Encabezado centrado */}
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-line bg-panel px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-ink-soft">
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-600" />
+            La solución
+          </span>
+          <h2 className="mt-5 text-balance text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
+            De un Excel desactualizado a un{" "}
+            <span className="text-brand-600">plano vivo</span> donde cada lote tiene estado,
+            dueño e historial.
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">
-            Parcy centraliza la gestión de disponibilidad, sincroniza tu equipo y garantiza información confiable para evitar errores.
+          <p className="mx-auto mt-5 max-w-xl text-pretty text-lg leading-relaxed text-ink-soft">
+            Parcy centraliza la disponibilidad de tu proyecto y sincroniza a tu equipo para
+            que cada decisión se tome sobre información confiable.
           </p>
-        </div>
+        </Reveal>
 
-        {/* Main Content - Image + Benefits */}
-        <div className="grid lg:grid-cols-2 gap-10 md:gap-12 lg:gap-16 items-center mb-12 sm:mb-16">
-          {/* Image side */}
-          <div className="order-1 lg:order-1">
-            <div className="relative group">
-              {/* Glow effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-2xl opacity-20 blur-xl group-hover:opacity-30 transition-opacity"></div>
-              
-              {/* Image */}
-              <div className="relative overflow-hidden rounded-2xl shadow-2xl border border-gray-200 bg-white">
-                <Image
-                  src="/images/solution/dashboard_disponibilidad.jpg"
-                  alt="Dashboard de Parcy - Vista de disponibilidad de lotes en tiempo real"
-                  width={1200}
-                  height={800}
-                  className="w-full h-auto"
-                  priority
-                />
-              </div>
+        {/* Imagen del plano (centrada) */}
+        <Reveal className="mx-auto mt-12 max-w-4xl">
+          <div className="relative">
+            <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-gradient-to-br from-brand-200/50 via-brand-100/30 to-transparent blur-2xl" />
+            <div className="overflow-hidden rounded-2xl border border-line bg-panel shadow-[0_30px_80px_-32px_rgba(12,30,48,0.4)]">
+              <Image
+                src="/images/solution/dashboard_disponibilidad.jpg"
+                alt="Plano de disponibilidad de lotes de Parcy Digital"
+                width={1200}
+                height={800}
+                className="h-auto w-full"
+              />
+            </div>
+
+            {/* Chips de estado flotantes (colores de estado de lote) */}
+            <div className="absolute -left-4 top-8 hidden items-center gap-2 rounded-xl border border-line bg-panel px-3 py-2 shadow-[0_16px_40px_-20px_rgba(12,30,48,0.35)] sm:flex">
+              <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: "#22c55e" }} />
+              <span className="text-xs font-medium text-ink-soft">Disponible</span>
+              <span className="text-xs font-bold text-ink">9</span>
+            </div>
+            <div className="absolute -right-4 bottom-10 hidden items-center gap-2 rounded-xl border border-line bg-panel px-3 py-2 shadow-[0_16px_40px_-20px_rgba(12,30,48,0.35)] sm:flex">
+              <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: "#f43f5e" }} />
+              <span className="text-xs font-medium text-ink-soft">Vendido</span>
+              <span className="text-xs font-bold text-ink">2</span>
             </div>
           </div>
+        </Reveal>
 
-          {/* Benefits side */}
-          <div className="order-2 lg:order-2 space-y-6">
-            {benefits.map((benefit, index) => {
-              const IconComponent = benefit.icon;
-              return (
-                <div
-                  key={index}
-                  className="flex gap-4 items-start group"
-                >
-                  <div className="shrink-0 p-2 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl group-hover:scale-110 transition-transform duration-300">
-                    <IconComponent />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
-                      {benefit.title}
-                    </h3>
-                    <p className="text-base sm:text-lg text-gray-600">
-                      {benefit.description}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-
-            <div className="pt-6">
-              <CTAButton className="w-full sm:w-auto">
-                Ver cómo funciona
-              </CTAButton>
-            </div>
-          </div>
+        {/* Beneficios (3 columnas centradas) */}
+        <div className="mx-auto mt-12 grid max-w-4xl gap-8 sm:grid-cols-3">
+          {benefits.map((b, i) => {
+            const Icon = b.icon;
+            return (
+              <Reveal key={b.title} i={i} className="text-center">
+                <span className="mx-auto flex h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-600">
+                  <Icon className="h-5 w-5" />
+                </span>
+                <h3 className="mt-4 text-lg font-semibold text-ink">{b.title}</h3>
+                <p className="mx-auto mt-1.5 max-w-xs text-pretty text-sm leading-relaxed text-ink-soft">
+                  {b.description}
+                </p>
+              </Reveal>
+            );
+          })}
         </div>
 
-        {/* Bottom highlight - Results */}
-        <div className="max-w-3xl mx-auto">
-          <div className="bg-white rounded-2xl p-6 sm:p-8 border-2 border-gray-200 shadow-lg">
-            <div className="text-center">
-              <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto">
-                <span className="font-semibold text-gray-900">Beneficio:</span> Decisiones precisas, ventas gestionadas correctamente y servicio confiable.
-              </p>
-            </div>
-          </div>
-        </div>
+        <Reveal className="mt-12 flex justify-center">
+          <CTAButton href="#contacto">Solicita una demo</CTAButton>
+        </Reveal>
       </div>
     </section>
   );

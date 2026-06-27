@@ -1,257 +1,224 @@
-import CTAButton from "@/components/ui/CTAButton";
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { motion, type Variants } from "framer-motion";
+import { ArrowRight, Clock, MapPin } from "lucide-react";
+import CTAButton from "@/components/ui/CTAButton";
 
-// Iconos personalizados con gradientes
-const ProyectoIcon = () => (
-  <svg viewBox="0 0 48 48" className="w-10 h-10 sm:w-11 sm:h-11">
-    <defs>
-      <linearGradient id="proyectoGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#3b82f6" />
-        <stop offset="100%" stopColor="#06b6d4" />
-      </linearGradient>
-      <linearGradient id="proyectoGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#8b5cf6" />
-        <stop offset="100%" stopColor="#3b82f6" />
-      </linearGradient>
-    </defs>
-    <path d="M24 4L6 14v20l18 10 18-10V14L24 4z" fill="url(#proyectoGrad1)" />
-    <path d="M24 8L12 14v16l12 6 12-6V14L24 8z" fill="url(#proyectoGrad2)" />
-    <circle cx="24" cy="22" r="4" fill="#ffffff" opacity="0.9" />
-  </svg>
-);
+// ── Variantes de entrada (stagger por índice) ──────────────────────────────
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 22 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, delay: i * 0.08, ease: "easeOut" },
+  }),
+};
 
-const TiempoRealIcon = () => (
-  <svg viewBox="0 0 48 48" className="w-10 h-10 sm:w-11 sm:h-11">
-    <defs>
-      <linearGradient id="tiempoGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#a855f7" />
-        <stop offset="100%" stopColor="#ec4899" />
-      </linearGradient>
-      <linearGradient id="tiempoGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#f59e0b" />
-        <stop offset="100%" stopColor="#ef4444" />
-      </linearGradient>
-    </defs>
-    <circle cx="24" cy="24" r="20" fill="url(#tiempoGrad1)" />
-    <circle cx="24" cy="24" r="16" fill="url(#tiempoGrad2)" />
-    <circle cx="24" cy="24" r="12" fill="#ffffff" />
-    <line x1="24" y1="24" x2="24" y2="14" stroke="#a855f7" strokeWidth="2.5" strokeLinecap="round" />
-    <line x1="24" y1="24" x2="30" y2="24" stroke="#ec4899" strokeWidth="2" strokeLinecap="round" />
-    <circle cx="24" cy="24" r="2" fill="#a855f7" />
-  </svg>
-);
-
-const EquiposIcon = () => (
-  <svg viewBox="0 0 48 48" className="w-10 h-10 sm:w-11 sm:h-11">
-    <defs>
-      <linearGradient id="equiposGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#10b981" />
-        <stop offset="100%" stopColor="#06b6d4" />
-      </linearGradient>
-      <linearGradient id="equiposGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#3b82f6" />
-        <stop offset="100%" stopColor="#10b981" />
-      </linearGradient>
-    </defs>
-    <circle cx="18" cy="18" r="8" fill="url(#equiposGrad1)" />
-    <circle cx="30" cy="18" r="8" fill="url(#equiposGrad2)" />
-    <circle cx="24" cy="30" r="8" fill="url(#equiposGrad1)" />
-    <circle cx="18" cy="18" r="5" fill="#ffffff" opacity="0.8" />
-    <circle cx="30" cy="18" r="5" fill="#ffffff" opacity="0.8" />
-    <circle cx="24" cy="30" r="5" fill="#ffffff" opacity="0.8" />
-  </svg>
-);
-
-const ControlIcon = () => (
-  <svg viewBox="0 0 48 48" className="w-10 h-10 sm:w-11 sm:h-11">
-    <defs>
-      <linearGradient id="controlGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#ef4444" />
-        <stop offset="100%" stopColor="#f97316" />
-      </linearGradient>
-      <linearGradient id="controlGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#dc2626" />
-        <stop offset="100%" stopColor="#ef4444" />
-      </linearGradient>
-    </defs>
-    <path d="M24 4L8 12v16l16 8 16-8V12L24 4z" fill="url(#controlGrad1)" />
-    <path d="M24 8L12 14v12l12 6 12-6V14L24 8z" fill="url(#controlGrad2)" />
-    <path d="M24 12l-4 2v8l4 2 4-2v-8l-4-2z" fill="#ffffff" opacity="0.9" />
-    <circle cx="24" cy="18" r="2" fill="#ef4444" />
-  </svg>
-);
-
-const AnaliticaIcon = () => (
-  <svg viewBox="0 0 48 48" className="w-10 h-10 sm:w-11 sm:h-11">
-    <defs>
-      <linearGradient id="analiticaGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#f59e0b" />
-        <stop offset="100%" stopColor="#ef4444" />
-      </linearGradient>
-      <linearGradient id="analiticaGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#fbbf24" />
-        <stop offset="100%" stopColor="#f59e0b" />
-      </linearGradient>
-    </defs>
-    <rect x="8" y="28" width="6" height="12" fill="url(#analiticaGrad1)" rx="2" />
-    <rect x="16" y="20" width="6" height="20" fill="url(#analiticaGrad2)" rx="2" />
-    <rect x="24" y="12" width="6" height="28" fill="url(#analiticaGrad1)" rx="2" />
-    <rect x="32" y="16" width="6" height="24" fill="url(#analiticaGrad2)" rx="2" />
-    <line x1="8" y1="28" x2="38" y2="16" stroke="#f59e0b" strokeWidth="2" strokeLinecap="round" />
-  </svg>
-);
-
-const VisualizacionIcon = () => (
-  <svg viewBox="0 0 48 48" className="w-10 h-10 sm:w-11 sm:h-11">
-    <defs>
-      <linearGradient id="visualGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#06b6d4" />
-        <stop offset="100%" stopColor="#3b82f6" />
-      </linearGradient>
-      <linearGradient id="visualGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#8b5cf6" />
-        <stop offset="100%" stopColor="#06b6d4" />
-      </linearGradient>
-      <linearGradient id="visualGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#3b82f6" />
-        <stop offset="100%" stopColor="#8b5cf6" />
-      </linearGradient>
-    </defs>
-    <rect x="8" y="12" width="12" height="12" fill="url(#visualGrad1)" rx="2" />
-    <rect x="24" y="8" width="12" height="12" fill="url(#visualGrad2)" rx="2" />
-    <rect x="8" y="28" width="12" height="12" fill="url(#visualGrad3)" rx="2" />
-    <rect x="24" y="24" width="12" height="12" fill="url(#visualGrad1)" rx="2" />
-  </svg>
-);
+// ── Estados de lote (lenguaje visual de Parcy) ─────────────────────────────
+const STATUS = [
+  { key: "disponible", color: "#22c55e", label: "Disponible" },
+  { key: "reservado", color: "#f59e0b", label: "Reservado" },
+  { key: "vendido", color: "#f43f5e", label: "Vendido" },
+  { key: "bloqueado", color: "#64748b", label: "Bloqueado" },
+] as const;
 
 export default function Hero() {
+  // Cronómetro de reserva en vivo (arranca tras montar para evitar mismatch de hidratación)
+  const [secs, setSecs] = useState(23 * 60 + 41);
+  useEffect(() => {
+    const id = setInterval(() => setSecs((s) => (s <= 0 ? 24 * 60 : s - 1)), 1000);
+    return () => clearInterval(id);
+  }, []);
+  const mm = String(Math.floor(secs / 60)).padStart(2, "0");
+  const ss = String(secs % 60).padStart(2, "0");
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white pt-20">
-      {/* Subtle background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-cyan-50/30"></div>
-      
-      {/* Minimal grid pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_60%,transparent_100%)] opacity-40"></div>
-      
-      {/* Single subtle gradient orb */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-cyan-100 to-blue-100 rounded-full opacity-30 blur-3xl"></div>
+    <section className="relative overflow-hidden bg-surface pt-28 pb-20 sm:pt-32 lg:pt-36 lg:pb-28">
+      {/* Fondo: superficie azulada + mesh marca/cian + retícula de plano */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute -left-24 top-0 h-[440px] w-[560px] rounded-full bg-brand-200 opacity-40 blur-[120px]" />
+        <div className="absolute right-[-8%] top-12 h-[400px] w-[500px] rounded-full bg-accent-300 opacity-30 blur-[120px]" />
+        <div className="absolute bottom-0 left-1/2 h-[360px] w-[820px] -translate-x-1/2 rounded-full bg-brand-100 opacity-50 blur-[130px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0c1e300d_1px,transparent_1px),linear-gradient(to_bottom,#0c1e300d_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_90%_75%_at_50%_15%,#000_45%,transparent_100%)]" />
+      </div>
 
-      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-24 z-10">
-        <div className="grid lg:grid-cols-2 gap-10 md:gap-12 lg:gap-16 xl:gap-20 items-center">
-          
-          {/* Left Column - Content */}
-          <div className="space-y-6 md:space-y-8 max-w-2xl mx-auto lg:mx-0">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* ── Texto centrado ──────────────────────────────────────────────── */}
+        <div className="mx-auto max-w-3xl text-center">
+          <motion.span
+            variants={fadeUp}
+            custom={0}
+            initial="hidden"
+            animate="visible"
+            className="inline-flex items-center gap-2 rounded-full border border-line bg-panel px-3.5 py-1.5 text-sm font-medium text-ink-soft shadow-[0_1px_16px_-12px_rgba(12,30,48,0.18)]"
+          >
+            <MapPin className="h-3.5 w-3.5 text-brand-600" />
+            Software de gestión para parcelaciones y urbanismos
+          </motion.span>
 
-            {/* Main Heading */}
-            <div className="space-y-4 md:space-y-6">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] sm:leading-[1.15] text-gray-900">
-                Control de{" "}
-                <span className="relative inline-block">
-                  <span className="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
-                    disponibilidad
-                  </span>
-                  <svg className="absolute -bottom-1 sm:-bottom-2 left-0 w-full" height="8" viewBox="0 0 200 8" fill="none">
-                    <path d="M2 6C50 2 150 2 198 6" stroke="url(#heroUnderline)" strokeWidth="2" strokeLinecap="round"/>
-                    <defs>
-                      <linearGradient id="heroUnderline" x1="0" y1="0" x2="200" y2="0">
-                        <stop stopColor="#06b6d4"/>
-                        <stop offset="1" stopColor="#3b82f6"/>
-                      </linearGradient>
-                    </defs>
-                  </svg>
-                </span>
-                <br />
-                y ventas para parcelaciones
-              </h1>
-              
-              <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl">
-                Centraliza la disponibilidad de lotes, conecta a tu equipo comercial y técnico, y elimina ventas duplicadas desde una sola plataforma.
-              </p>
-            </div>
+          <motion.h1
+            variants={fadeUp}
+            custom={1}
+            initial="hidden"
+            animate="visible"
+            className="mt-6 text-balance text-4xl font-semibold leading-[1.07] tracking-tight text-ink sm:text-5xl lg:text-[3.5rem]"
+          >
+            Controla la <span className="text-brand-600">disponibilidad</span> y la
+            venta de tus lotes desde un solo plano.
+          </motion.h1>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
-              <CTAButton href="#contacto" className="group">
-                <span className="flex items-center justify-center gap-2">
-                  Solicita una demo
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </span>
-              </CTAButton>
-              <a href="#caracteristicas" className="inline-flex items-center justify-center px-6 sm:px-8 py-3.5 sm:py-4 text-base font-semibold text-gray-700 bg-white border-2 border-gray-200 rounded-xl hover:border-gray-300 hover:shadow-md transition-all">
-                Ver características
-              </a>
-            </div>
-          </div>
+          <motion.p
+            variants={fadeUp}
+            custom={2}
+            initial="hidden"
+            animate="visible"
+            className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-ink-soft"
+          >
+            Parcy organiza tu proyecto en etapas y lotes sobre un plano interactivo,
+            sincroniza a tu equipo comercial y técnico, y blinda cada operación con
+            reservas temporizadas y aprobación de ventas. Sin ventas duplicadas, sin
+            Excel desactualizado.
+          </motion.p>
 
-          {/* Right Column - Visual */}
-          <div className="relative max-w-2xl mx-auto lg:mx-0 w-full">
-            
-            {/* Main Image */}
-            <div className="relative group">
-              {/* Subtle glow */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-2xl opacity-20 blur-xl group-hover:opacity-30 transition-opacity"></div>
-              
-              {/* Image container */}
-              <div className="relative overflow-hidden rounded-xl shadow-2xl border border-gray-200 bg-white">
-                <Image
-                  src="/images/hero/dashboard_hero.png"
-                  alt="Parcy - Plataforma de gestión inmobiliaria"
-                  width={1920}
-                  height={1080}
-                  className="w-full h-auto"
-                  priority
-                />
-              </div>
-            </div>
+          {/* CTAs */}
+          <motion.div
+            variants={fadeUp}
+            custom={3}
+            initial="hidden"
+            animate="visible"
+            className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
+          >
+            <CTAButton href="#contacto" className="group w-full sm:w-auto">
+              <span className="flex items-center justify-center gap-2">
+                Solicita una demo
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </span>
+            </CTAButton>
+            <Link
+              href="#caracteristicas"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-line bg-panel px-7 py-3.5 text-base font-semibold text-ink-soft transition-all hover:border-ink-faint/50 hover:text-ink sm:w-auto"
+            >
+              Ver capacidades
+            </Link>
+          </motion.div>
 
-            {/* Feature cards below image - 2 rows of 3 */}
-            <div className="grid grid-cols-3 gap-3 sm:gap-4 mt-6 sm:mt-8">
-              <div className="bg-white p-3 sm:p-4 rounded-lg border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all group cursor-pointer">
-                <div className="mx-auto mb-2 flex items-center justify-center transition-transform group-hover:scale-110">
-                  <ProyectoIcon />
-                </div>
-                <div className="text-center text-xs sm:text-sm font-medium text-gray-700">Proyecto</div>
-              </div>
-              
-              <div className="bg-white p-3 sm:p-4 rounded-lg border border-gray-200 hover:border-purple-300 hover:shadow-md transition-all group cursor-pointer">
-                <div className="mx-auto mb-2 flex items-center justify-center transition-transform group-hover:scale-110">
-                  <TiempoRealIcon />
-                </div>
-                <div className="text-center text-xs sm:text-sm font-medium text-gray-700">Tiempo real</div>
-              </div>
-              
-              <div className="bg-white p-3 sm:p-4 rounded-lg border border-gray-200 hover:border-green-300 hover:shadow-md transition-all group cursor-pointer">
-                <div className="mx-auto mb-2 flex items-center justify-center transition-transform group-hover:scale-110">
-                  <EquiposIcon />
-                </div>
-                <div className="text-center text-xs sm:text-sm font-medium text-gray-700">Equipos</div>
-              </div>
+          {/* Leyenda de estados */}
+          <motion.div
+            variants={fadeUp}
+            custom={4}
+            initial="hidden"
+            animate="visible"
+            className="mt-9 flex flex-wrap items-center justify-center gap-x-5 gap-y-2"
+          >
+            {STATUS.map((s) => (
+              <span key={s.key} className="inline-flex items-center gap-2 text-sm text-ink-soft">
+                <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: s.color }} />
+                {s.label}
+              </span>
+            ))}
+          </motion.div>
 
-              <div className="bg-white p-3 sm:p-4 rounded-lg border border-gray-200 hover:border-red-300 hover:shadow-md transition-all group cursor-pointer">
-                <div className="mx-auto mb-2 flex items-center justify-center transition-transform group-hover:scale-110">
-                  <ControlIcon />
-                </div>
-                <div className="text-center text-xs sm:text-sm font-medium text-gray-700">Control</div>
-              </div>
-              
-              <div className="bg-white p-3 sm:p-4 rounded-lg border border-gray-200 hover:border-orange-300 hover:shadow-md transition-all group cursor-pointer">
-                <div className="mx-auto mb-2 flex items-center justify-center transition-transform group-hover:scale-110">
-                  <AnaliticaIcon />
-                </div>
-                <div className="text-center text-xs sm:text-sm font-medium text-gray-700">Analítica</div>
-              </div>
-              
-              <div className="bg-white p-3 sm:p-4 rounded-lg border border-gray-200 hover:border-cyan-300 hover:shadow-md transition-all group cursor-pointer">
-                <div className="mx-auto mb-2 flex items-center justify-center transition-transform group-hover:scale-110">
-                  <VisualizacionIcon />
-                </div>
-                <div className="text-center text-xs sm:text-sm font-medium text-gray-700">Visualización</div>
-              </div>
-            </div>
-          </div>
+          <motion.p
+            variants={fadeUp}
+            custom={5}
+            initial="hidden"
+            animate="visible"
+            className="mt-5 text-sm text-ink-faint"
+          >
+            Hecho para urbanizadores en Colombia · Cobros en COP
+          </motion.p>
         </div>
+
+        {/* ── Producto en escena: bisel de color + ventana ────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, y: 36, scale: 0.985 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.75, delay: 0.3, ease: "easeOut" }}
+          className="relative mx-auto mt-16 max-w-5xl"
+        >
+          {/* Glow suave detrás de la ventana */}
+          <div className="absolute -inset-x-8 -top-8 bottom-0 -z-10 rounded-[2rem] bg-gradient-to-b from-brand-200/45 via-accent-100/25 to-transparent blur-2xl" />
+
+          {/* Ventana de producto (navegador + imagen real) */}
+          <div className="overflow-hidden rounded-2xl border border-line bg-panel shadow-[0_30px_80px_-32px_rgba(12,30,48,0.45)]">
+              {/* Barra de navegador */}
+              <div className="flex items-center gap-2 border-b border-line-soft bg-surface/80 px-4 py-3">
+                <span className="h-3 w-3 rounded-full" style={{ backgroundColor: "#ff5f57" }} />
+                <span className="h-3 w-3 rounded-full" style={{ backgroundColor: "#febc2e" }} />
+                <span className="h-3 w-3 rounded-full" style={{ backgroundColor: "#28c840" }} />
+                <div className="mx-auto hidden items-center gap-2 rounded-md border border-line bg-panel px-3 py-1 text-xs text-ink-faint sm:flex">
+                  <MapPin className="h-3 w-3 text-brand-500" />
+                  app.parcydigital.com
+                </div>
+              </div>
+
+              {/* Imagen real del proyecto */}
+              <Image
+                src="/images/hero/dashboard_hero.png"
+                alt="Parcy Digital — Plano de urbanismo y gestión de disponibilidad de lotes"
+                width={1920}
+                height={1080}
+                className="h-auto w-full"
+                priority
+              />
+          </div>
+
+          {/* Tarjeta de lote flotante con cronómetro en vivo */}
+          <motion.div
+            initial={{ opacity: 0, y: 12, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.45, delay: 0.9, ease: "easeOut" }}
+            className="absolute -bottom-6 right-4 hidden w-56 rounded-xl border border-line bg-panel p-4 shadow-[0_24px_60px_-22px_rgba(12,30,48,0.4)] sm:block lg:-right-6"
+          >
+            <div className="flex items-center justify-between">
+              <p className="text-sm font-semibold text-ink">Lote 07</p>
+              <span
+                className="inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[11px] font-medium"
+                style={{
+                  backgroundColor: "rgba(245,158,11,0.14)",
+                  borderColor: "rgba(245,158,11,0.34)",
+                  borderWidth: 1,
+                  color: "#92400e",
+                }}
+              >
+                <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "#f59e0b" }} />
+                Reservado
+              </span>
+            </div>
+
+            <dl className="mt-3 space-y-1.5 text-xs">
+              <div className="flex justify-between">
+                <dt className="text-ink-faint">Etapa</dt>
+                <dd className="font-medium text-ink-soft">2</dd>
+              </div>
+              <div className="flex justify-between">
+                <dt className="text-ink-faint">Área</dt>
+                <dd className="font-medium text-ink-soft">320 m²</dd>
+              </div>
+              <div className="flex justify-between">
+                <dt className="text-ink-faint">Precio</dt>
+                <dd className="font-semibold text-ink">$185.000.000</dd>
+              </div>
+            </dl>
+
+            <div className="mt-3 flex items-center gap-2 rounded-lg bg-[#fff7ed] px-2.5 py-1.5">
+              <span className="relative flex h-2 w-2">
+                <span
+                  className="absolute inline-flex h-full w-full rounded-full"
+                  style={{ backgroundColor: "#f59e0b", animation: "pulse-ring 1.8s ease-out infinite" }}
+                />
+                <span className="relative inline-flex h-2 w-2 rounded-full" style={{ backgroundColor: "#f59e0b" }} />
+              </span>
+              <Clock className="h-3.5 w-3.5 text-amber-600" />
+              <span className="text-[11px] font-medium text-amber-700">
+                Libera en {mm}:{ss}
+              </span>
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

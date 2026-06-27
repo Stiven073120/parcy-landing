@@ -111,7 +111,7 @@ export default function WhyNow() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
               <CTAButton
-                href="#contacto"
+                href="/#contacto"
                 variant="secondary"
                 className="group bg-white hover:bg-gray-100 text-gray-900 shadow-2xl"
               >

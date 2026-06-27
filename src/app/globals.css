@@ -1,30 +1,115 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --title: #101214;
-  --color-text: #292A2E;
+/*
+  ───────────────────────────────────────────────────────────────────────────
+  Sistema de diseño — Parcy Digital (landing)
+  Alineado 1:1 con la identidad real del producto (app-parcy):
+  marca #0088CC, jerarquía de tinta de 3 niveles, superficies azuladas suaves,
+  bordes de 1px y los colores semánticos de estado de lote como tokens.
+  Los tokens se exponen como utilidades de Tailwind v4 vía @theme:
+    bg-brand-600 · text-ink · text-ink-soft · border-line · bg-disponible · …
+  ───────────────────────────────────────────────────────────────────────────
+*/
+@theme {
+  /* ===== Tipografía (Geist se carga en layout.tsx) ===== */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* ===== Marca — azul Parcy (#0088CC), idéntico a la app ===== */
+  --color-brand-50: #e8f6fc;
+  --color-brand-100: #c9eaf8;
+  --color-brand-200: #98d6f0;
+  --color-brand-300: #5ebde6;
+  --color-brand-400: #2aa3da;
+  --color-brand-500: #0a90cf;
+  --color-brand-600: #0088cc; /* marca */
+  --color-brand-700: #006da3; /* hover */
+  --color-brand-800: #075a84;
+  --color-brand-900: #0c486b;
+  --color-brand-950: #082f49;
+
+  /* ===== Acento — cian (secundario de la app) ===== */
+  --color-accent-400: #22d3ee;
+  --color-accent-500: #06b6d4;
+  --color-accent-600: #0891b2;
+  --color-accent-700: #0e7490;
+
+  /* ===== Superficies ===== */
+  --color-surface: #f2f8fc; /* fondo de página azulado muy suave */
+  --color-panel: #ffffff; /* tarjetas, modales */
+  --color-canvas: #f7f9fb; /* lienzo del dashboard */
+
+  /* ===== Tinta (3 niveles, nunca negro puro) ===== */
+  --color-ink: #0c1e30;
+  --color-ink-soft: #4a6880;
+  --color-ink-faint: #8aacc0;
+
+  /* ===== Líneas / bordes ===== */
+  --color-line: #e2e5e9;
+  --color-line-soft: #f1f3f5;
+
+  /* ===== Panel nocturno (hero oscuro / CTA final) ===== */
+  --color-night: #07111b;
+  --color-night-2: #0a2236;
+
+  /* ===== Estados de lote (el motivo visual de Parcy) ===== */
+  --color-disponible: #22c55e; /* emerald */
+  --color-reservado: #f59e0b; /* amber  */
+  --color-vendido: #f43f5e; /* rose   */
+  --color-bloqueado: #64748b; /* slate  */
 }
 
-/* Scroll suave para anclas (#contacto, etc.) con offset por el header fijo (h-20 = 5rem) */
+:root {
+  --background: #ffffff;
+  --foreground: #0c1e30;
+}
+
+/* Scroll suave para anclas (#caracteristicas, etc.) con offset por el header fijo (h-20 = 5rem) */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
+  text-rendering: optimizeLegibility;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Estilos para el carousel de iconos en móvil */
 .hero-carousel {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE y Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.hero-carousel::-webkit-scrollbar {
+  display: none;
 }
 
-.hero-carousel::-webkit-scrollbar {
-  display: none; /* Chrome, Safari y Opera */
+/* Animación de entrada reutilizable para secciones server-component (reveal sin JS) */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Latido suave para el punto del cronómetro de reserva */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }

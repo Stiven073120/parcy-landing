@@ -4,16 +4,18 @@ import Footer from "@/components/layout/Footer";
 import Hero from "./sections/Hero";
 import Problem from "./sections/Problem";
 import Solution from "./sections/Solution";
+import HowItWorks from "./sections/HowItWorks";
 import Features from "./sections/Features";
 import Differentiators from "./sections/Differentiators";
 import FinalCTA from "./sections/FinalCTA";
+import ContactForm from "@/components/sections/ContactForm";
 
 export const metadata: Metadata = {
   title: "Plataforma de Gestión para Parcelaciones y Urbanismos",
-  description: "Controla la disponibilidad de lotes en tiempo real, conecta tu equipo comercial y técnico, y elimina ventas duplicadas. La herramienta especializada en proyectos de parcelación.",
+  description: "Controla la disponibilidad de tus lotes, conecta a tu equipo comercial y técnico, y elimina las ventas duplicadas. El software especializado en proyectos de parcelación.",
   openGraph: {
     title: "Parcy Digital - Gestión Inteligente de Parcelaciones",
-    description: "Controla disponibilidad de lotes en tiempo real y elimina ventas duplicadas. Plataforma especializada en proyectos de parcelación.",
+    description: "Controla la disponibilidad de tus lotes y elimina las ventas duplicadas. Plataforma especializada en proyectos de parcelación.",
     url: "https://parcydigital.com",
     images: [
       {
@@ -36,10 +38,11 @@ export default function Landing() {
       <Hero />
       <Problem />
       <Solution />
+      <HowItWorks />
       <Features />
       <Differentiators />
-      {/* <HowItWorks /> */}
       <FinalCTA />
+      <ContactForm />
       <Footer />
     </>
   );

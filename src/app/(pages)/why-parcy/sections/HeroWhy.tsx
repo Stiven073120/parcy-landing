@@ -43,7 +43,7 @@ export default function HeroWhy() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 sm:mb-16">
-            <CTAButton href="#contacto" className="group">
+            <CTAButton href="/#contacto" className="group">
               <span className="flex items-center justify-center gap-2">
                 Solicita una demo
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

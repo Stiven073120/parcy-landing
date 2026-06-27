@@ -1,193 +1,79 @@
-// Componentes de iconos multicolor personalizados para problemas
-const VentasDuplicadasIcon = () => (
-  <svg viewBox="0 0 48 48" className="w-12 h-12 sm:w-14 sm:h-14">
-    <defs>
-      <linearGradient id="ventasGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#ef4444" />
-        <stop offset="100%" stopColor="#f97316" />
-      </linearGradient>
-      <linearGradient id="ventasGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#dc2626" />
-        <stop offset="100%" stopColor="#ef4444" />
-      </linearGradient>
-    </defs>
-    <rect x="12" y="10" width="20" height="26" rx="2" fill="url(#ventasGrad1)" transform="rotate(-5 22 23)" />
-    <rect x="16" y="12" width="20" height="26" rx="2" fill="url(#ventasGrad2)" transform="rotate(5 26 25)" />
-    <path d="M20 20 L28 20 M20 26 L28 26" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" opacity="0.9" />
-    <circle cx="36" cy="14" r="6" fill="#ffffff" opacity="0.95" />
-    <path d="M36 10v3M36 16h.01" stroke="#ef4444" strokeWidth="2.5" strokeLinecap="round" />
-  </svg>
-);
+import { TriangleAlert, FileSpreadsheet, Unplug, History } from "lucide-react";
+import Reveal from "@/components/ui/Reveal";
 
-const ProcesosManualesIcon = () => (
-  <svg viewBox="0 0 48 48" className="w-12 h-12 sm:w-14 sm:h-14">
-    <defs>
-      <linearGradient id="procesosGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#f59e0b" />
-        <stop offset="100%" stopColor="#ef4444" />
-      </linearGradient>
-      <linearGradient id="procesosGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#fbbf24" />
-        <stop offset="100%" stopColor="#f59e0b" />
-      </linearGradient>
-    </defs>
-    <rect x="10" y="12" width="24" height="28" rx="2" fill="url(#procesosGrad1)" />
-    <rect x="12" y="10" width="24" height="28" rx="2" fill="url(#procesosGrad2)" opacity="0.8" />
-    <rect x="14" y="8" width="24" height="28" rx="2" fill="url(#procesosGrad1)" opacity="0.6" />
-    <line x1="18" y1="16" x2="30" y2="16" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" />
-    <line x1="18" y1="22" x2="28" y2="22" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" />
-    <line x1="18" y1="28" x2="26" y2="28" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" />
-  </svg>
-);
-
-const DesconexionEquiposIcon = () => (
-  <svg viewBox="0 0 48 48" className="w-12 h-12 sm:w-14 sm:h-14">
-    <defs>
-      <linearGradient id="desconexionGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#a855f7" />
-        <stop offset="100%" stopColor="#ec4899" />
-      </linearGradient>
-      <linearGradient id="desconexionGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#8b5cf6" />
-        <stop offset="100%" stopColor="#a855f7" />
-      </linearGradient>
-    </defs>
-    <circle cx="14" cy="20" r="7" fill="url(#desconexionGrad1)" />
-    <circle cx="14" cy="20" r="4" fill="#ffffff" opacity="0.8" />
-    <circle cx="34" cy="20" r="7" fill="url(#desconexionGrad2)" />
-    <circle cx="34" cy="20" r="4" fill="#ffffff" opacity="0.8" />
-    <line x1="21" y1="20" x2="27" y2="20" stroke="#ffffff" strokeWidth="2" strokeDasharray="2,2" opacity="0.5" />
-    <circle cx="24" cy="20" r="4" fill="#a855f7" />
-    <path d="M22 18 L26 22 M26 18 L22 22" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" />
-  </svg>
-);
-
-const HerramientasGenericasIcon = () => (
-  <svg viewBox="0 0 48 48" className="w-12 h-12 sm:w-14 sm:h-14">
-    <defs>
-      <linearGradient id="herramientasGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#10b981" />
-        <stop offset="100%" stopColor="#06b6d4" />
-      </linearGradient>
-      <linearGradient id="herramientasGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#3b82f6" />
-        <stop offset="100%" stopColor="#10b981" />
-      </linearGradient>
-    </defs>
-    <rect x="8" y="16" width="32" height="24" rx="2" fill="url(#herramientasGrad1)" />
-    <rect x="14" y="22" width="6" height="2" rx="1" fill="#ffffff" opacity="0.8" />
-    <rect x="22" y="22" width="6" height="2" rx="1" fill="#ffffff" opacity="0.8" />
-    <rect x="30" y="22" width="6" height="2" rx="1" fill="#ffffff" opacity="0.8" />
-    <rect x="14" y="28" width="6" height="2" rx="1" fill="#ffffff" opacity="0.8" />
-    <rect x="22" y="28" width="6" height="2" rx="1" fill="#ffffff" opacity="0.8" />
-    <circle cx="38" cy="12" r="6" fill="#ffffff" opacity="0.95" />
-    <path d="M35 12 L41 12" stroke="#10b981" strokeWidth="3" strokeLinecap="round" />
-  </svg>
-);
+const problems = [
+  {
+    icon: TriangleAlert,
+    title: "Ventas duplicadas",
+    description: "Dos asesores cierran el mismo lote porque nadie ve la disponibilidad real.",
+  },
+  {
+    icon: FileSpreadsheet,
+    title: "Inventario en Excel",
+    description: "Hojas de cálculo y planos en PDF que se desactualizan apenas cambian de manos.",
+  },
+  {
+    icon: Unplug,
+    title: "Equipos desconectados",
+    description: "Comercial y técnico trabajan con versiones distintas de la verdad.",
+  },
+  {
+    icon: History,
+    title: "Sin rastro de lo que pasó",
+    description: "Cuando algo falla, nadie sabe quién reservó, vendió o liberó un lote.",
+  },
+];
 
 export default function Problem() {
-  const problems = [
-    {
-      icon: VentasDuplicadasIcon,
-      title: "Ventas duplicadas",
-      description: "Información desactualizada que genera reservas cruzadas, conflictos internos y pérdida de confianza en el proceso comercial.",
-      hoverBorderColor: "hover:border-red-300",
-    },
-    {
-      icon: ProcesosManualesIcon,
-      title: "Procesos manuales",
-      description: "Hojas de cálculo y planos editados manualmente que consumen tiempo y aumentan el margen de error del equipo.",
-      hoverBorderColor: "hover:border-orange-300",
-    },
-    {
-      icon: DesconexionEquiposIcon,
-      title: "Equipos desconectados",
-      description: "Falta de sincronización entre equipos técnicos y comerciales. Cada uno trabaja con información diferente.",
-      hoverBorderColor: "hover:border-purple-300",
-    },
-    {
-      icon: HerramientasGenericasIcon,
-      title: "Software no especializado",
-      description: "Herramientas genéricas que no entienden la gestión de disponibilidad de lotes en parcelaciones.",
-      hoverBorderColor: "hover:border-green-300",
-    },
-  ];
-
   return (
-    <section className="relative py-16 sm:py-20 md:py-24 lg:py-32 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden">
-      {/* Grid pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:64px_64px] opacity-30"></div>
-      
-      {/* Elementos decorativos de fondo */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 -left-20 w-72 h-72 bg-blue-100 rounded-full opacity-20 blur-3xl"></div>
-        <div className="absolute bottom-20 -right-20 w-96 h-96 bg-cyan-100 rounded-full opacity-20 blur-3xl"></div>
+    <section className="relative overflow-hidden bg-gradient-to-b from-night to-night-2 py-20 sm:py-28 lg:py-32">
+      {/* Decoración */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-1/2 top-0 h-[440px] w-[760px] -translate-x-1/2 rounded-full bg-brand-600/12 blur-[140px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_80%_70%_at_50%_30%,#000_45%,transparent_100%)]" />
       </div>
 
-      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        {/* Header */}
-        <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 md:mb-20">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-            No trabajes con{" "}
-            <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
-                información desactualizada
-              </span>
-              <svg className="absolute -bottom-1 sm:-bottom-2 left-0 w-full" height="8" viewBox="0 0 200 8" fill="none">
-                <path d="M2 6C50 2 150 2 198 6" stroke="url(#problemUnderline)" strokeWidth="2" strokeLinecap="round"/>
-                <defs>
-                  <linearGradient id="problemUnderline" x1="0" y1="0" x2="200" y2="0">
-                    <stop stopColor="#06b6d4"/>
-                    <stop offset="1" stopColor="#3b82f6"/>
-                  </linearGradient>
-                </defs>
-              </svg>
-            </span>
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-white/70">
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-400" />
+            El problema
+          </span>
+          <h2 className="mt-5 text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
+            El problema no es vender. Es saber, en todo momento,{" "}
+            <span className="text-brand-300">qué lote está libre.</span>
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">
-            El problema no es vender. Es gestionar la disponibilidad de lotes sin información confiable, centralizada y sincronizada.
+          <p className="mx-auto mt-5 max-w-xl text-pretty text-lg leading-relaxed text-white/60">
+            Sin una fuente única de disponibilidad, los errores se acumulan: reservas
+            cruzadas, información desactualizada y un equipo que deja de confiar en el sistema.
           </p>
-        </div>
+        </Reveal>
 
-        {/* Problems Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto mb-12 sm:mb-16">
-          {problems.map((problem, index) => {
-            const IconComponent = problem.icon;
+        <div className="mx-auto mt-14 grid max-w-5xl gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {problems.map((p, i) => {
+            const Icon = p.icon;
             return (
-              <div
-                key={index}
-                className={`group relative bg-white rounded-2xl p-6 sm:p-8 border-2 border-gray-200 ${problem.hoverBorderColor} hover:shadow-xl transition-all duration-300`}
-              >
-                <div className="flex gap-5 items-start">
-                  <div className="shrink-0">
-                    <div className="p-3 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl group-hover:scale-110 transition-transform duration-300">
-                      <IconComponent />
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">
-                      {problem.title}
-                    </h3>
-                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                      {problem.description}
-                    </p>
-                  </div>
+              <Reveal key={p.title} i={i}>
+                <div className="flex h-full flex-col items-center rounded-2xl border border-white/10 bg-white/[0.04] p-6 text-center backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/[0.07]">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-500/10 text-brand-300 ring-1 ring-inset ring-brand-400/20">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <h3 className="mt-4 text-base font-semibold text-white">{p.title}</h3>
+                  <p className="mt-1.5 text-pretty text-sm leading-relaxed text-white/55">
+                    {p.description}
+                  </p>
                 </div>
-              </div>
+              </Reveal>
             );
           })}
         </div>
 
-        {/* Bottom highlight */}
-        <div className="max-w-3xl mx-auto">
-          <div className="bg-white rounded-2xl p-6 sm:p-8 border-2 border-gray-200 shadow-lg">
-            <div className="text-center">
-              <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto">
-                <span className="font-semibold text-gray-900">Consecuencia:</span> Errores, pérdida de confianza y oportunidades desperdiciadas.
-              </p>
-            </div>
-          </div>
-        </div>
+        <Reveal className="mx-auto mt-10 max-w-2xl text-center">
+          <p className="text-pretty text-base text-white/70 sm:text-lg">
+            <span className="font-semibold text-white">El costo real:</span> ventas caídas,
+            conflictos internos y clientes que pierden la confianza.
+          </p>
+        </Reveal>
       </div>
     </section>
   );

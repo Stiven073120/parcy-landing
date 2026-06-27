@@ -1,118 +1,68 @@
+import Link from "next/link";
+import { ArrowRight, Check } from "lucide-react";
 import CTAButton from "@/components/ui/CTAButton";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import Reveal from "@/components/ui/Reveal";
+
+const benefits = [
+  "Sin permanencia",
+  "Implementación incluida",
+  "Soporte dedicado",
+  "Cobros en COP",
+];
 
 export default function FinalCTA() {
-  const benefits = [
-    "Sin permanencia",
-    "Soporte incluido",
-    "Implementación rápida",
-    "Actualizaciones constantes",
-  ];
-
   return (
-    <section className="relative py-16 sm:py-20 md:py-24 lg:py-32 bg-gradient-to-br from-gray-900 via-blue-900 to-cyan-900 overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500 rounded-full opacity-20 blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500 rounded-full opacity-20 blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500 rounded-full opacity-10 blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+    <section className="relative overflow-hidden bg-gradient-to-br from-night via-[#0a2236] to-night-2 py-20 sm:py-28 lg:py-32">
+      {/* Decoración */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-1/2 top-1/2 h-[520px] w-[820px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-600/20 blur-[140px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_40%,transparent_100%)]" />
       </div>
 
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:64px_64px]"></div>
-      
-      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl z-10">
-        <div className="text-center">
-          {/* Main heading */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 sm:mb-8 leading-tight">
-            Transforma la gestión de{" "}
-            <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                tu equipo
-              </span>
-              <svg className="absolute -bottom-1 sm:-bottom-2 left-0 w-full" height="8" viewBox="0 0 200 8" fill="none">
-                <path d="M2 6C50 2 150 2 198 6" stroke="url(#ctaGradient)" strokeWidth="2" strokeLinecap="round"/>
-                <defs>
-                  <linearGradient id="ctaGradient" x1="0" y1="0" x2="200" y2="0">
-                    <stop stopColor="#06b6d4"/>
-                    <stop offset="1" stopColor="#3b82f6"/>
-                  </linearGradient>
-                </defs>
-              </svg>
-            </span>
+      <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+        <Reveal>
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-sm font-medium text-white/80 backdrop-blur-sm">
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-300" />
+            Empieza hoy
+          </span>
+
+          <h2 className="mt-6 text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl lg:leading-[1.1]">
+            Toma el control de la disponibilidad y venta de tus lotes.
           </h2>
-          
-          <p className="text-lg sm:text-xl md:text-2xl text-blue-100 mb-10 sm:mb-12 max-w-3xl mx-auto leading-relaxed">
-            Únete a los urbanizadores que ya gestionan disponibilidad con confianza. Sincronización total, información en tiempo real, cero conflictos.
+
+          <p className="mx-auto mt-5 max-w-xl text-pretty text-lg leading-relaxed text-white/65">
+            Lleva tu proyecto de parcelación a una sola plataforma: plano interactivo,
+            reservas temporizadas y aprobación de ventas, con tu equipo sincronizado.
           </p>
-          
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10 sm:mb-12">
-            <CTAButton
-              href="#contacto"
-              variant="secondary"
-              className="group bg-white hover:bg-gray-100 text-gray-900 shadow-2xl"
-            >
-              <span className="flex items-center justify-center gap-3">
+
+          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <CTAButton href="#contacto" className="group w-full sm:w-auto">
+              <span className="flex items-center justify-center gap-2">
                 Solicita una demo
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </span>
             </CTAButton>
-            <CTAButton
-              href="#contacto"
-              variant="outline"
-              className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm"
+            <Link
+              href="/pricing"
+              className="inline-flex w-full items-center justify-center rounded-xl border border-white/25 px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-white/10 sm:w-auto"
             >
-              Hablar con un asesor
-            </CTAButton>
+              Ver planes
+            </Link>
           </div>
-          
-          {/* Benefits list */}
-          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 mb-10 sm:mb-12">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400" />
-                <span className="text-sm sm:text-base text-blue-100 font-medium">
-                  {benefit}
-                </span>
-              </div>
+
+          <ul className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+            {benefits.map((b) => (
+              <li key={b} className="flex items-center gap-2 text-sm text-white/70">
+                <Check className="h-4 w-4 text-brand-300" />
+                {b}
+              </li>
             ))}
-          </div>
+          </ul>
 
-          {/* Social proof */}
-          <div className="grid sm:grid-cols-3 gap-6 sm:gap-8 max-w-3xl mx-auto">
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">50+</div>
-              <div className="text-sm sm:text-base text-blue-200">Proyectos activos</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">98%</div>
-              <div className="text-sm sm:text-base text-blue-200">Sin duplicados</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">24/7</div>
-              <div className="text-sm sm:text-base text-blue-200">Disponibilidad</div>
-            </div>
-          </div>
-
-          {/* Trust badge */}
-          <div className="mt-12 sm:mt-16">
-            <p className="text-sm sm:text-base text-blue-200 mb-4">
-              Plataforma confiable para urbanizadores profesionales
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <div className="px-4 py-2 rounded-lg bg-white/5 border border-white/10 backdrop-blur-sm">
-                <span className="text-xs sm:text-sm text-blue-100">🔒 Datos seguros</span>
-              </div>
-              <div className="px-4 py-2 rounded-lg bg-white/5 border border-white/10 backdrop-blur-sm">
-                <span className="text-xs sm:text-sm text-blue-100">⚡ Tiempo real</span>
-              </div>
-              <div className="px-4 py-2 rounded-lg bg-white/5 border border-white/10 backdrop-blur-sm">
-                <span className="text-xs sm:text-sm text-blue-100">🇨🇱 Soporte local</span>
-              </div>
-            </div>
-          </div>
-        </div>
+          <p className="mt-8 text-sm text-white/45">
+            Hecho para urbanizadores en Colombia 🇨🇴
+          </p>
+        </Reveal>
       </div>
     </section>
   );

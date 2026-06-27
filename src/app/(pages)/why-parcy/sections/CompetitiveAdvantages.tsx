@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 // Iconos SVG personalizados con gradientes
 const RapidezIcon = () => (
   <svg viewBox="0 0 48 48" className="w-10 h-10 sm:w-11 sm:h-11">
@@ -202,21 +204,21 @@ export default function CompetitiveAdvantages() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href="#contacto"
+                <Link
+                  href="/#contacto"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-gray-900 font-semibold rounded-xl transition-all shadow-lg text-lg"
                 >
                   Solicita una demo
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/pricing"
                   className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white hover:bg-white/10 font-semibold rounded-xl transition-all backdrop-blur-sm text-lg"
                 >
                   Ver planes
-                </a>
+                </Link>
               </div>
             </div>
           </div>
