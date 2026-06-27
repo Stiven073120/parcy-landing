@@ -1,109 +1,77 @@
-import { Check } from "lucide-react";
-import CTAButton from "@/components/ui/CTAButton";
+import Link from "next/link";
+import { Check, Building2, ArrowRight } from "lucide-react";
+import Reveal from "@/components/ui/Reveal";
 
-// Icono SVG personalizado
-const EmpresaIcon = () => (
-  <svg viewBox="0 0 48 48" className="w-8 h-8 sm:w-10 sm:h-10">
-    <defs>
-      <linearGradient id="empresaGradPricing" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#06b6d4" />
-        <stop offset="100%" stopColor="#3b82f6" />
-      </linearGradient>
-    </defs>
-    <rect x="8" y="12" width="14" height="28" fill="url(#empresaGradPricing)" rx="2" />
-    <rect x="26" y="18" width="14" height="22" fill="url(#empresaGradPricing)" opacity="0.8" rx="2" />
-    <rect x="12" y="16" width="2" height="2" fill="white" opacity="0.8" rx="0.5" />
-    <rect x="16" y="16" width="2" height="2" fill="white" opacity="0.8" rx="0.5" />
-    <rect x="12" y="20" width="2" height="2" fill="white" opacity="0.8" rx="0.5" />
-    <rect x="16" y="20" width="2" height="2" fill="white" opacity="0.8" rx="0.5" />
-    <rect x="30" y="22" width="2" height="2" fill="white" opacity="0.8" rx="0.5" />
-    <rect x="34" y="22" width="2" height="2" fill="white" opacity="0.8" rx="0.5" />
-    <rect x="30" y="26" width="2" height="2" fill="white" opacity="0.8" rx="0.5" />
-    <rect x="34" y="26" width="2" height="2" fill="white" opacity="0.8" rx="0.5" />
-  </svg>
-);
-
-const MailIcon = () => (
-  <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none">
-    <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M22 6L12 13L2 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-);
+const benefits = [
+  "Más usuarios y proyectos",
+  "Multiempresa a gran escala",
+  "Integraciones a medida",
+  "Onboarding e importación asistidos",
+  "Gerente de cuenta dedicado",
+];
 
 export default function Enterprise() {
   return (
-    <section className="relative py-16 sm:py-20 bg-white overflow-hidden">
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:64px_64px] opacity-30"></div>
-
-      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="max-w-5xl mx-auto">
-          <div className="bg-[linear-gradient(to_bottom_right,#111827,#1f2937)] rounded-3xl p-8 sm:p-12 md:p-16 relative overflow-hidden">
-            {/* Background decoration */}
-            <div className="absolute inset-0 overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/20 rounded-full blur-3xl"></div>
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl"></div>
+    <section className="relative bg-surface py-16 sm:py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <Reveal className="mx-auto max-w-5xl">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-night via-[#0a2236] to-night-2 p-8 shadow-[0_40px_100px_-50px_rgba(7,17,27,0.9)] sm:p-12 md:p-14">
+            {/* Decoración */}
+            <div className="pointer-events-none absolute inset-0">
+              <div className="absolute -right-16 -top-16 h-72 w-72 rounded-full bg-brand-600/25 blur-[110px]" />
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_70%_60%_at_70%_30%,#000_30%,transparent_100%)]" />
             </div>
 
-            <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
+            <div className="relative grid items-center gap-10 md:grid-cols-2">
               <div>
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/10 border-2 border-cyan-400/30 flex items-center justify-center backdrop-blur-sm">
-                    <EmpresaIcon />
-                  </div>
-                  <h3 className="text-3xl sm:text-4xl font-bold text-white">
-                    Enterprise
-                  </h3>
-                </div>
-                <p className="text-lg text-gray-300 mb-6">
-                  Solución personalizada para grandes desarrolladores y múltiples proyectos simultáneos.
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-sm font-medium text-white/80 backdrop-blur-sm">
+                  <span className="h-1.5 w-1.5 rounded-full bg-brand-300" />
+                  A medida
+                </span>
+
+                <h2 className="mt-5 text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                  ¿Tu operación supera los planes?
+                </h2>
+                <p className="mt-4 max-w-md text-pretty text-base leading-relaxed text-white/65">
+                  Para constructoras con muchos proyectos, equipos grandes o necesidades
+                  específicas, armamos un plan a la medida de tu operación.
                 </p>
-                
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 shrink-0 mt-0.5 text-cyan-400" />
-                    <span className="text-base text-gray-200">Proyectos ilimitados</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 shrink-0 mt-0.5 text-cyan-400" />
-                    <span className="text-base text-gray-200">Usuarios ilimitados</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 shrink-0 mt-0.5 text-cyan-400" />
-                    <span className="text-base text-gray-200">Integraciones a medida</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 shrink-0 mt-0.5 text-cyan-400" />
-                    <span className="text-base text-gray-200">Implementación personalizada</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 shrink-0 mt-0.5 text-cyan-400" />
-                    <span className="text-base text-gray-200">Gerente de cuenta dedicado</span>
-                  </li>
+
+                <ul className="mt-7 space-y-3">
+                  {benefits.map((b) => (
+                    <li key={b} className="flex items-start gap-3">
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white/10 text-brand-300">
+                        <Check className="h-3 w-3" />
+                      </span>
+                      <span className="text-sm leading-relaxed text-white/80">{b}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
-              <div className="text-center md:text-right">
-                <div className="inline-block mb-6">
-                  <div className="text-5xl sm:text-6xl font-bold text-white mb-2">
-                    Custom
+              <div className="flex flex-col items-start gap-6 md:items-end md:text-right">
+                <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 text-brand-300 ring-1 ring-inset ring-white/15">
+                  <Building2 className="h-8 w-8" />
+                </span>
+                <div className="md:text-right">
+                  <div className="text-4xl font-semibold tracking-tight text-white">
+                    Plan a medida
                   </div>
-                  <p className="text-lg text-cyan-300">Precio personalizado</p>
+                  <p className="mt-1.5 text-sm text-white/60">
+                    Precio según tu operación
+                  </p>
                 </div>
-                
-                <CTAButton
+                <Link
                   href="/#contacto"
-                  variant="secondary"
-                  className="w-full bg-white hover:bg-gray-100 text-gray-900 shadow-xl"
+                  className="group inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-7 py-3.5 text-base font-semibold text-brand-700 shadow-lg transition-all hover:bg-brand-50 md:w-auto"
                 >
-                  <span className="flex items-center justify-center gap-2">
-                    <MailIcon />
-                    Contactar ventas
-                  </span>
-                </CTAButton>
+                  Contactar ventas
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </Link>
               </div>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
