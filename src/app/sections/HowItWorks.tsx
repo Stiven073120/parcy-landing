@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { Timer, ClipboardList, ShieldCheck, BadgeCheck } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
+import BrowserFrame from "@/components/ui/BrowserFrame";
 
 const steps = [
   {
@@ -128,20 +128,13 @@ export default function HowItWorks() {
         {/* Ventana de producto brillando sobre lo oscuro */}
         <Reveal className="relative mx-auto mt-16 max-w-4xl">
           <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-brand-500/20 blur-3xl" />
-          <div className="overflow-hidden rounded-2xl border border-white/10 bg-night-2 shadow-[0_40px_120px_-30px_rgba(0,0,0,0.7)] ring-1 ring-white/10">
-            <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
-              <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
-              <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
-              <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
-            </div>
-            <Image
-              src="/images/features/dashboard.png"
-              alt="Tablero de Parcy Digital con la gestión de lotes y su estado"
-              width={1400}
-              height={900}
-              className="h-auto w-full"
-            />
-          </div>
+          <BrowserFrame
+            src="/images/features/dashboard.png"
+            alt="Tablero de Parcy Digital con la gestión de lotes y su estado"
+            width={1400}
+            height={900}
+            tone="dark"
+          />
         </Reveal>
       </div>
     </section>

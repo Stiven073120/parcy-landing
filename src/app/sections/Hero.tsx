@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
 import { ArrowRight, Clock, MapPin } from "lucide-react";
 import CTAButton from "@/components/ui/CTAButton";
+import BrowserFrame from "@/components/ui/BrowserFrame";
 
 // ── Variantes de entrada (stagger por índice) ──────────────────────────────
 const fadeUp: Variants = {
@@ -143,28 +143,13 @@ export default function Hero() {
           <div className="absolute -inset-x-8 -top-8 bottom-0 -z-10 rounded-[2rem] bg-gradient-to-b from-brand-200/45 via-accent-100/25 to-transparent blur-2xl" />
 
           {/* Ventana de producto (navegador + imagen real) */}
-          <div className="overflow-hidden rounded-2xl border border-line bg-panel shadow-[0_30px_80px_-32px_rgba(12,30,48,0.45)]">
-              {/* Barra de navegador */}
-              <div className="flex items-center gap-2 border-b border-line-soft bg-surface/80 px-4 py-3">
-                <span className="h-3 w-3 rounded-full" style={{ backgroundColor: "#ff5f57" }} />
-                <span className="h-3 w-3 rounded-full" style={{ backgroundColor: "#febc2e" }} />
-                <span className="h-3 w-3 rounded-full" style={{ backgroundColor: "#28c840" }} />
-                <div className="mx-auto hidden items-center gap-2 rounded-md border border-line bg-panel px-3 py-1 text-xs text-ink-faint sm:flex">
-                  <MapPin className="h-3 w-3 text-brand-500" />
-                  app.parcydigital.com
-                </div>
-              </div>
-
-              {/* Imagen real del proyecto */}
-              <Image
-                src="/images/hero/dashboard_hero.png"
-                alt="Parcy Digital — Plano de urbanismo y gestión de disponibilidad de lotes"
-                width={1920}
-                height={1080}
-                className="h-auto w-full"
-                priority
-              />
-          </div>
+          <BrowserFrame
+            src="/images/hero/dashboard_hero.png"
+            alt="Parcy Digital — Plano de urbanismo y gestión de disponibilidad de lotes"
+            width={1920}
+            height={1080}
+            priority
+          />
 
           {/* Tarjeta de lote flotante con cronómetro en vivo */}
           <motion.div

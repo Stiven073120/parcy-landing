@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { Map, RefreshCcw, Users } from "lucide-react";
 import CTAButton from "@/components/ui/CTAButton";
 import Reveal from "@/components/ui/Reveal";
+import BrowserFrame from "@/components/ui/BrowserFrame";
 
 const benefits = [
   {
@@ -49,15 +49,12 @@ export default function Solution() {
         <Reveal className="mx-auto mt-12 max-w-4xl">
           <div className="relative">
             <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-gradient-to-br from-brand-200/50 via-brand-100/30 to-transparent blur-2xl" />
-            <div className="overflow-hidden rounded-2xl border border-line bg-panel shadow-[0_30px_80px_-32px_rgba(12,30,48,0.4)]">
-              <Image
-                src="/images/solution/dashboard_disponibilidad.jpg"
-                alt="Plano de disponibilidad de lotes de Parcy Digital"
-                width={1200}
-                height={800}
-                className="h-auto w-full"
-              />
-            </div>
+            <BrowserFrame
+              src="/images/solution/dashboard_disponibilidad.jpg"
+              alt="Plano de disponibilidad de lotes de Parcy Digital"
+              width={1200}
+              height={800}
+            />
 
             {/* Chips de estado flotantes (colores de estado de lote) */}
             <div className="absolute -left-4 top-8 hidden items-center gap-2 rounded-xl border border-line bg-panel px-3 py-2 shadow-[0_16px_40px_-20px_rgba(12,30,48,0.35)] sm:flex">
