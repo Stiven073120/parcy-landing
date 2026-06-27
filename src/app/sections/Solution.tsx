@@ -8,19 +8,18 @@ const benefits = [
     icon: Map,
     title: "Cada lote en un plano",
     description:
-      "Disponibilidad, precio y estado de cada lote sobre el plano real de tu proyecto, por etapas.",
+      "Estado, precio y disponibilidad de cada lote sobre el plano real, por etapas.",
   },
   {
     icon: RefreshCcw,
     title: "Disponibilidad al día",
     description:
-      "Cuando un lote se reserva o se vende, su estado se actualiza para todo el equipo.",
+      "Si un lote se reserva o se vende, todo el equipo lo ve al instante.",
   },
   {
     icon: Users,
     title: "Una sola verdad",
-    description:
-      "Comercial y técnico ven la misma información. Se acabaron las versiones paralelas.",
+    description: "Comercial y técnico ven lo mismo. Sin versiones paralelas.",
   },
 ];
 
@@ -35,13 +34,13 @@ export default function Solution() {
             La solución
           </span>
           <h2 className="mt-5 text-balance text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
-            De un Excel desactualizado a un{" "}
-            <span className="text-brand-600">plano vivo</span> donde cada lote tiene estado,
-            dueño e historial.
+            Del Excel desactualizado a un{" "}
+            <span className="text-brand-600">plano vivo</span>: cada lote con estado, dueño
+            e historial.
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-pretty text-lg leading-relaxed text-ink-soft">
-            Parcy centraliza la disponibilidad de tu proyecto y sincroniza a tu equipo para
-            que cada decisión se tome sobre información confiable.
+            Parcy centraliza la disponibilidad y sincroniza a tu equipo. Cada decisión, sobre
+            información confiable.
           </p>
         </Reveal>
 

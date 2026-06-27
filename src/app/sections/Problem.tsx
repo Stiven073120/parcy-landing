@@ -5,12 +5,12 @@ const problems = [
   {
     icon: TriangleAlert,
     title: "Ventas duplicadas",
-    description: "Dos asesores cierran el mismo lote porque nadie ve la disponibilidad real.",
+    description: "Dos asesores cierran el mismo lote: nadie ve la disponibilidad real.",
   },
   {
     icon: FileSpreadsheet,
     title: "Inventario en Excel",
-    description: "Hojas de cálculo y planos en PDF que se desactualizan apenas cambian de manos.",
+    description: "Planos en PDF y hojas que se desactualizan apenas cambian de manos.",
   },
   {
     icon: Unplug,
@@ -19,8 +19,8 @@ const problems = [
   },
   {
     icon: History,
-    title: "Sin rastro de lo que pasó",
-    description: "Cuando algo falla, nadie sabe quién reservó, vendió o liberó un lote.",
+    title: "Sin rastro",
+    description: "Si algo falla, nadie sabe quién reservó o vendió un lote.",
   },
 ];
 
@@ -40,12 +40,12 @@ export default function Problem() {
             El problema
           </span>
           <h2 className="mt-5 text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
-            El problema no es vender. Es saber, en todo momento,{" "}
+            El problema no es vender. Es saber{" "}
             <span className="text-brand-300">qué lote está libre.</span>
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-pretty text-lg leading-relaxed text-white/60">
-            Sin una fuente única de disponibilidad, los errores se acumulan: reservas
-            cruzadas, información desactualizada y un equipo que deja de confiar en el sistema.
+            Sin una sola fuente de disponibilidad, los errores se acumulan y tu equipo deja
+            de confiar en el sistema.
           </p>
         </Reveal>
 
@@ -70,7 +70,7 @@ export default function Problem() {
 
         <Reveal className="mx-auto mt-10 max-w-2xl text-center">
           <p className="text-pretty text-base text-white/70 sm:text-lg">
-            <span className="font-semibold text-white">El costo real:</span> ventas caídas,
+            <span className="font-semibold text-white">El costo:</span> ventas caídas,
             conflictos internos y clientes que pierden la confianza.
           </p>
         </Reveal>

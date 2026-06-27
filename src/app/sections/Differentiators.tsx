@@ -3,8 +3,8 @@ import CTAButton from "@/components/ui/CTAButton";
 import Reveal from "@/components/ui/Reveal";
 
 const generic = [
-  "Adaptado de un software de ventas de clientes",
-  "Gira en torno a contactos y leads, no a lotes",
+  "Adaptado de un software de ventas",
+  "Gira en torno a contactos, no a lotes",
   "Sin plano ni control de disponibilidad",
   "Configuración larga y costosa",
 ];
@@ -30,8 +30,8 @@ export default function Differentiators() {
             <span className="text-brand-600">gestión de disponibilidad de lotes.</span>
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-pretty text-lg leading-relaxed text-ink-soft">
-            Un CRM genérico te ayuda a perseguir clientes. Parcy te ayuda a controlar tu
-            inventario de lotes y a venderlo sin errores.
+            Un CRM persigue clientes. Parcy controla tu inventario de lotes y lo vende sin
+            errores.
           </p>
         </Reveal>
 

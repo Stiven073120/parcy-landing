@@ -56,7 +56,7 @@ export default function Hero() {
             className="inline-flex items-center gap-2 rounded-full border border-line bg-panel px-3.5 py-1.5 text-sm font-medium text-ink-soft shadow-[0_1px_16px_-12px_rgba(12,30,48,0.18)]"
           >
             <MapPin className="h-3.5 w-3.5 text-brand-600" />
-            Software de gestión para parcelaciones y urbanismos
+            Software para parcelaciones y urbanismos
           </motion.span>
 
           <motion.h1
@@ -66,7 +66,7 @@ export default function Hero() {
             animate="visible"
             className="mt-6 text-balance text-4xl font-semibold leading-[1.07] tracking-tight text-ink sm:text-5xl lg:text-[3.5rem]"
           >
-            Controla la <span className="text-brand-600">disponibilidad</span> y la
+            Controla la <span className="text-brand-600">disponibilidad</span> y
             venta de tus lotes desde un solo plano.
           </motion.h1>
 
@@ -77,10 +77,9 @@ export default function Hero() {
             animate="visible"
             className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-ink-soft"
           >
-            Parcy organiza tu proyecto en etapas y lotes sobre un plano interactivo,
-            sincroniza a tu equipo comercial y técnico, y blinda cada operación con
-            reservas temporizadas y aprobación de ventas. Sin ventas duplicadas, sin
-            Excel desactualizado.
+            Organiza tu proyecto sobre un plano interactivo, sincroniza a tu equipo y
+            blinda cada venta con reservas y aprobaciones. Sin duplicados, sin Excel
+            desactualizado.
           </motion.p>
 
           {/* CTAs */}

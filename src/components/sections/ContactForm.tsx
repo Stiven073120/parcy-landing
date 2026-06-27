@@ -26,8 +26,7 @@ export default function ContactForm() {
             Solicita una demo de <span className="text-brand-600">Parcy</span>
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-pretty text-lg leading-relaxed text-ink-soft">
-            Déjanos tus datos y te mostramos cómo llevar la gestión de tu parcelación a una
-            sola plataforma.
+            Déjanos tus datos y te mostramos Parcy con tu proyecto en mente.
           </p>
         </Reveal>
 

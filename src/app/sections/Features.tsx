@@ -96,8 +96,8 @@ export default function Features() {
             genérico adaptado.
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-pretty text-lg leading-relaxed text-ink-soft">
-            Cada función responde a cómo se vende un lote de verdad: del plano y la reserva
-            hasta la aprobación, el reporte y la financiación.
+            Cada función responde a cómo se vende un lote: del plano a la venta, el reporte
+            y la financiación.
           </p>
         </Reveal>
 
@@ -111,8 +111,8 @@ export default function Features() {
                 </IconBadge>
                 <h3 className="mt-4 text-lg font-semibold text-ink">Plano interactivo</h3>
                 <p className="mt-1.5 text-pretty text-sm leading-relaxed text-ink-soft">
-                  Cada lote como hotspot sobre el plano real de tu proyecto, organizado por
-                  etapas y manzanas. Lo que tu equipo ve es la disponibilidad real.
+                  Cada lote sobre el plano real, por etapas y manzanas. Tu equipo ve la
+                  disponibilidad real.
                 </p>
               </div>
               <div className="shrink-0 sm:w-56">
@@ -129,7 +129,7 @@ export default function Features() {
               </IconBadge>
               <h3 className="mt-4 text-lg font-semibold text-ink">Reservas con cronómetro</h3>
               <p className="mt-1.5 text-pretty text-sm leading-relaxed text-ink-soft">
-                Reserva temporizada con auto-liberación si la venta no se concreta.
+                Reserva temporizada que se libera sola si la venta no avanza.
               </p>
               <div className="mt-4 inline-flex items-center gap-2 rounded-lg bg-[#fff7ed] px-2.5 py-1.5">
                 <Clock className="h-3.5 w-3.5 text-amber-600" />
@@ -160,8 +160,8 @@ export default function Features() {
                 </IconBadge>
                 <h3 className="mt-4 text-lg font-semibold text-ink">Estados auditados</h3>
                 <p className="mt-1.5 text-pretty text-sm leading-relaxed text-ink-soft">
-                  Disponible, Reservado, Vendido y Bloqueado. Cada cambio queda registrado
-                  con su autor y la fecha, lote por lote.
+                  Disponible, Reservado, Vendido y Bloqueado. Cada cambio guarda autor y
+                  fecha.
                 </p>
               </div>
               <div className="shrink-0 space-y-2.5 sm:w-52">
@@ -209,7 +209,7 @@ export default function Features() {
                 <h3 className="mt-4 text-lg font-semibold text-ink">Reportes con exportación</h3>
                 <p className="mt-1.5 text-pretty text-sm leading-relaxed text-ink-soft">
                   Ventas, conversión por asesor y % vendido por etapa. Exportables a Excel y
-                  CSV para que el dato salga de Parcy cuando lo necesites.
+                  CSV.
                 </p>
               </div>
               <div className="shrink-0 rounded-xl border border-line bg-surface p-4">
@@ -239,7 +239,7 @@ export default function Features() {
               </IconBadge>
               <h3 className="mt-4 text-lg font-semibold text-ink">Importación por Excel</h3>
               <p className="mt-1.5 text-pretty text-sm leading-relaxed text-ink-soft">
-                Carga cientos de lotes desde una hoja de cálculo, por etapa y número.
+                Carga cientos de lotes desde una hoja, por etapa y número.
               </p>
             </div>
           </Reveal>

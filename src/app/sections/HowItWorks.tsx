@@ -9,7 +9,7 @@ const steps = [
     role: "Asesor",
     title: "Reserva el lote",
     description:
-      "El asesor reserva y arranca un cronómetro. Si no se concreta, el lote se libera solo.",
+      "El asesor reserva y arranca el cronómetro. Si no avanza, el lote se libera solo.",
     status: { label: "Reservado", color: "#f59e0b" },
   },
   {
@@ -18,7 +18,7 @@ const steps = [
     role: "Asesor",
     title: "Solicita la venta",
     description:
-      "Adjunta los datos del cliente y el documento. La reserva deja de expirar mientras se revisa.",
+      "Adjunta los datos del cliente. La reserva se congela mientras se revisa.",
     status: { label: "Con solicitud", color: "#f59e0b" },
   },
   {
@@ -27,7 +27,7 @@ const steps = [
     role: "Administrador",
     title: "Aprueba o rechaza",
     description:
-      "El administrador revisa la solicitud. Cada decisión queda registrada y auditada por lote.",
+      "El administrador decide. Cada decisión queda registrada y auditada por lote.",
     status: { label: "En revisión", color: "#0088cc" },
   },
   {
@@ -36,7 +36,7 @@ const steps = [
     role: "Todo el equipo",
     title: "Lote vendido",
     description:
-      "Al aprobar, el lote pasa a Vendido para todos. Sin posibilidad de venderlo dos veces.",
+      "El lote pasa a Vendido para todos. Imposible venderlo dos veces.",
     status: { label: "Vendido", color: "#f43f5e" },
   },
 ];
@@ -61,8 +61,7 @@ export default function HowItWorks() {
             <span className="text-brand-300">control en cada paso.</span>
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-pretty text-lg leading-relaxed text-white/60">
-            Un flujo pensado para equipos de parcelación: reservas temporizadas, aprobación
-            de ventas y trazabilidad completa del estado de cada lote.
+            Reservas temporizadas, aprobación de ventas y trazabilidad de cada lote.
           </p>
         </Reveal>
 

@@ -31,8 +31,8 @@ export default function FinalCTA() {
           </h2>
 
           <p className="mx-auto mt-5 max-w-xl text-pretty text-lg leading-relaxed text-white/65">
-            Lleva tu proyecto de parcelación a una sola plataforma: plano interactivo,
-            reservas temporizadas y aprobación de ventas, con tu equipo sincronizado.
+            Tu proyecto en una sola plataforma: plano, reservas y aprobación de ventas, con
+            tu equipo sincronizado.
           </p>
 
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
