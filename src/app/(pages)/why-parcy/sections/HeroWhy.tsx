@@ -1,89 +1,61 @@
-import CTAButton from "@/components/ui/CTAButton";
 import Link from "next/link";
+import { ArrowRight, Check } from "lucide-react";
+import CTAButton from "@/components/ui/CTAButton";
+
+const pills = [
+  "Especializado en parcelación",
+  "Plano, reservas y ventas en un solo lugar",
+  "Hecho en Colombia",
+];
 
 export default function HeroWhy() {
   return (
-    <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-white pt-20">
-      {/* Subtle background gradient */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_bottom_right,#ffffff,#f9fafb,#ecfeff)]"></div>
-      
-      {/* Grid pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_60%,transparent_100%)] opacity-40"></div>
-      
-      {/* Gradient orbs */}
-      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[linear-gradient(to_bottom_right,#cffafe,#dbeafe)] rounded-full opacity-30 blur-3xl"></div>
-      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-[linear-gradient(to_bottom_right,#dbeafe,#e0e7ff)] rounded-full opacity-30 blur-3xl"></div>
+    <section className="relative overflow-hidden bg-surface pb-16 pt-32 sm:pb-20 sm:pt-36">
+      {/* Glow + grid enmascarada */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-1/2 top-0 h-[420px] w-[820px] -translate-x-1/2 rounded-full bg-brand-200/45 blur-[130px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0c1e3008_1px,transparent_1px),linear-gradient(to_bottom,#0c1e3008_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_30%,transparent_75%)]" />
+      </div>
 
-      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 md:py-24 z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          
-          {/* Main Heading */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-gray-900 mb-6 sm:mb-8">
-            ¿Por qué elegir{" "}
-            <span className="relative inline-block">
-              <span className="bg-[linear-gradient(to_right,#06b6d4,#3b82f6)] bg-clip-text text-transparent">
-                Parcy
-              </span>
-              <svg className="absolute -bottom-2 left-0 w-full" height="10" viewBox="0 0 200 10" fill="none">
-                <path d="M2 8C50 2 150 2 198 8" stroke="url(#whyGradient)" strokeWidth="2.5" strokeLinecap="round"/>
-                <defs>
-                  <linearGradient id="whyGradient" x1="0" y1="0" x2="200" y2="0">
-                    <stop stopColor="#06b6d4"/>
-                    <stop offset="1" stopColor="#3b82f6"/>
-                  </linearGradient>
-                </defs>
-              </svg>
+      <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+        <span className="inline-flex items-center gap-2 rounded-full border border-line bg-panel px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-ink-soft">
+          <span className="h-1.5 w-1.5 rounded-full bg-brand-600" />
+          Por qué Parcy
+        </span>
+
+        <h1 className="mt-6 text-balance text-4xl font-semibold tracking-tight text-ink sm:text-5xl lg:text-6xl lg:leading-[1.05]">
+          No es un software más. Es el que{" "}
+          <span className="text-brand-600">entiende tu parcelación.</span>
+        </h1>
+
+        <p className="mx-auto mt-5 max-w-xl text-pretty text-lg leading-relaxed text-ink-soft">
+          Un CRM genérico te ayuda a perseguir clientes. Parcy gestiona lo que de verdad
+          vendes: tus lotes, su disponibilidad y su venta, sin errores ni duplicados.
+        </p>
+
+        <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <CTAButton href="/#contacto" className="group w-full sm:w-auto">
+            <span className="flex items-center justify-center gap-2">
+              Solicita una demo
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </span>
-            ?
-          </h1>
-          
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-600 leading-relaxed mb-10 sm:mb-12 max-w-3xl mx-auto">
-            No es solo software. Es la solución especializada que tu equipo necesita para gestionar disponibilidad de lotes sin errores, duplicados ni descoordinación.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 sm:mb-16">
-            <CTAButton href="/#contacto" className="group">
-              <span className="flex items-center justify-center gap-2">
-                Solicita una demo
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </span>
-            </CTAButton>
-            <Link href="/pricing" className="inline-flex items-center justify-center px-6 sm:px-8 py-3.5 sm:py-4 text-base font-semibold text-gray-700 bg-white border-2 border-gray-200 rounded-xl hover:border-gray-300 hover:shadow-md transition-all">
-              Ver planes
-            </Link>
-          </div>
-
-          {/* Quick stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border-2 border-gray-200">
-              <div className="text-3xl sm:text-4xl font-bold bg-[linear-gradient(to_right,#06b6d4,#3b82f6)] bg-clip-text text-transparent mb-2">
-                100%
-              </div>
-              <p className="text-sm text-gray-600 font-medium">Especializado</p>
-            </div>
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border-2 border-gray-200">
-              <div className="text-3xl sm:text-4xl font-bold bg-[linear-gradient(to_right,#3b82f6,#8b5cf6)] bg-clip-text text-transparent mb-2">
-                0
-              </div>
-              <p className="text-sm text-gray-600 font-medium">Duplicados</p>
-            </div>
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border-2 border-gray-200">
-              <div className="text-3xl sm:text-4xl font-bold bg-[linear-gradient(to_right,#8b5cf6,#ec4899)] bg-clip-text text-transparent mb-2">
-                Real-time
-              </div>
-              <p className="text-sm text-gray-600 font-medium">Sincronización</p>
-            </div>
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border-2 border-gray-200">
-              <div className="text-3xl sm:text-4xl font-bold bg-[linear-gradient(to_right,#10b981,#06b6d4)] bg-clip-text text-transparent mb-2">
-                5min
-              </div>
-              <p className="text-sm text-gray-600 font-medium">Setup</p>
-            </div>
-          </div>
+          </CTAButton>
+          <Link
+            href="/pricing"
+            className="inline-flex w-full items-center justify-center rounded-xl border border-line bg-panel px-7 py-3.5 text-base font-semibold text-ink transition-colors hover:border-brand-200 hover:text-brand-700 sm:w-auto"
+          >
+            Ver planes
+          </Link>
         </div>
+
+        <ul className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+          {pills.map((p) => (
+            <li key={p} className="flex items-center gap-2 text-sm font-medium text-ink-soft">
+              <Check className="h-4 w-4 text-brand-600" />
+              {p}
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

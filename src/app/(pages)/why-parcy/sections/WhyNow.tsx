@@ -1,175 +1,82 @@
+import Link from "next/link";
+import { ArrowRight, Check } from "lucide-react";
 import CTAButton from "@/components/ui/CTAButton";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import Reveal from "@/components/ui/Reveal";
 
-// Iconos SVG personalizados con gradientes
-const UrgencyIcon = () => (
-  <svg viewBox="0 0 48 48" className="w-16 h-16 sm:w-20 sm:h-20">
-    <defs>
-      <linearGradient id="urgencyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#f59e0b" />
-        <stop offset="100%" stopColor="#ef4444" />
-      </linearGradient>
-    </defs>
-    <circle cx="24" cy="24" r="20" fill="url(#urgencyGrad)" />
-    <circle cx="24" cy="24" r="16" fill="white" opacity="0.3" />
-    <line x1="24" y1="24" x2="24" y2="12" stroke="white" strokeWidth="3" strokeLinecap="round" />
-    <line x1="24" y1="24" x2="32" y2="24" stroke="white" strokeWidth="3" strokeLinecap="round" />
-    <circle cx="24" cy="24" r="2" fill="white" />
-    <path d="M40 24c0 8.8-7.2 16-16 16s-16-7.2-16-16" stroke="#f59e0b" strokeWidth="2" strokeDasharray="4 4" fill="none" opacity="0.5" />
-  </svg>
-);
+const reasons = [
+  "Las hojas de cálculo desactualizadas cuestan ventas",
+  "Una venta duplicada daña tu reputación",
+  "Tu equipo pierde tiempo confirmando disponibilidad",
+  "La información dispersa frena tu crecimiento",
+];
+
+const benefits = ["Sin permanencia", "Implementación incluida", "Soporte dedicado", "Cobros en COP"];
 
 export default function WhyNow() {
-  const reasons = [
-    "Cada día con procesos manuales es tiempo perdido",
-    "Las ventas duplicadas afectan tu reputación",
-    "Tu competencia ya está digitalizando",
-    "Los errores de coordinación cuestan dinero",
-  ];
-
-  const benefits = [
-    "Sin permanencia",
-    "Implementación inmediata",
-    "Soporte incluido",
-    "Prueba sin compromiso",
-  ];
-
   return (
-    <section className="relative py-16 sm:py-20 md:py-24 lg:py-32 bg-[linear-gradient(to_bottom_right,#1e293b,#0f172a,#1e293b)] overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-500 rounded-full opacity-20 blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-500 rounded-full opacity-20 blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500 rounded-full opacity-10 blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+    <section className="relative overflow-hidden bg-gradient-to-br from-night via-[#0a2236] to-night-2 py-20 sm:py-28 lg:py-32">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-1/2 top-1/2 h-[520px] w-[820px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-600/20 blur-[140px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_40%,transparent_100%)]" />
       </div>
 
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:64px_64px]"></div>
-      
-      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl z-10">
-        
-        {/* Icon */}
-        <div className="flex justify-center mb-8">
-          <UrgencyIcon />
-        </div>
+      <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+        <Reveal>
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-sm font-medium text-white/80 backdrop-blur-sm">
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-300" />
+            ¿Por qué ahora?
+          </span>
 
-        {/* Main heading */}
-        <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-16">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            ¿Por qué{" "}
-            <span className="relative inline-block">
-              <span className="bg-[linear-gradient(to_right,#f59e0b,#ef4444)] bg-clip-text text-transparent">
-                ahora
-              </span>
-              <svg className="absolute -bottom-2 left-0 w-full" height="12" viewBox="0 0 200 12" fill="none">
-                <path d="M2 10C50 2 150 2 198 10" stroke="url(#nowGradient)" strokeWidth="3" strokeLinecap="round"/>
-                <defs>
-                  <linearGradient id="nowGradient" x1="0" y1="0" x2="200" y2="0">
-                    <stop stopColor="#f59e0b"/>
-                    <stop offset="1" stopColor="#ef4444"/>
-                  </linearGradient>
-                </defs>
-              </svg>
-            </span>
-            ?
+          <h2 className="mt-6 text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl lg:leading-[1.1]">
+            El mejor momento para ordenar tus ventas es{" "}
+            <span className="text-brand-300">ahora.</span>
           </h2>
-          
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed mb-10">
-            Cada día que pasa sin una solución especializada representa pérdidas evitables para tu operación
+
+          <p className="mx-auto mt-5 max-w-xl text-pretty text-lg leading-relaxed text-white/65">
+            Cada día con procesos manuales son ventas que se demoran y errores que se podían
+            evitar.
           </p>
-        </div>
+        </Reveal>
 
-        {/* Reasons Grid */}
-        <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12 sm:mb-16">
-          {reasons.map((reason, index) => (
-            <div
-              key={index}
-              className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:bg-white/10 hover:border-orange-400/30 transition-all duration-300"
+        <Reveal className="mx-auto mt-10 max-w-2xl">
+          <ul className="grid gap-3 text-left sm:grid-cols-2">
+            {reasons.map((r) => (
+              <li
+                key={r}
+                className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur-sm"
+              >
+                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-300" />
+                <span className="text-sm leading-relaxed text-white/80">{r}</span>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+
+        <Reveal>
+          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <CTAButton href="/#contacto" className="group w-full sm:w-auto">
+              <span className="flex items-center justify-center gap-2">
+                Solicita una demo
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </span>
+            </CTAButton>
+            <Link
+              href="/pricing"
+              className="inline-flex w-full items-center justify-center rounded-xl border border-white/25 px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-white/10 sm:w-auto"
             >
-              <div className="flex items-start gap-4">
-                <div className="shrink-0 w-8 h-8 rounded-full bg-[linear-gradient(to_bottom_right,#f59e0b,#ef4444)] flex items-center justify-center text-white font-bold shadow-lg">
-                  !
-                </div>
-                <p className="text-base sm:text-lg text-gray-200 leading-relaxed pt-1">
-                  {reason}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+              Ver planes y precios
+            </Link>
+          </div>
 
-        {/* CTA Section */}
-        <div className="max-w-3xl mx-auto">
-          <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-8 sm:p-12 border-2 border-white/20 text-center">
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
-              Comienza hoy mismo
-            </h3>
-            <p className="text-base sm:text-lg text-gray-300 mb-8">
-              Implementación en minutos. Sin riesgos, sin compromisos largos.
-            </p>
-            
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
-              <CTAButton
-                href="/#contacto"
-                variant="secondary"
-                className="group bg-white hover:bg-gray-100 text-gray-900 shadow-2xl"
-              >
-                <span className="flex items-center justify-center gap-3">
-                  Solicita una demo
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </CTAButton>
-              <CTAButton
-                href="/pricing"
-                variant="outline"
-                className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm"
-              >
-                Ver planes y precios
-              </CTAButton>
-            </div>
-            
-            {/* Benefits list */}
-            <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-green-400" />
-                  <span className="text-sm sm:text-base text-gray-200 font-medium">
-                    {benefit}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Final stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto mt-12 sm:mt-16">
-          <div className="text-center">
-            <div className="text-4xl sm:text-5xl font-bold bg-[linear-gradient(to_right,#06b6d4,#3b82f6)] bg-clip-text text-transparent mb-2">
-              5min
-            </div>
-            <div className="text-sm text-gray-400">Setup completo</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl sm:text-5xl font-bold bg-[linear-gradient(to_right,#3b82f6,#8b5cf6)] bg-clip-text text-transparent mb-2">
-              0
-            </div>
-            <div className="text-sm text-gray-400">Permanencia</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl sm:text-5xl font-bold bg-[linear-gradient(to_right,#8b5cf6,#ec4899)] bg-clip-text text-transparent mb-2">
-              24/7
-            </div>
-            <div className="text-sm text-gray-400">Disponibilidad</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl sm:text-5xl font-bold bg-[linear-gradient(to_right,#10b981,#06b6d4)] bg-clip-text text-transparent mb-2">
-              100%
-            </div>
-            <div className="text-sm text-gray-400">Especializado</div>
-          </div>
-        </div>
+          <ul className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+            {benefits.map((b) => (
+              <li key={b} className="flex items-center gap-2 text-sm text-white/70">
+                <Check className="h-4 w-4 text-brand-300" />
+                {b}
+              </li>
+            ))}
+          </ul>
+        </Reveal>
       </div>
     </section>
   );
