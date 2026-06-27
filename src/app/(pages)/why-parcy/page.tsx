@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import Contact from "@/components/sections/Contact";
 
 import HeroWhy from "./sections/HeroWhy";
 import SpecializedSolution from "./sections/SpecializedSolution";
@@ -33,7 +32,6 @@ export default function WhyParcy() {
       <UseCases />
       <CompetitiveAdvantages />
       <WhyNow />
-      <Contact />
       <Footer />
     </>
   );

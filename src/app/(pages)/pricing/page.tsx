@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import Contact from "@/components/sections/Contact";
 import HeroPricing from "./sections/HeroPricing";
 import PricingPlans from "./sections/PricingPlans";
 import Addons from "./sections/Addons";
@@ -32,7 +31,6 @@ export default function Pricing() {
       <Enterprise />
       <AllPlansInclude />
       <PricingCTA />
-      <Contact />
       <Footer />
     </>
   );

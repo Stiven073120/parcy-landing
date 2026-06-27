@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -72,25 +72,16 @@ export default function Footer() {
               Contacto
             </h3>
             <ul className="space-y-3">
-              {/* TODO: reemplazar por los datos de contacto reales */}
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-cyan-400 shrink-0" />
                 <a
-                  href="mailto:hola@parcydigital.com"
+                  href="mailto:contacto@parcydigital.com"
                   className="text-sm text-gray-400 hover:text-cyan-400 transition-colors"
                 >
-                  hola@parcydigital.com
+                  contacto@parcydigital.com
                 </a>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-cyan-400 shrink-0" />
-                <a
-                  href="tel:+573000000000"
-                  className="text-sm text-gray-400 hover:text-cyan-400 transition-colors"
-                >
-                  +57 300 000 0000
-                </a>
-              </li>
+              {/* TODO: reemplazar por la ubicación real */}
               <li className="flex items-center gap-3">
                 <MapPin className="w-4 h-4 text-cyan-400 shrink-0" />
                 <span className="text-sm text-gray-400">Colombia</span>
