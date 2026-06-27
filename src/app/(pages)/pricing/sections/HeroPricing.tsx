@@ -22,8 +22,8 @@ export default function HeroPricing() {
         </h1>
 
         <p className="mx-auto mt-5 max-w-xl text-pretty text-lg leading-relaxed text-ink-soft">
-          Sin permanencia y sin costos ocultos. Implementación, capacitación y soporte
-          incluidos en cada plan, con cobros en pesos colombianos.
+          Sin permanencia ni costos ocultos. Implementación, capacitación y soporte
+          incluidos. Cobros en COP.
         </p>
 
         <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">

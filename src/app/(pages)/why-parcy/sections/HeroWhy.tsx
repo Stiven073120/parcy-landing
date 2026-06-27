@@ -29,8 +29,8 @@ export default function HeroWhy() {
         </h1>
 
         <p className="mx-auto mt-5 max-w-xl text-pretty text-lg leading-relaxed text-ink-soft">
-          Un CRM genérico te ayuda a perseguir clientes. Parcy gestiona lo que de verdad
-          vendes: tus lotes, su disponibilidad y su venta, sin errores ni duplicados.
+          Un CRM persigue clientes. Parcy gestiona lo que de verdad vendes: tus lotes, su
+          disponibilidad y su venta, sin duplicados.
         </p>
 
         <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">

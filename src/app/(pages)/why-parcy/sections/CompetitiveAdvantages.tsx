@@ -6,25 +6,25 @@ const advantages = [
     icon: Rocket,
     title: "Puesta en marcha rápida",
     description:
-      "Sin implementaciones de meses ni consultorías largas: cargas tu proyecto, importas tus lotes desde Excel y empiezas a operar.",
+      "Sin implementaciones de meses: cargas tu proyecto, importas tus lotes y empiezas.",
   },
   {
     icon: Headset,
     title: "Soporte en español",
     description:
-      "Un equipo local en Colombia que entiende cómo se vende un lote y habla tu mismo idioma.",
+      "Un equipo local en Colombia que entiende cómo se vende un lote.",
   },
   {
     icon: RefreshCw,
     title: "Mejoras continuas",
     description:
-      "La plataforma evoluciona con la industria, sin upgrades costosos ni módulos sueltos que comprar aparte.",
+      "La plataforma evoluciona contigo, sin upgrades costosos ni módulos sueltos.",
   },
   {
     icon: Wallet,
     title: "Precio claro en COP",
     description:
-      "Cobros en pesos colombianos, sin costos ocultos y sin permanencia. Cancelas cuando quieras.",
+      "Cobros en COP, sin costos ocultos ni permanencia. Cancelas cuando quieras.",
   },
 ];
 

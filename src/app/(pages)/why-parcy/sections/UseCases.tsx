@@ -6,7 +6,7 @@ const useCases = [
     icon: Map,
     title: "Urbanizadores",
     challenge: "Varios proyectos y etapas, cada uno con su disponibilidad.",
-    solution: "Centraliza todos tus proyectos con el estado real de cada lote a la vista.",
+    solution: "Centraliza tus proyectos con el estado real de cada lote a la vista.",
   },
   {
     icon: Users,
@@ -35,8 +35,7 @@ export default function UseCases() {
             Hecho para quienes <span className="text-brand-600">venden lotes</span>
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-pretty text-lg leading-relaxed text-ink-soft">
-            Una solución especializada para los distintos roles de la industria de
-            parcelación.
+            Una solución especializada para cada rol de tu operación.
           </p>
         </Reveal>
 

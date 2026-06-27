@@ -48,7 +48,7 @@ export default function AllPlansInclude() {
             Todo lo que incluye <span className="text-brand-600">cada plan</span>
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-pretty text-base leading-relaxed text-ink-soft">
-            Compara las capacidades de cada plan y elige el que mejor encaja con tu operación.
+            Compara y elige el plan que mejor encaja con tu operación.
           </p>
         </Reveal>
 

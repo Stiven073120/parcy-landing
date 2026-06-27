@@ -33,8 +33,7 @@ export default function WhyNow() {
           </h2>
 
           <p className="mx-auto mt-5 max-w-xl text-pretty text-lg leading-relaxed text-white/65">
-            Cada día con procesos manuales son ventas que se demoran y errores que se podían
-            evitar.
+            Cada día con procesos manuales son ventas que se demoran y errores evitables.
           </p>
         </Reveal>
 

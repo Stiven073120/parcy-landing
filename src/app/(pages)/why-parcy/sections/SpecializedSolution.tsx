@@ -33,8 +33,8 @@ export default function SpecializedSolution() {
             Especialización, <span className="text-brand-300">no adaptación.</span>
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-pretty text-lg leading-relaxed text-white/65">
-            La diferencia entre un software diseñado para tu industria y uno genérico forzado
-            a funcionar con tus lotes.
+            La diferencia entre un software hecho para tu industria y uno genérico forzado a
+            funcionar.
           </p>
         </Reveal>
 

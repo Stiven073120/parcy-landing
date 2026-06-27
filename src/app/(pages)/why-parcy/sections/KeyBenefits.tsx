@@ -13,37 +13,34 @@ const benefits = [
     icon: Map,
     title: "Disponibilidad siempre clara",
     description:
-      "El estado real de cada lote sobre el plano del proyecto, visible para todo el equipo al instante.",
+      "El estado real de cada lote sobre el plano, visible para todo el equipo.",
   },
   {
     icon: ShieldCheck,
     title: "Sin ventas duplicadas",
     description:
-      "Las reservas y la aprobación de ventas evitan que dos asesores comprometan el mismo lote.",
+      "Reservas y aprobación de ventas evitan que dos asesores comprometan el mismo lote.",
   },
   {
     icon: Users,
     title: "Equipo sincronizado",
-    description:
-      "Asesores, administración y soporte trabajan sobre la misma información, sin cruces.",
+    description: "Asesores, administración y soporte, sobre la misma información.",
   },
   {
     icon: Building2,
     title: "Crece con tu negocio",
-    description:
-      "Varios proyectos y empresas en una sola plataforma, con cupos según tu plan.",
+    description: "Varios proyectos y empresas en una plataforma, con cupos por plan.",
   },
   {
     icon: History,
     title: "Todo queda registrado",
-    description:
-      "Cada cambio de estado guarda autor y fecha, con papelera para revertir errores.",
+    description: "Cada cambio guarda autor y fecha, con papelera para revertir errores.",
   },
   {
     icon: BarChart3,
     title: "Decide con datos",
     description:
-      "Reportes de ventas y avance por etapa, exportables a Excel y CSV cuando los necesites.",
+      "Reportes de ventas y avance por etapa, exportables a Excel y CSV.",
   },
 ];
 
@@ -63,7 +60,7 @@ export default function KeyBenefits() {
             Lo que cambia en tu <span className="text-brand-600">operación</span>
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-pretty text-lg leading-relaxed text-ink-soft">
-            Impacto real en el día a día de tu equipo y en cómo vendes tus lotes.
+            Impacto real en el día a día de tu equipo.
           </p>
         </Reveal>
 

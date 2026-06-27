@@ -26,7 +26,7 @@ export default function PricingCTA() {
           </h2>
 
           <p className="mx-auto mt-5 max-w-xl text-pretty text-lg leading-relaxed text-white/65">
-            Agenda una demo y te mostramos Parcy con tu proyecto en mente, sin compromiso.
+            Agenda una demo y te ayudamos a elegir, sin compromiso.
           </p>
 
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">

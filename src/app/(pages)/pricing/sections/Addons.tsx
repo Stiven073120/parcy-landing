@@ -7,14 +7,14 @@ const addons = [
     title: "Proyecto adicional",
     price: "$199.999",
     unit: "/ proyecto",
-    description: "Suma proyectos extra a tu plan cuando lances una nueva etapa o parcelación.",
+    description: "Suma proyectos extra cuando lances una nueva etapa o parcelación.",
   },
   {
     icon: UserPlus,
     title: "Usuarios adicionales",
     price: "Consultar",
     unit: "",
-    description: "Amplía tu equipo comercial por encima del cupo de tu plan según lo necesites.",
+    description: "Amplía tu equipo por encima del cupo de tu plan.",
   },
 ];
 

@@ -33,8 +33,8 @@ export default function Enterprise() {
                   ¿Tu operación supera los planes?
                 </h2>
                 <p className="mt-4 max-w-md text-pretty text-base leading-relaxed text-white/65">
-                  Para constructoras con muchos proyectos, equipos grandes o necesidades
-                  específicas, armamos un plan a la medida de tu operación.
+                  Para constructoras con muchos proyectos o necesidades específicas, armamos
+                  un plan a tu medida.
                 </p>
 
                 <ul className="mt-7 space-y-3">
