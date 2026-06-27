@@ -3,7 +3,7 @@ import { ArrowRight, Check } from "lucide-react";
 import CTAButton from "@/components/ui/CTAButton";
 import Reveal from "@/components/ui/Reveal";
 
-const benefits = ["Sin permanencia", "Implementación incluida", "Soporte dedicado", "Cobros en COP"];
+const benefits = ["Sin permanencia", "Sin costos ocultos", "Soporte dedicado", "Especializado en parcelación"];
 
 export default function PricingCTA() {
   return (

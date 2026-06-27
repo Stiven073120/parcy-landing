@@ -137,7 +137,7 @@ export default function PricingPlans() {
             return (
               <div
                 key={plan.name}
-                className={`relative flex h-full flex-col rounded-3xl p-8 transition-all duration-300 ${
+                className={`relative flex h-full flex-col overflow-hidden rounded-3xl p-8 transition-all duration-300 ${
                   plan.popular
                     ? "bg-gradient-to-br from-brand-600 to-brand-800 text-white shadow-[0_24px_70px_-28px_rgba(0,136,204,0.7)]"
                     : "border border-line bg-panel hover:border-brand-200 hover:shadow-[0_24px_60px_-30px_rgba(12,30,48,0.28)]"

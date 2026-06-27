@@ -1,6 +1,6 @@
 import { Check } from "lucide-react";
 
-const trust = ["Sin permanencia", "Implementación incluida", "Cobros en COP"];
+const trust = ["Sin costos ocultos", "Soporte en español", "Especializado en parcelación"];
 
 export default function HeroPricing() {
   return (
@@ -22,8 +22,8 @@ export default function HeroPricing() {
         </h1>
 
         <p className="mx-auto mt-5 max-w-xl text-pretty text-lg leading-relaxed text-ink-soft">
-          Sin permanencia ni costos ocultos. Implementación, capacitación y soporte
-          incluidos. Cobros en COP.
+          Sin permanencia y sin sorpresas. Empieza con lo que necesitas y amplía tu plan
+          cuando crezcas.
         </p>
 
         <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
