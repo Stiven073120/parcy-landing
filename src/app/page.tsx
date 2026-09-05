@@ -10,6 +10,9 @@ import Differentiators from "./sections/Differentiators";
 import FinalCTA from "./sections/FinalCTA";
 import ContactForm from "@/components/sections/ContactForm";
 
+// Revalida cada hora para que la promo caduque sola sin necesidad de redesplegar
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: "Plataforma de Gestión para Parcelaciones y Urbanismos",
   description: "Controla la disponibilidad de tus lotes, conecta a tu equipo comercial y técnico, y elimina las ventas duplicadas. El software especializado en proyectos de parcelación.",

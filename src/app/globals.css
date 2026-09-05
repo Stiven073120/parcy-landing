@@ -67,7 +67,7 @@
 /* Scroll suave para anclas (#caracteristicas, etc.) con offset por el header fijo (h-20 = 5rem) */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 7.5rem;
   text-rendering: optimizeLegibility;
 }
 

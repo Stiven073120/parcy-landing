@@ -10,7 +10,7 @@ const pills = [
 
 export default function HeroWhy() {
   return (
-    <section className="relative overflow-hidden bg-surface pb-16 pt-32 sm:pb-20 sm:pt-36">
+    <section className="relative overflow-hidden bg-surface pb-16 pt-40 sm:pb-20 sm:pt-44">
       {/* Glow + grid enmascarada */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute left-1/2 top-0 h-[420px] w-[820px] -translate-x-1/2 rounded-full bg-brand-200/45 blur-[130px]" />

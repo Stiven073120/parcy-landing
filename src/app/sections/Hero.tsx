@@ -3,9 +3,10 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
-import { ArrowRight, Clock, MapPin } from "lucide-react";
+import { ArrowRight, Clock, MapPin, Sparkles } from "lucide-react";
 import CTAButton from "@/components/ui/CTAButton";
 import BrowserFrame from "@/components/ui/BrowserFrame";
+import { PROMO, isPromoActive } from "@/data/promo";
 
 // ── Variantes de entrada (stagger por índice) ──────────────────────────────
 const fadeUp: Variants = {
@@ -35,8 +36,10 @@ export default function Hero() {
   const mm = String(Math.floor(secs / 60)).padStart(2, "0");
   const ss = String(secs % 60).padStart(2, "0");
 
+  const promoOn = isPromoActive();
+
   return (
-    <section className="relative overflow-hidden bg-surface pt-28 pb-20 sm:pt-32 lg:pt-36 lg:pb-28">
+    <section className="relative overflow-hidden bg-surface pt-36 pb-20 sm:pt-40 lg:pt-44 lg:pb-28">
       {/* Fondo: superficie azulada + mesh marca/cian + retícula de plano */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -left-24 top-0 h-[440px] w-[560px] rounded-full bg-brand-200 opacity-40 blur-[120px]" />
@@ -48,16 +51,30 @@ export default function Hero() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* ── Texto centrado ──────────────────────────────────────────────── */}
         <div className="mx-auto max-w-3xl text-center">
-          <motion.span
+          <motion.div
             variants={fadeUp}
             custom={0}
             initial="hidden"
             animate="visible"
-            className="inline-flex items-center gap-2 rounded-full border border-line bg-panel px-3.5 py-1.5 text-sm font-medium text-ink-soft shadow-[0_1px_16px_-12px_rgba(12,30,48,0.18)]"
           >
-            <MapPin className="h-3.5 w-3.5 text-brand-600" />
-            Software para parcelaciones y urbanismos
-          </motion.span>
+            {promoOn ? (
+              <Link
+                href="/pricing"
+                className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3.5 py-1.5 text-sm font-medium text-amber-900 shadow-[0_1px_16px_-12px_rgba(12,30,48,0.18)] transition-colors hover:bg-amber-100"
+              >
+                <Sparkles className="h-3.5 w-3.5 text-amber-600" />
+                <span>
+                  <span className="font-semibold">{PROMO.percent}% OFF</span> en planes
+                  anuales · hasta el {PROMO.deadlineShort}
+                </span>
+              </Link>
+            ) : (
+              <span className="inline-flex items-center gap-2 rounded-full border border-line bg-panel px-3.5 py-1.5 text-sm font-medium text-ink-soft shadow-[0_1px_16px_-12px_rgba(12,30,48,0.18)]">
+                <MapPin className="h-3.5 w-3.5 text-brand-600" />
+                Software para parcelaciones y urbanismos
+              </span>
+            )}
+          </motion.div>
 
           <motion.h1
             variants={fadeUp}

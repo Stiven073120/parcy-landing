@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import NavigationLink from "@/components/layout/NavigationLink";
+import PromoBanner from "@/components/layout/PromoBanner";
 import CTAButton from "@/components/ui/CTAButton";
 import Link from "next/link";
 import Image from "next/image";
@@ -25,6 +26,8 @@ export default function Header() {
       className="fixed inset-x-0 top-0 z-50 border-b border-line bg-white/80 backdrop-blur-xl"
       role="banner"
     >
+      <PromoBanner />
+
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between md:h-20">
           {/* Logo */}
@@ -84,7 +87,7 @@ export default function Header() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             onClick={close}
-            className="fixed inset-0 z-40 mt-16 bg-ink/20 backdrop-blur-sm md:mt-20 lg:hidden"
+            className="absolute inset-x-0 top-full z-40 h-screen bg-ink/20 backdrop-blur-sm lg:hidden"
           />
         )}
       </AnimatePresence>
@@ -97,7 +100,7 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.28, ease: "easeOut" }}
-            className="fixed inset-x-0 top-16 z-50 border-b border-line bg-white/98 shadow-[0_24px_60px_-24px_rgba(12,30,48,0.25)] backdrop-blur-xl md:top-20 lg:hidden"
+            className="absolute inset-x-0 top-full z-50 border-b border-line bg-white/98 shadow-[0_24px_60px_-24px_rgba(12,30,48,0.25)] backdrop-blur-xl lg:hidden"
           >
             <div className="relative overflow-hidden">
               <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-brand-600 via-accent-500 to-accent-400" />

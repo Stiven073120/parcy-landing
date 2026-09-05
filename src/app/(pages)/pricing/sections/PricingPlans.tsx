@@ -2,8 +2,12 @@
 
 import { useState } from "react";
 import { Check, ArrowRight } from "lucide-react";
+import { PROMO, isPromoActive, promoPrice } from "@/data/promo";
 
 const APP_URL = "https://app.parcydigital.com";
+
+// Campaña vigente: 25% extra sobre el precio anual
+const promoOn = isPromoActive();
 
 type Plan = {
   name: string;
@@ -86,7 +90,7 @@ const discount = (original: number, current: number) =>
   Math.round(((original - current) / original) * 100);
 
 export default function PricingPlans() {
-  const [isAnnual, setIsAnnual] = useState(false);
+  const [isAnnual, setIsAnnual] = useState(promoOn);
 
   return (
     <section className="relative bg-white py-16 sm:py-20">
@@ -123,16 +127,33 @@ export default function PricingPlans() {
           >
             Anual
           </span>
-          <span className="ml-1 rounded-full bg-brand-50 px-2.5 py-1 text-xs font-semibold text-brand-700">
-            2 meses gratis
+          <span
+            className={`ml-1 rounded-full px-2.5 py-1 text-xs font-semibold transition-colors ${
+              !isAnnual
+                ? "bg-line-soft text-ink-faint ring-1 ring-inset ring-line"
+                : promoOn
+                  ? "bg-amber-50 text-amber-800 ring-1 ring-inset ring-amber-200"
+                  : "bg-brand-50 text-brand-700"
+            }`}
+          >
+            {promoOn ? `2 meses gratis + ${PROMO.percent}% extra` : "2 meses gratis"}
           </span>
         </div>
 
         {/* Planes */}
         <div className="mx-auto mt-12 grid max-w-6xl gap-6 lg:grid-cols-3">
           {plans.map((plan) => {
-            const price = isAnnual ? plan.priceAnnual : plan.priceMonthly;
-            const original = isAnnual ? plan.originalPriceAnnual : plan.originalPriceMonthly;
+            const annualPromo = promoOn && isAnnual;
+            const price = isAnnual
+              ? annualPromo
+                ? promoPrice(plan.priceAnnual)
+                : plan.priceAnnual
+              : plan.priceMonthly;
+            const original = isAnnual
+              ? annualPromo
+                ? plan.priceAnnual
+                : plan.originalPriceAnnual
+              : plan.originalPriceMonthly;
 
             return (
               <div
@@ -212,7 +233,7 @@ export default function PricingPlans() {
                           plan.popular ? "text-white/70" : "text-ink-faint"
                         }`}
                       >
-                        Equivale a {formatPrice(Math.round(plan.priceAnnual / 12))} / mes
+                        Equivale a {formatPrice(Math.round(price / 12))} / mes
                       </p>
                     )}
                   </div>
@@ -266,6 +287,13 @@ export default function PricingPlans() {
 
         <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-ink-faint">
           Precios en COP. Los planes anuales equivalen a 10 meses (2 meses gratis).
+          {promoOn && (
+            <>
+              {" "}
+              Descuento del {PROMO.percent}% aplicable a planes anuales contratados
+              hasta el {PROMO.deadlineLabel}.
+            </>
+          )}
         </p>
       </div>
     </section>
