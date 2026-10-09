@@ -113,3 +113,77 @@ body {
     opacity: 0;
   }
 }
+
+/* Prosa de las páginas legales (/privacy, /terms, /data-deletion).
+   No usamos @tailwindcss/typography: estas reglas cubren solo lo que el
+   contenido legal necesita, con los tokens del sistema de diseño. */
+.legal-prose {
+  color: var(--color-ink-soft);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+.legal-prose > * + * {
+  margin-top: 1rem;
+}
+.legal-prose h3 {
+  margin-top: 1.75rem;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+.legal-prose h3 + * {
+  margin-top: 0.5rem;
+}
+.legal-prose ul,
+.legal-prose ol {
+  display: grid;
+  gap: 0.5rem;
+  padding-left: 1.375rem;
+}
+.legal-prose ul {
+  list-style: disc;
+}
+.legal-prose ol {
+  list-style: decimal;
+}
+.legal-prose li::marker {
+  color: var(--color-brand-600);
+  font-weight: 600;
+}
+.legal-prose li > ul,
+.legal-prose li > ol {
+  margin-top: 0.5rem;
+}
+.legal-prose strong {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+.legal-prose a {
+  color: var(--color-brand-600);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--color-brand-200);
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+.legal-prose a:hover {
+  color: var(--color-brand-700);
+  text-decoration-color: currentColor;
+}
+.legal-prose .legal-callout {
+  border-radius: 1rem;
+  border: 1px solid var(--color-line);
+  background: var(--color-surface);
+  padding: 1rem 1.25rem;
+}
+.legal-prose dl {
+  display: grid;
+  gap: 0.75rem;
+}
+.legal-prose dt {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+.legal-prose dd {
+  margin-top: 0.125rem;
+}

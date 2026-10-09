@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Reveal from "@/components/ui/Reveal";
 
 // Estilo base compartido de los campos
@@ -99,6 +100,18 @@ export default function ContactForm() {
 
             <p className="mt-4 text-center text-xs text-ink-faint">
               Te responderemos en menos de 24 horas hábiles.
+            </p>
+            {/* Autorización de tratamiento de datos (Ley 1581 de 2012) */}
+            <p className="mt-2 text-center text-xs leading-relaxed text-ink-faint">
+              Al enviar este formulario autorizas a Parcy Digital a tratar tus datos para
+              contactarte, conforme a nuestra{" "}
+              <Link
+                href="/privacy"
+                className="font-medium text-brand-600 underline underline-offset-2 transition-colors hover:text-brand-700"
+              >
+                Política de Privacidad
+              </Link>
+              .
             </p>
           </form>
         </Reveal>

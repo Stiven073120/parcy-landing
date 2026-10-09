@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Mail, MapPin } from "lucide-react";
+import { LEGAL_DOCS } from "@/data/legal";
 
 const APP_URL = "https://app.parcydigital.com";
 
@@ -15,11 +16,8 @@ export default function Footer() {
     { href: APP_URL, label: "Iniciar sesión", external: true },
   ];
 
-  const legalLinks = [
-    // TODO: crear estas páginas y reemplazar los href="#"
-    { href: "#", label: "Política de privacidad" },
-    { href: "#", label: "Términos y condiciones" },
-  ];
+  // Documentos legales (/privacy, /terms, /data-deletion) — fuente: src/data/legal.ts
+  const legalLinks = LEGAL_DOCS;
 
   return (
     <footer className="border-t border-white/10 bg-ink text-white/70" role="contentinfo">
