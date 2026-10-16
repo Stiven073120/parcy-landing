@@ -29,7 +29,7 @@ export default function Privacy() {
         title={
           <>
             Política de Privacidad y{" "}
-            <span className="text-brand-600">Tratamiento de Datos</span>
+            <span className="text-celeste">Tratamiento de Datos</span>
           </>
         }
         description="Explicamos con claridad qué datos recolectamos, para qué los usamos, con quién los compartimos y cómo puedes ejercer tus derechos, incluida la eliminación de tus datos."

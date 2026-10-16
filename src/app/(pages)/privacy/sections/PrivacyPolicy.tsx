@@ -19,8 +19,8 @@ const sections: LegalSection[] = [
           {LEGAL.nit ? `, identificada con NIT ${LEGAL.nit},` : ","} con domicilio en{" "}
           {LEGAL.address}, es la responsable del tratamiento de los datos personales que se
           recolectan a través de su sitio web{" "}
-          <a href={LEGAL.siteUrl}>parcydigital.com</a> y de su plataforma de gestión de
-          parcelaciones y urbanismos disponible en{" "}
+          <a href={LEGAL.siteUrl}>parcydigital.com</a> y de su plataforma de gestión y venta de
+          proyectos inmobiliarios disponible en{" "}
           <a href={LEGAL.appUrl}>app.parcydigital.com</a> (en conjunto, la «Plataforma»).
         </p>
         <p>
@@ -111,8 +111,8 @@ const sections: LegalSection[] = [
         <div>
           <dt>Cliente</dt>
           <dd>
-            Empresa o persona que contrata la Plataforma para gestionar sus proyectos de
-            parcelación o urbanismo.
+            Empresa o persona que contrata la Plataforma para gestionar sus proyectos
+            inmobiliarios (vivienda, parcelaciones, urbanismos u otros).
           </dd>
         </div>
       </dl>
@@ -193,7 +193,7 @@ const sections: LegalSection[] = [
           </li>
           <li>
             <strong>Registros de actividad:</strong> acciones realizadas en la Plataforma
-            (reservas, solicitudes, aprobaciones, cambios de estado de lotes), con fecha,
+            (reservas, solicitudes, aprobaciones, cambios de estado de unidades), con fecha,
             hora y usuario, necesarios para la trazabilidad y auditoría que ofrece el servicio.
           </li>
           <li>
@@ -206,7 +206,7 @@ const sections: LegalSection[] = [
         <p>
           Los Clientes pueden registrar en la Plataforma información de terceros relacionada con
           la gestión de sus proyectos: nombre, tipo y número de identificación, teléfono, correo
-          electrónico, dirección y datos de la negociación (lote de interés, reserva, solicitud
+          electrónico, dirección y datos de la negociación (unidad de interés, reserva, solicitud
           de venta, condiciones de pago). Respecto de estos datos, Parcy actúa como{" "}
           <strong>encargado del tratamiento</strong> y el Cliente es el responsable (ver sección
           «Nuestro rol»).
@@ -246,7 +246,7 @@ const sections: LegalSection[] = [
             permisos definidos por cada Cliente.
           </li>
           <li>
-            Prestar las funcionalidades de la Plataforma: control de disponibilidad de lotes,
+            Prestar las funcionalidades de la Plataforma: control de disponibilidad de unidades,
             reservas, solicitudes de venta, aprobaciones, informes y trazabilidad.
           </li>
           <li>
@@ -380,7 +380,7 @@ const sections: LegalSection[] = [
         <ul>
           <li>
             Exclusivamente para prestar el servicio al Cliente que conectó la cuenta: enviar,
-            recibir, mostrar, organizar y asociar las conversaciones a los lotes y contactos de
+            recibir, mostrar, organizar y asociar las conversaciones a las unidades y contactos de
             su proyecto.
           </li>
           <li>

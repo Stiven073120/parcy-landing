@@ -11,10 +11,12 @@ import WhyNow from "./sections/WhyNow";
 
 export const metadata: Metadata = {
   title: "¿Por qué Parcy?",
-  description: "Descubre por qué Parcy Digital es la solución especializada para gestión de parcelaciones. Beneficios, casos de uso y ventajas competitivas frente a CRM genéricos.",
+  description:
+    "Por qué Parcy Digital es el CRM especializado en vender proyectos inmobiliarios por disponibilidad: beneficios, casos de uso y ventajas frente a un CRM genérico adaptado.",
   openGraph: {
     title: "¿Por qué elegir Parcy Digital?",
-    description: "La solución especializada en gestión de parcelaciones que conecta proyecto, ventas y gestión en un solo lugar.",
+    description:
+      "El CRM que entiende tu proyecto: unidades, disponibilidad, ventas y equipo en un solo lugar.",
     url: "https://parcydigital.com/why-parcy",
   },
   alternates: {
@@ -26,12 +28,14 @@ export default function WhyParcy() {
   return (
     <>
       <Header />
-      <HeroWhy />
-      <SpecializedSolution />
-      <KeyBenefits />
-      <UseCases />
-      <CompetitiveAdvantages />
-      <WhyNow />
+      <main>
+        <HeroWhy />
+        <SpecializedSolution />
+        <KeyBenefits />
+        <UseCases />
+        <CompetitiveAdvantages />
+        <WhyNow />
+      </main>
       <Footer />
     </>
   );

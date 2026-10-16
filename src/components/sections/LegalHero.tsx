@@ -18,15 +18,10 @@ interface LegalHeroProps {
  */
 export default function LegalHero({ current, eyebrow, title, description }: LegalHeroProps) {
   return (
-    <section className="relative overflow-hidden bg-surface pb-12 pt-36 sm:pb-16 sm:pt-40">
-      {/* Glow + grid enmascarada */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-0 h-[360px] w-[760px] -translate-x-1/2 rounded-full bg-brand-200/40 blur-[130px]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0c1e3008_1px,transparent_1px),linear-gradient(to_bottom,#0c1e3008_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_30%,transparent_75%)]" />
-      </div>
+    <section className="relative overflow-hidden border-b border-line bg-surface pb-12 pt-36 sm:pb-16 sm:pt-40">
 
       <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-        <span className="inline-flex items-center gap-2 rounded-full border border-line bg-panel px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-ink-soft">
+        <span className="inline-flex items-center gap-2 rounded-full border border-brand-100 bg-brand-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-brand-700">
           <span className="h-1.5 w-1.5 rounded-full bg-brand-600" />
           {eyebrow}
         </span>

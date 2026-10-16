@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import SmoothScroll from "@/components/SmoothScroll";
+import ContactFab from "@/components/layout/ContactFab";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,22 +15,35 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// Tipografía de display para titulares (más carácter que Geist en tamaños grandes)
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
+  subsets: ["latin"],
+  weight: ["500", "600", "700", "800"],
+});
+
 const baseUrl = "https://parcydigital.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Parcy Digital - Plataforma de Gestión para Parcelaciones y Urbanismos",
-    template: "%s | Parcy Digital"
+    default: "Parcy Digital, el CRM para vender proyectos inmobiliarios por disponibilidad",
+    template: "%s | Parcy Digital",
   },
-  description: "Controla la disponibilidad de lotes en tiempo real, conecta tu equipo comercial y técnico, y elimina ventas duplicadas. Gestión inteligente de proyectos inmobiliarios de parcelación.",
+  description:
+    "El CRM para vender por disponibilidad. Inventario de unidades en tiempo real, reservas con cronómetro, aprobación de ventas y reportes para vivienda en altura, parcelaciones y urbanismos.",
   keywords: [
+    "CRM para constructoras",
+    "CRM para parcelaciones",
+    "CRM inmobiliario",
     "gestión inmobiliaria",
     "parcelaciones",
     "urbanismo",
+    "vivienda en altura",
+    "inventario de unidades",
+    "venta de apartamentos",
     "lotes",
     "disponibilidad en tiempo real",
-    "CRM inmobiliario",
     "gestión de proyectos inmobiliarios",
     "software inmobiliario",
     "ventas de lotes",
@@ -37,7 +51,7 @@ export const metadata: Metadata = {
     "gestión de urbanizaciones",
     "control de disponibilidad",
     "preventa inmobiliaria",
-    "SaaS inmobiliario"
+    "SaaS inmobiliario",
   ],
   authors: [{ name: "Parcy Digital", url: baseUrl }],
   creator: "Parcy Digital",
@@ -47,22 +61,24 @@ export const metadata: Metadata = {
     locale: "es_ES",
     url: baseUrl,
     siteName: "Parcy Digital",
-    title: "Parcy Digital - Gestión Inteligente de Parcelaciones",
-    description: "La plataforma SaaS especializada en gestión de proyectos de parcelación y urbanismo. Controla disponibilidad de lotes en tiempo real y elimina ventas duplicadas.",
+    title: "Parcy Digital, el CRM para vender por disponibilidad",
+    description:
+      "Inventario de unidades en tiempo real, reservas, ventas y equipo en un solo lugar. Para vivienda en altura, parcelaciones y urbanismos.",
     images: [
       {
-        url: `${baseUrl}/images/hero/dashboard_hero.png`,
-        width: 1200,
-        height: 630,
-        alt: "Dashboard de Parcy Digital - Gestión de Parcelaciones"
-      }
+        url: `${baseUrl}/images/picture_1.png`,
+        width: 1742,
+        height: 907,
+        alt: "Parcy Digital: plano del proyecto y totales de unidades",
+      },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Parcy Digital - Gestión Inteligente de Parcelaciones",
-    description: "Controla la disponibilidad de lotes en tiempo real y elimina ventas duplicadas. Plataforma especializada en proyectos de parcelación.",
-    images: [`${baseUrl}/images/hero/dashboard_hero.png`],
+    title: "Parcy Digital, el CRM para vender por disponibilidad",
+    description:
+      "Inventario de unidades en tiempo real, reservas, ventas y equipo en un solo lugar.",
+    images: [`${baseUrl}/images/picture_1.png`],
   },
   robots: {
     index: true,
@@ -79,10 +95,10 @@ export const metadata: Metadata = {
 
 // Viewport configuration (required by Next.js 16+)
 export const viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: '#ffffff',
+  themeColor: "#081f4b",
 };
 
 export default function RootLayout({
@@ -94,10 +110,11 @@ export default function RootLayout({
   const organizationJsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Parcy Digital",
-    "url": "https://parcydigital.com",
-    "logo": "https://parcydigital.com/logos/parcy_principal.png",
-    "description": "Plataforma SaaS especializada en gestión de proyectos de parcelación y urbanismo"
+    name: "Parcy Digital",
+    url: "https://parcydigital.com",
+    logo: "https://parcydigital.com/logos/parcy_principal.png",
+    description:
+      "CRM para proyectos inmobiliarios (vivienda en altura, parcelaciones y urbanismos): inventario de unidades, reservas, ventas y reportes",
   };
 
   return (
@@ -109,11 +126,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} ${jakarta.variable} antialiased`}>
         <SmoothScroll />
         {children}
+        <ContactFab />
       </body>
     </html>
   );

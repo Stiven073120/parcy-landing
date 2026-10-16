@@ -69,7 +69,7 @@ const sections: LegalSection[] = [
             inmediato.
           </li>
           <li>
-            Para eliminar <strong>la cuenta completa de tu empresa</strong> (proyectos, lotes,
+            Para eliminar <strong>la cuenta completa de tu empresa</strong> (proyectos, unidades,
             usuarios, contactos e integraciones), el administrador debe solicitarlo por correo
             siguiendo la Opción 2. Antes de hacerlo, te recomendamos exportar la información que
             necesites conservar.
@@ -131,7 +131,7 @@ const sections: LegalSection[] = [
       <>
         <p>
           Cuando una urbanizadora o constructora registra tus datos en Parcy (como interesado o
-          comprador de un lote) o se comunica contigo por WhatsApp a través de nuestra
+          comprador de una unidad) o se comunica contigo por WhatsApp a través de nuestra
           integración, esa empresa es la <strong>responsable del tratamiento</strong> y Parcy
           actúa como encargado por cuenta de ella.
         </p>

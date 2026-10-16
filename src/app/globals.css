@@ -3,110 +3,375 @@
 /*
   ───────────────────────────────────────────────────────────────────────────
   Sistema de diseño — Parcy Digital (landing)
-  Alineado 1:1 con la identidad real del producto (app-parcy):
-  marca #0088CC, jerarquía de tinta de 3 niveles, superficies azuladas suaves,
-  bordes de 1px y los colores semánticos de estado de lote como tokens.
-  Los tokens se exponen como utilidades de Tailwind v4 vía @theme:
-    bg-brand-600 · text-ink · text-ink-soft · border-line · bg-disponible · …
+
+  Tres colores: el azul del logo, la tinta (negro azulado del texto) y el
+  blanco. El azul se usa en toda su escala: azul profundo (brand-950) para el
+  hero, la banda de flujo y el cierre; azul pálido (surface) para alternar
+  secciones claras; el azul de marca (brand-600) para botones, acentos y
+  estados activos. Superficies planas, bordes finos y sombras suaves; sin
+  vidrio, desenfoques ni manchas de color.
+  Los colores de estado de unidad (disponible/reservado/vendido) solo aparecen
+  dentro de contenido de producto, nunca como decoración.
   ───────────────────────────────────────────────────────────────────────────
 */
 @theme {
-  /* ===== Tipografía (Geist se carga en layout.tsx) ===== */
+  /* ===== Tipografía (Geist y Plus Jakarta Sans se cargan en layout.tsx) ===== */
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, monospace;
+  --font-display: var(--font-jakarta), var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
 
-  /* ===== Marca — azul Parcy (#0088CC), idéntico a la app ===== */
-  --color-brand-50: #e8f6fc;
-  --color-brand-100: #c9eaf8;
-  --color-brand-200: #98d6f0;
-  --color-brand-300: #5ebde6;
-  --color-brand-400: #2aa3da;
-  --color-brand-500: #0a90cf;
-  --color-brand-600: #0088cc; /* marca */
-  --color-brand-700: #006da3; /* hover */
-  --color-brand-800: #075a84;
-  --color-brand-900: #0c486b;
-  --color-brand-950: #082f49;
+  /* ===== Marca — azul Parcy (del logo: #00a3ff → #0064ea → #053fbc) ===== */
+  --color-brand-50: #eef6ff;
+  --color-brand-100: #d9ebff;
+  --color-brand-200: #b6d8ff;
+  --color-brand-300: #84bfff;
+  --color-brand-400: #4aa3ff;
+  --color-brand-500: #1f8bff;
+  --color-brand-600: #0b6ef5; /* marca: botones, acentos, estados activos */
+  --color-brand-700: #0757cf; /* hover */
+  --color-brand-800: #0a46a6;
+  --color-brand-900: #0d3778;
+  --color-brand-950: #081f4b; /* azul profundo: hero y bandas oscuras */
+  --color-night: #040e2a; /* el tono más profundo del hero */
+  --color-celeste: #0b96f0; /* acento de titulares sobre claro (el celeste del logo) */
+  --color-celeste-light: #6fcbff; /* acento de titulares sobre azul profundo */
 
-  /* ===== Acento — cian (secundario de la app) ===== */
-  --color-accent-400: #22d3ee;
-  --color-accent-500: #06b6d4;
-  --color-accent-600: #0891b2;
-  --color-accent-700: #0e7490;
+  /* ===== Tinta (negro azulado, nunca negro puro) ===== */
+  --color-ink: #0b1a2e;
+  --color-ink-2: #15283f;
+  --color-ink-soft: #4b5e74;
+  --color-ink-faint: #7f91a6;
 
   /* ===== Superficies ===== */
-  --color-surface: #f2f8fc; /* fondo de página azulado muy suave */
-  --color-panel: #ffffff; /* tarjetas, modales */
-  --color-canvas: #f7f9fb; /* lienzo del dashboard */
+  --color-surface: #f3f7fc; /* azul pálido: alterna con el blanco */
+  --color-panel: #ffffff;
 
-  /* ===== Tinta (3 niveles, nunca negro puro) ===== */
-  --color-ink: #0c1e30;
-  --color-ink-soft: #4a6880;
-  --color-ink-faint: #8aacc0;
+  /* ===== Líneas ===== */
+  --color-line: #dde6f0;
+  --color-line-soft: #eaf0f7;
+  --color-line-strong: #c4d2e3;
 
-  /* ===== Líneas / bordes ===== */
-  --color-line: #e2e5e9;
-  --color-line-soft: #f1f3f5;
+  /* ===== Estados de unidad (solo dentro de contenido de producto) ===== */
+  --color-disponible: #1a9e55;
+  --color-reservado: #d4890b;
+  --color-vendido: #d9344f;
+  --color-bloqueado: #6b7a89;
 
-  /* ===== Panel nocturno (hero oscuro / CTA final) ===== */
-  --color-night: #07111b;
-  --color-night-2: #0a2236;
+  /* ===== Movimiento ===== */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* ===== Estados de lote (el motivo visual de Parcy) ===== */
-  --color-disponible: #22c55e; /* emerald */
-  --color-reservado: #f59e0b; /* amber  */
-  --color-vendido: #f43f5e; /* rose   */
-  --color-bloqueado: #64748b; /* slate  */
+  /* ===== Profundidad ===== */
+  --shadow-card: 0 1px 2px rgba(11, 26, 46, 0.04), 0 10px 30px -18px rgba(11, 26, 46, 0.16);
+  --shadow-frame: 0 1px 2px rgba(11, 26, 46, 0.05), 0 30px 80px -30px rgba(11, 26, 46, 0.35);
 }
 
-:root {
-  --background: #ffffff;
-  --foreground: #0c1e30;
-}
-
-/* Scroll suave para anclas (#caracteristicas, etc.) con offset por el header fijo (h-20 = 5rem) */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 7.5rem;
+  scroll-padding-top: 6rem; /* header flotante (3.5rem + margen) + aire */
   text-rendering: optimizeLegibility;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans);
-  -webkit-font-smoothing: antialiased;
+/* Titulares en la tipografía de display */
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
 }
 
-/* Estilos para el carousel de iconos en móvil */
-.hero-carousel {
+body {
+  background: var(--color-panel);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "cv11", "ss01";
+}
+
+::selection {
+  background: var(--color-brand-100);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@layer components {
+  /*
+    Tarjeta: blanco plano, borde fino azul-gris, esquinas de 1.25rem y una
+    sombra muy suave. `card-hover` añade el leve ascenso y el borde azul.
+  */
+  .card {
+    position: relative;
+    border: 1px solid var(--color-line);
+    border-radius: 1.25rem;
+    background: var(--color-panel);
+    box-shadow: var(--shadow-card);
+    transition:
+      transform 300ms var(--ease-out-expo),
+      border-color 200ms ease,
+      box-shadow 300ms var(--ease-out-expo);
+  }
+  @media (hover: hover) {
+    .card-hover:hover {
+      transform: translateY(-2px);
+      border-color: var(--color-brand-200);
+      box-shadow:
+        0 1px 2px rgba(11, 26, 46, 0.04),
+        0 18px 40px -20px rgba(11, 110, 245, 0.28);
+    }
+  }
+
+  /*
+    Banda de azul profundo: hero, flujo y cierre. Degradado vertical de
+    brand-950 a night con dos luces azules suaves arriba para que el azul no
+    sea plano. El contenido va en `relative`.
+  */
+  .band-navy {
+    position: relative;
+    color: #fff;
+    background-color: var(--color-brand-950);
+    background-image: linear-gradient(180deg, var(--color-brand-950) 0%, var(--color-night) 100%);
+  }
+  /* Luces azules arriba, solo en los heros (empiezan la página, nada se funde con ellos) */
+  .band-hero {
+    background-image:
+      radial-gradient(60% 55% at 50% -10%, rgba(31, 139, 255, 0.42), transparent 70%),
+      radial-gradient(40% 45% at 100% 20%, rgba(11, 110, 245, 0.22), transparent 70%),
+      linear-gradient(180deg, var(--color-brand-950) 0%, var(--color-night) 100%);
+  }
+
+  /*
+    Curvas de nivel sobre el hero: el plano del terreno. Dos cerros de anillos
+    irregulares (uno grande detrás de la escena, otro pequeño abajo a la
+    izquierda), en línea blanca muy tenue; se desvanecen hacia abajo. El SVG
+    se genera con un script (scratchpad) y se incrusta como data URI.
+  */
+  .band-topo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%271600%27%20height%3D%271000%27%20viewBox%3D%270%200%201600%201000%27%20fill%3D%27none%27%20stroke%3D%27rgba%28255%2C255%2C255%2C0.075%29%27%20stroke-width%3D%271.2%27%3E%3Cpath%20d%3D%27M1345.9%20420.0C1346.9%20436.7%201324.4%20454.8%201313.2%20471.3C1302.0%20487.8%201294.8%20506.5%201278.6%20518.9C1262.3%20531.3%201238.2%20541.7%201215.9%20545.8C1193.6%20549.9%201166.8%20548.4%201144.8%20543.4C1122.8%20538.5%201096.8%20529.7%201083.9%20516.4C1071.1%20503.0%201075.7%20479.3%201067.7%20463.3C1059.6%20447.2%201044.5%20437.8%201035.8%20420.0C1027.2%20402.2%201006.6%20371.6%201015.8%20356.8C1025.1%20341.9%201070.3%20342.4%201091.4%20331.1C1112.5%20319.8%201121.7%20295.6%201142.6%20289.0C1163.5%20282.4%201194.0%20286.1%201216.7%20291.4C1239.4%20296.7%201263.7%20307.6%201278.8%20320.9C1293.9%20334.2%201296.1%20354.4%201307.3%20370.9C1318.5%20387.5%201345.0%20403.3%201345.9%20420.0Z%27%2F%3E%3Cpath%20d%3D%27M1430.3%20420.0C1431.8%20445.2%201397.8%20472.5%201380.9%20497.4C1363.9%20522.2%201353.1%20550.4%201328.7%20569.1C1304.2%20587.9%201267.8%20603.6%201234.1%20609.8C1200.5%20616.0%201160.1%20613.6%201126.9%20606.2C1093.7%20598.8%201054.5%20585.5%201035.1%20565.4C1015.7%20545.2%201022.7%20509.5%201010.6%20485.3C998.5%20461.1%20975.6%20446.8%20962.6%20420.0C949.5%20393.2%20918.4%20347.0%20932.4%20324.6C946.4%20302.3%201014.5%20303.0%201046.4%20286.0C1078.2%20268.9%201092.1%20232.4%201123.6%20222.4C1155.1%20212.4%201201.1%20218.0%201235.3%20226.0C1269.6%20234.0%201306.2%20250.5%201329.0%20270.5C1351.8%20290.5%201355.2%20321.1%201372.0%20346.0C1388.9%20370.9%201428.8%20394.8%201430.3%20420.0Z%27%2F%3E%3Cpath%20d%3D%27M1514.6%20420.0C1516.6%20453.7%201471.2%20490.2%201448.6%20523.5C1425.9%20556.7%201411.4%20594.3%201378.7%20619.4C1346.0%20644.4%201297.4%20665.5%201252.4%20673.7C1207.4%20682.0%201153.3%20678.8%201109.0%20668.9C1064.6%20659.0%201012.2%20641.3%20986.3%20614.3C960.4%20587.4%20969.6%20539.7%20953.5%20507.3C937.3%20474.9%20906.7%20455.8%20889.3%20420.0C871.9%20384.2%20830.3%20322.3%20849.0%20292.5C867.6%20262.6%20958.7%20263.6%201001.3%20240.8C1044.0%20218.0%201062.5%20169.2%201104.6%20155.8C1146.7%20142.5%201208.2%20149.9%201254.0%20160.6C1299.8%20171.4%201348.8%20193.4%201379.2%20220.2C1409.7%20246.9%201414.2%20287.8%201436.7%20321.1C1459.3%20354.4%201512.6%20386.3%201514.6%20420.0Z%27%2F%3E%3Cpath%20d%3D%27M1599.0%20420.0C1601.4%20462.2%201544.6%20507.9%201516.3%20549.5C1487.9%20591.2%201469.8%20638.3%201428.8%20669.6C1387.9%20701.0%201326.9%20727.3%201270.6%20737.7C1214.3%20748.0%201146.6%20744.1%201091.1%20731.7C1035.6%20719.3%20969.9%20697.0%20937.5%20663.3C905.0%20629.6%20916.6%20569.8%20896.4%20529.3C876.1%20488.7%20837.8%20464.8%20816.0%20420.0C794.2%20375.2%20742.2%20297.7%20765.5%20260.3C788.9%20222.9%20903.0%20224.1%20956.3%20195.6C1009.7%20167.1%201032.9%20106.0%201085.6%2089.2C1138.4%2072.5%201215.3%2081.8%201272.6%2095.3C1329.9%20108.7%201391.3%20136.3%201429.4%20169.8C1467.6%20203.3%201473.2%20254.5%201501.5%20296.2C1529.7%20337.9%201596.5%20377.8%201599.0%20420.0Z%27%2F%3E%3Cpath%20d%3D%27M1683.3%20420.0C1686.3%20470.7%201618.0%20525.6%201583.9%20575.6C1549.9%20625.6%201528.1%20682.2%201478.9%20719.9C1429.7%20757.5%201356.5%20789.2%201288.9%20801.6C1221.3%20814.1%201139.9%20809.3%201073.2%20794.4C1006.5%20779.5%20927.6%20752.8%20888.6%20712.3C849.7%20671.8%20863.6%20600.0%20839.3%20551.3C815.0%20502.6%20768.9%20473.8%20742.7%20420.0C716.5%20366.2%20654.0%20273.1%20682.1%20228.2C710.2%20183.3%20847.2%20184.7%20911.3%20150.4C975.4%20116.2%201003.3%2042.7%201066.6%2022.6C1130.0%202.6%201222.5%2013.8%201291.3%2029.9C1360.1%2046.0%201433.8%2079.2%201479.6%20119.4C1525.4%20159.6%201532.2%20221.1%201566.2%20271.2C1600.1%20321.3%201680.3%20369.3%201683.3%20420.0Z%27%2F%3E%3Cpath%20d%3D%27M1767.6%20420.0C1771.1%20479.2%201691.4%20543.3%201651.6%20601.7C1611.9%20660.1%201586.4%20726.1%201529.0%20770.1C1471.6%20814.1%201386.1%20851.1%201307.1%20865.6C1228.2%20880.1%201133.2%20874.5%201055.3%20857.1C977.4%20839.7%20885.3%20808.6%20839.8%20761.3C794.3%20714.0%20810.6%20630.1%20782.2%20573.3C753.8%20516.4%20700.1%20482.9%20669.5%20420.0C638.9%20357.1%20565.9%20248.5%20598.7%20196.0C631.5%20143.6%20791.4%20145.3%20866.3%20105.3C941.1%2065.3%20973.7%20-20.5%201047.6%20-43.9C1121.6%20-67.4%201229.6%20-54.3%201309.9%20-35.5C1390.3%20-16.6%201476.3%2022.1%201529.8%2069.1C1583.3%20116.0%201591.2%20187.8%201630.9%20246.3C1670.5%20304.8%201764.2%20360.8%201767.6%20420.0Z%27%2F%3E%3Cpath%20d%3D%27M1852.0%20420.0C1855.9%20487.7%201764.8%20561.1%201719.3%20627.8C1673.8%20694.5%201644.8%20770.1%201579.1%20820.4C1513.4%20870.7%201415.7%20913.0%201325.4%20929.5C1235.1%20946.1%201126.5%20939.7%201037.4%20919.9C948.3%20900.0%20843.0%20864.3%20791.0%20810.2C738.9%20756.1%20757.5%20660.3%20725.1%20595.3C692.6%20530.2%20631.2%20491.9%20596.2%20420.0C561.2%20348.1%20477.7%20223.9%20515.2%20163.9C552.8%20103.9%20735.7%20105.8%20821.2%2060.1C906.8%2014.4%20944.1%20-83.7%201028.6%20-110.5C1113.2%20-137.3%201236.7%20-122.4%201328.6%20-100.8C1420.5%20-79.3%201518.9%20-35.0%201580.0%2018.7C1641.2%2072.4%201650.3%20154.5%201695.6%20221.4C1740.9%20288.3%201848.0%20352.3%201852.0%20420.0Z%27%2F%3E%3Cpath%20d%3D%27M1936.3%20420.0C1940.7%20496.2%201838.2%20578.8%201787.0%20653.9C1735.8%20729.0%201703.1%20814.0%201629.2%20870.6C1555.3%20927.2%201445.2%20974.8%201343.6%20993.5C1242.0%201012.1%201119.7%201005.0%201019.5%20982.6C919.2%20960.2%20800.7%20920.1%20742.2%20859.2C683.6%20798.3%20704.5%20690.5%20668.0%20617.3C631.5%20544.1%20562.3%20500.9%20522.9%20420.0C483.6%20339.1%20389.6%20199.3%20431.8%20131.8C474.0%2064.2%20679.9%2066.4%20776.2%2014.9C872.5%20-36.5%20914.5%20-146.9%201009.6%20-177.1C1104.8%20-207.3%201243.8%20-190.4%201347.2%20-166.2C1450.7%20-142.0%201561.4%20-92.1%201630.3%20-31.7C1699.1%2028.8%201709.3%20121.2%201760.3%20196.4C1811.3%20271.7%201931.8%20343.8%201936.3%20420.0Z%27%2F%3E%3Cpath%20d%3D%27M2020.6%20420.0C2025.6%20504.7%201911.6%20596.5%201854.7%20679.9C1797.8%20763.4%201761.4%20857.9%201679.3%20920.9C1597.1%20983.8%201474.8%201036.7%201361.9%201057.4C1248.9%201078.2%201113.0%201070.2%201001.6%201045.3C890.2%201020.5%20758.5%20975.9%20693.3%20908.2C628.2%20840.5%20651.5%20720.6%20610.9%20639.3C570.3%20557.9%20493.4%20509.9%20449.7%20420.0C405.9%20330.1%20301.5%20174.7%20348.4%2099.6C395.3%2024.6%20624.2%2027.0%20731.2%20-30.2C838.2%20-87.4%20884.9%20-210.1%20990.6%20-243.7C1096.4%20-277.2%201250.9%20-258.5%201365.9%20-231.6C1480.9%20-204.6%201603.9%20-149.2%201680.5%20-82.0C1757.0%20-14.9%201768.3%2087.8%201825.0%20171.5C1881.7%20255.2%202015.7%20335.3%202020.6%20420.0Z%27%2F%3E%3Cpath%20d%3D%27M396.6%20880.0C399.6%20897.8%20415.4%20921.9%20407.5%20936.8C399.5%20951.7%20369.3%20963.8%20349.0%20969.3C328.7%20974.8%20304.7%20970.0%20285.6%20969.8C266.6%20969.7%20252.6%20969.7%20234.8%20968.3C217.0%20966.9%20199.0%20966.8%20178.8%20961.5C158.5%20956.2%20118.6%20950.1%20113.3%20936.5C108.0%20922.9%20140.1%20896.2%20147.1%20880.0C154.1%20863.8%20150.7%20854.0%20155.2%20839.6C159.6%20825.2%20161.2%20803.5%20173.9%20793.6C186.6%20783.7%20212.0%20783.6%20231.5%20780.1C251.0%20776.6%20273.7%20768.2%20290.6%20772.6C307.6%20777.0%20316.7%20797.0%20333.2%20806.6C349.7%20816.1%20379.2%20817.7%20389.8%20830.0C400.4%20842.2%20393.7%20862.2%20396.6%20880.0Z%27%2F%3E%3Cpath%20d%3D%27M470.0%20880.0C474.5%20907.4%20498.9%20944.5%20486.7%20967.3C474.5%20990.2%20428.0%201008.8%20396.8%201017.3C365.6%201025.7%20328.7%201018.3%20299.4%201018.1C270.1%201017.8%20248.7%201017.8%20221.3%201015.7C193.9%201013.5%20166.3%201013.4%20135.2%201005.2C104.0%20997.1%2042.6%20987.7%2034.5%20966.9C26.4%20946.0%2075.7%20904.8%2086.4%20880.0C97.2%20855.2%2092.0%20840.0%2098.9%20817.9C105.7%20795.8%20108.1%20762.5%20127.6%20747.2C147.2%20732.0%20186.3%20731.9%20216.2%20726.5C246.1%20721.1%20281.0%20708.2%20307.1%20715.0C333.1%20721.7%20347.1%20752.4%20372.5%20767.1C397.9%20781.8%20443.3%20784.3%20459.5%20803.1C475.8%20821.9%20465.5%20852.6%20470.0%20880.0Z%27%2F%3E%3Cpath%20d%3D%27M543.4%20880.0C549.5%20916.9%20582.4%20967.0%20565.9%20997.8C549.4%201028.7%20486.7%201053.8%20444.6%201065.2C402.5%201076.6%20352.6%201066.7%20313.2%201066.3C273.7%201066.0%20244.7%201066.0%20207.8%201063.1C170.8%201060.2%20133.5%201060.0%2091.5%201049.0C49.5%201038.0%20-33.3%201025.4%20-44.3%20997.2C-55.2%20969.1%2011.3%20913.5%2025.8%20880.0C40.3%20846.5%2033.3%20826.1%2042.6%20796.2C51.8%20766.4%2055.0%20721.4%2081.4%20700.8C107.8%20680.3%20160.5%20680.1%20200.9%20672.8C241.3%20665.6%20288.4%20648.2%20323.5%20657.3C358.7%20666.4%20377.6%20707.9%20411.8%20727.7C446.1%20747.5%20507.3%20750.9%20529.2%20776.3C551.2%20801.7%20537.3%20843.1%20543.4%20880.0Z%27%2F%3E%3Cpath%20d%3D%27M616.8%20880.0C624.5%20926.5%20665.8%20989.5%20645.1%201028.4C624.4%201067.2%20545.5%201098.8%20492.4%201113.2C439.4%201127.5%20376.6%201115.0%20326.9%201114.6C277.2%201114.1%20240.7%201114.1%20194.2%201110.5C147.7%201106.8%20100.8%201106.6%2047.9%201092.8C-5.0%201078.9%20-109.3%201063.0%20-123.1%201027.6C-136.9%20992.1%20-53.1%20922.2%20-34.8%20880.0C-16.6%20837.8%20-25.4%20812.1%20-13.8%20774.5C-2.1%20736.9%201.9%20680.3%2035.1%20654.4C68.4%20628.5%20134.8%20628.3%20185.6%20619.2C236.4%20610.1%20295.7%20588.1%20340.0%20599.6C384.3%20611.1%20408.0%20663.3%20451.1%20688.2C494.3%20713.2%20571.4%20717.5%20599.0%20749.4C626.6%20781.4%20609.1%20833.5%20616.8%20880.0Z%27%2F%3E%3Cpath%20d%3D%27M690.2%20880.0C699.4%20936.1%20749.3%201012.0%20724.3%201058.9C699.3%201105.7%20604.2%201143.8%20540.2%201161.1C476.3%201178.4%20400.6%201163.4%20340.7%201162.8C280.8%201162.3%20236.8%201162.3%20180.7%201157.9C124.7%201153.5%2068.1%201153.2%204.3%201136.5C-59.5%201119.9%20-185.2%201100.7%20-201.9%201057.9C-218.5%201015.2%20-117.5%20930.8%20-95.5%20880.0C-73.5%20829.2%20-84.1%20798.2%20-70.1%20752.8C-56.0%20707.5%20-51.2%20639.2%20-11.1%20608.0C28.9%20576.8%20109.0%20576.6%20170.3%20565.6C231.5%20554.5%20303.1%20528.1%20356.4%20542.0C409.8%20555.8%20438.4%20618.7%20490.5%20648.8C542.5%20678.9%20635.4%20684.0%20668.7%20722.6C702.0%20761.1%20680.9%20823.9%20690.2%20880.0Z%27%2F%3E%3C%2Fsvg%3E");
+    background-size: 1600px 1000px;
+    background-position: center top;
+    background-repeat: no-repeat;
+    -webkit-mask-image: linear-gradient(to bottom, #000 45%, transparent 92%);
+    mask-image: linear-gradient(to bottom, #000 45%, transparent 92%);
+  }
+
+  /*
+    Trama de parcelas sobre la banda oscura: el plano del producto, dibujado
+    con líneas discontinuas muy tenues y una vía que lo cruza. Se desvanece
+    hacia el centro para no competir con el contenido.
+  */
+  .band-plan::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240' fill='none' stroke='rgba(255,255,255,0.16)' stroke-width='1' stroke-dasharray='4 5'%3E%3Cpath d='M20 20h80v70H20zM120 20h100v70H120zM20 110h50v110H20zM90 110h130v50H90zM90 180h60v40H90zM170 180h50v40h-50z'/%3E%3C/svg%3E");
+    background-size: 240px 240px;
+    -webkit-mask-image: linear-gradient(to right, #000 0%, transparent 35%, transparent 65%, #000 100%);
+    mask-image: linear-gradient(to right, #000 0%, transparent 35%, transparent 65%, #000 100%);
+  }
+
+  /*
+    Ventana del tour de producto: en escritorio descansa en perspectiva (como
+    una pantalla apoyada) y se endereza al pasar el mouse sobre la sección.
+  */
+  .tour-stage {
+    perspective: 1800px;
+  }
+  .tour-window {
+    transform-origin: center top;
+    transition: transform 700ms var(--ease-out-expo), box-shadow 700ms var(--ease-out-expo);
+  }
+  @media (min-width: 64rem) and (hover: hover) {
+    .tour-window {
+      transform: rotateX(6deg) rotateY(-5deg);
+      box-shadow:
+        0 1px 2px rgba(11, 26, 46, 0.04),
+        0 40px 80px -30px rgba(11, 110, 245, 0.35);
+    }
+    .tour-stage:hover .tour-window {
+      transform: rotateX(0deg) rotateY(0deg);
+    }
+  }
+
+  /*
+    Fundidos entre secciones. La sección que termina lleva `fade-b-<color de la
+    siguiente>`: un degradado en su borde inferior (dentro de su propio
+    padding, no añade altura) que va de transparente al fondo que sigue.
+    Entre azul profundo y claro el degradado pasa por el azul de marca, como
+    un horizonte luminoso; entre blanco y azul pálido es apenas un velo.
+    `isolation` crea el contexto para que el ::after quede bajo el contenido.
+  */
+  .fade-b-panel,
+  .fade-b-surface,
+  .fade-b-navy {
+    position: relative;
+    isolation: isolate;
+    --fade-h: 6rem;
+  }
+  .fade-b-panel::after,
+  .fade-b-surface::after,
+  .fade-b-navy::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: var(--fade-h);
+    z-index: -1;
+    pointer-events: none;
+  }
+  .fade-b-panel::after {
+    background: linear-gradient(to bottom, transparent, var(--color-panel));
+  }
+  .fade-b-surface::after {
+    background: linear-gradient(to bottom, transparent, var(--color-surface));
+  }
+  /* Claro → azul profundo (termina en brand-950, el tono con que empieza la banda) */
+  .fade-b-navy {
+    --fade-h: 6rem;
+  }
+  .fade-b-navy::after {
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(199, 216, 238, 0.5) 30%,
+      rgba(126, 160, 210, 0.75) 55%,
+      rgba(58, 92, 160, 0.9) 72%,
+      rgba(20, 48, 105, 0.98) 88%,
+      var(--color-brand-950) 100%
+    );
+  }
+  /* Azul profundo → claro (empieza transparente sobre el night con que termina la banda) */
+  .band-navy.fade-b-panel,
+  .band-navy.fade-b-surface {
+    --fade-h: 7rem;
+  }
+  .band-navy.fade-b-panel::after,
+  .band-navy.fade-b-surface::after {
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(20, 48, 105, 0.85) 30%,
+      rgba(58, 92, 160, 0.9) 50%,
+      rgba(126, 160, 210, 0.9) 66%,
+      rgba(199, 216, 238, 0.96) 84%,
+      var(--fade-to) 100%
+    );
+  }
+  .band-navy.fade-b-panel::after {
+    --fade-to: var(--color-panel);
+  }
+  .band-navy.fade-b-surface::after {
+    --fade-to: var(--color-surface);
+  }
+  @media (min-width: 64rem) {
+    .fade-b-navy {
+      --fade-h: 8rem;
+    }
+    .band-navy.fade-b-panel,
+    .band-navy.fade-b-surface {
+      --fade-h: 9rem;
+    }
+  }
+
+  /* Enlace con flecha que avanza al pasar el mouse */
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-weight: 600;
+    color: var(--color-brand-600);
+    transition: color 150ms ease;
+  }
+  .link-arrow svg {
+    transition: transform 200ms var(--ease-out-expo);
+  }
+  .link-arrow:hover {
+    color: var(--color-brand-700);
+  }
+  .link-arrow:hover svg {
+    transform: translateX(3px);
+  }
+
+  /* Pastilla de icono: cuadrado redondeado azul pálido con el icono en azul */
+  .icon-tile {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.875rem;
+    border: 1px solid var(--color-brand-100);
+    background: var(--color-brand-50);
+    color: var(--color-brand-600);
+  }
+}
+
+/* Barra de desplazamiento a juego: pista azul pálida y pastilla azul de marca
+   con aire alrededor. Firefox solo admite colores; Chromium/Safari usan los
+   pseudo-elementos (scrollbar-color los anularía, por eso va aparte). */
+@supports (-moz-appearance: none) {
+  html {
+    scrollbar-color: rgba(11, 110, 245, 0.55) var(--color-surface);
+    scrollbar-width: thin;
+  }
+}
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+  border-left: 1px solid var(--color-line-soft);
+}
+::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, var(--color-brand-500), var(--color-brand-700)) padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--color-brand-400), var(--color-brand-600)) padding-box;
+}
+::-webkit-scrollbar-corner {
+  background: var(--color-surface);
+}
+
+/* Cifras alineadas en precios y métricas */
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Scroll horizontal sin barra (chips de tabs en móvil) */
+.no-scrollbar {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
-.hero-carousel::-webkit-scrollbar {
+.no-scrollbar::-webkit-scrollbar {
   display: none;
 }
 
-/* Animación de entrada reutilizable para secciones server-component (reveal sin JS) */
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Marcador del acordeón nativo */
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
 }
 
-/* Latido suave para el punto del cronómetro de reserva */
+/* Latido suave del punto de reserva activa */
 @keyframes pulse-ring {
   0% {
     transform: scale(0.9);
     opacity: 0.7;
   }
   70% {
-    transform: scale(1.6);
+    transform: scale(1.8);
     opacity: 0;
   }
   100% {
@@ -186,4 +451,38 @@ body {
 }
 .legal-prose dd {
   margin-top: 0.125rem;
+}
+
+/* Respiración suave de las facetas (FacetMesh, no usado por ahora) */
+@keyframes facet-breathe {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.12);
+  }
+}
+
+/* Barra de progreso del tour de producto (autoplay) */
+@keyframes tour-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

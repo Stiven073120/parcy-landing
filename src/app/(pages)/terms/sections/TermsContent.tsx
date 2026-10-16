@@ -15,8 +15,8 @@ const sections: LegalSection[] = [
       <>
         <p>
           Estos Términos y condiciones (los «Términos») regulan el acceso y uso del sitio web{" "}
-          <a href={LEGAL.siteUrl}>parcydigital.com</a> y de la plataforma de gestión de
-          parcelaciones y urbanismos disponible en <a href={LEGAL.appUrl}>app.parcydigital.com</a>{" "}
+          <a href={LEGAL.siteUrl}>parcydigital.com</a> y de la plataforma de gestión y venta de
+          proyectos inmobiliarios disponible en <a href={LEGAL.appUrl}>app.parcydigital.com</a>{" "}
           (en conjunto, la «Plataforma»), operados por <strong>{LEGAL.legalName}</strong>
           {LEGAL.nit ? `, NIT ${LEGAL.nit},` : ","} con domicilio en {LEGAL.address} («Parcy»).
         </p>
@@ -58,7 +58,7 @@ const sections: LegalSection[] = [
           <dt>Contenido del Cliente</dt>
           <dd>
             Toda la información que el Cliente o sus Usuarios cargan en la Plataforma: planos,
-            lotes, precios, datos de contactos y compradores, documentos, mensajes y demás
+            unidades (lotes, apartamentos, casas u otros), precios, datos de contactos y compradores, documentos, mensajes y demás
             registros.
           </dd>
         </div>
@@ -87,7 +87,8 @@ const sections: LegalSection[] = [
       <>
         <p>
           Parcy es una plataforma de software como servicio (SaaS) que permite a urbanizadores
-          y constructoras visualizar sus lotes sobre el plano del proyecto, controlar su
+          y constructoras gestionar las unidades de sus proyectos (lotes, apartamentos, casas u
+          otros), visualizarlas sobre el plano, controlar su
           disponibilidad en tiempo real, gestionar reservas y solicitudes de venta con flujos de
           aprobación, administrar equipos con roles y permisos, y generar informes y
           trazabilidad de cada operación.

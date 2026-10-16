@@ -13,11 +13,13 @@ import PricingCTA from "./sections/PricingCTA";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Precios y Planes",
-  description: "25% de descuento en planes anuales hasta el 10 de septiembre. Descubre nuestros planes de gestión inmobiliaria para parcelaciones. Desde proyectos pequeños hasta empresas constructoras. Implementación y soporte incluidos.",
+  title: "Precios y planes",
+  description:
+    "Planes del CRM para proyectos inmobiliarios: vivienda en altura, parcelaciones y urbanismos. Desde un primer proyecto hasta constructoras con varias empresas. Sin permanencia, implementación y soporte incluidos, precios en COP.",
   openGraph: {
-    title: "Planes y Precios - Parcy Digital",
-    description: "25% de descuento en planes anuales hasta el 10 de septiembre. Planes flexibles para gestión de parcelaciones. Desde proyectos pequeños hasta empresas constructoras.",
+    title: "Planes y precios de Parcy Digital",
+    description:
+      "Planes flexibles para gestionar y vender tus unidades. Sin permanencia, implementación y soporte incluidos.",
     url: "https://parcydigital.com/pricing",
   },
   alternates: {
@@ -29,13 +31,15 @@ export default function Pricing() {
   return (
     <>
       <Header />
-      <HeroPricing />
-      <PromoAnual />
-      <PricingPlans />
-      <Addons />
-      <Enterprise />
-      <AllPlansInclude />
-      <PricingCTA />
+      <main>
+        <HeroPricing />
+        <PromoAnual />
+        <PricingPlans />
+        <Addons />
+        <Enterprise />
+        <AllPlansInclude />
+        <PricingCTA />
+      </main>
       <Footer />
     </>
   );

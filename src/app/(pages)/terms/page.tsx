@@ -28,7 +28,7 @@ export default function Terms() {
         eyebrow="Legal"
         title={
           <>
-            Términos y <span className="text-brand-600">Condiciones</span> de uso
+            Términos y <span className="text-celeste">Condiciones</span> de uso
           </>
         }
         description="Las reglas que regulan el uso del sitio web y de la plataforma Parcy Digital, incluidas las condiciones para usar la integración con WhatsApp Business."

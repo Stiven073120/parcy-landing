@@ -9,67 +9,46 @@ const generic = [
 ];
 
 const parcy = [
-  "Pensado desde cero para parcelación",
-  "Gira en torno al lote: estado, reserva y venta",
+  "Pensado desde cero para vender por disponibilidad",
+  "Gira en torno a la unidad: estado, reserva y venta",
   "Plano interactivo con estados auditados",
   "Se ajusta a tu proceso, sin adaptaciones",
 ];
 
 export default function SpecializedSolution() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-night via-[#0a2236] to-night-2 py-20 sm:py-28 lg:py-32">
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-0 h-[420px] w-[760px] -translate-x-1/2 rounded-full bg-brand-600/15 blur-[130px]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_40%,#000_40%,transparent_100%)]" />
-      </div>
-
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-sm font-medium text-white/80 backdrop-blur-sm">
-            <span className="h-1.5 w-1.5 rounded-full bg-brand-300" />
-            Especialización
-          </span>
-          <h2 className="mt-5 text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
-            Especialización, <span className="text-brand-300">no adaptación.</span>
+    <section className="fade-b-surface bg-panel py-14 sm:py-16 lg:py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <Reveal className="mx-auto max-w-2xl text-center sm:mx-0 sm:text-left">
+          <h2 className="text-balance text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-ink sm:text-[2.5rem]">
+            <span className="text-celeste">Especializado,</span> no adaptado.
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-pretty text-lg leading-relaxed text-white/65">
-            La diferencia entre un software hecho para tu industria y uno genérico forzado a
+          <p className="mt-3 text-pretty text-base leading-relaxed text-ink-soft sm:text-lg">
+            La diferencia entre un CRM hecho para tu industria y uno genérico forzado a
             funcionar.
           </p>
         </Reveal>
 
-        <Reveal className="mx-auto mt-14 max-w-4xl">
-          <div className="grid gap-3 rounded-3xl border border-white/10 bg-white/[0.03] p-3 backdrop-blur-sm md:grid-cols-2">
-            {/* Genérico */}
-            <div className="rounded-2xl bg-white/[0.04] p-6 sm:p-8">
-              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white/60">
-                CRM genérico
-              </div>
-              <ul className="space-y-3.5">
+        <Reveal className="mt-12">
+          <div className="card grid overflow-hidden md:grid-cols-2">
+            <div className="p-7 text-center sm:p-8 sm:text-left">
+              <p className="text-sm font-medium text-ink-soft">CRM genérico adaptado</p>
+              <ul className="mx-auto mt-5 w-fit space-y-3.5 sm:mx-0 sm:w-auto">
                 {generic.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white/10 text-white/50">
-                      <X className="h-3 w-3" />
-                    </span>
-                    <span className="text-sm leading-relaxed text-white/70">{item}</span>
+                  <li key={item} className="flex items-start gap-3 text-left">
+                    <X className="mt-0.5 h-4 w-4 shrink-0 text-ink-faint" aria-hidden="true" />
+                    <span className="text-[15px] leading-relaxed text-ink-soft">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
-
-            {/* Parcy */}
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-brand-600 to-brand-800 p-6 shadow-[0_24px_60px_-24px_rgba(0,136,204,0.7)] sm:p-8">
-              <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-brand-400/30 blur-2xl" />
-              <div className="relative mb-5 inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white ring-1 ring-inset ring-white/20">
-                Parcy Digital
-              </div>
-              <ul className="relative space-y-3.5">
+            <div className="border-t border-line bg-brand-50 p-7 text-center sm:p-8 sm:text-left md:border-l md:border-t-0">
+              <p className="text-sm font-semibold text-brand-700">Parcy Digital</p>
+              <ul className="mx-auto mt-5 w-fit space-y-3.5 sm:mx-0 sm:w-auto">
                 {parcy.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white/20 text-white">
-                      <Check className="h-3 w-3" />
-                    </span>
-                    <span className="text-sm font-medium leading-relaxed text-white">{item}</span>
+                  <li key={item} className="flex items-start gap-3 text-left">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" aria-hidden="true" />
+                    <span className="text-[15px] font-medium leading-relaxed text-ink">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -77,10 +56,9 @@ export default function SpecializedSolution() {
           </div>
         </Reveal>
 
-        <Reveal className="mx-auto mt-10 max-w-2xl text-center">
-          <p className="text-pretty text-xl font-medium text-white sm:text-2xl">
-            Parcy no es un CRM adaptado.{" "}
-            <span className="text-brand-300">Es una plataforma especializada.</span>
+        <Reveal className="mt-10 max-w-2xl">
+          <p className="text-pretty text-xl font-medium text-ink">
+            Parcy es un CRM especializado en proyectos inmobiliarios, no un CRM adaptado.
           </p>
         </Reveal>
       </div>

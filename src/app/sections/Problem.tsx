@@ -1,78 +1,71 @@
-import { TriangleAlert, FileSpreadsheet, Unplug, History } from "lucide-react";
+import { FileSpreadsheet, Unplug, Users } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 
 const problems = [
   {
-    icon: TriangleAlert,
-    title: "Ventas duplicadas",
-    description: "Dos asesores cierran el mismo lote: nadie ve la disponibilidad real.",
+    Icon: Users,
+    title: "Dos asesores, una misma unidad",
+    description:
+      "Cada uno cierra con su propia versión del inventario. El cliente se entera después.",
   },
   {
-    icon: FileSpreadsheet,
-    title: "Inventario en Excel",
-    description: "Planos en PDF y hojas que se desactualizan apenas cambian de manos.",
+    Icon: FileSpreadsheet,
+    title: "Un inventario que caduca",
+    description:
+      "El plano en PDF y la hoja de cálculo cambian de manos y nadie sabe cuál es la última.",
   },
   {
-    icon: Unplug,
-    title: "Equipos desconectados",
-    description: "Comercial y técnico trabajan con versiones distintas de la verdad.",
-  },
-  {
-    icon: History,
-    title: "Sin rastro",
-    description: "Si algo falla, nadie sabe quién reservó o vendió un lote.",
+    Icon: Unplug,
+    title: "Comercial y técnico, desconectados",
+    description:
+      "Cada equipo trabaja con información distinta y las decisiones llegan tarde.",
   },
 ];
 
+/** Tres tarjetas numeradas (el número grande, en azul pálido, es la firma de la sección). */
 export default function Problem() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-night to-night-2 py-20 sm:py-28 lg:py-32">
-      {/* Decoración */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-0 h-[440px] w-[760px] -translate-x-1/2 rounded-full bg-brand-600/12 blur-[140px]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_80%_70%_at_50%_30%,#000_45%,transparent_100%)]" />
-      </div>
-
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-white/70">
-            <span className="h-1.5 w-1.5 rounded-full bg-brand-400" />
-            El problema
-          </span>
-          <h2 className="mt-5 text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
-            El problema no es vender. Es saber{" "}
-            <span className="text-brand-300">qué lote está libre.</span>
+    <section className="fade-b-surface bg-panel py-14 sm:py-16 lg:py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <Reveal className="mx-auto max-w-2xl text-center sm:mx-0 sm:text-left">
+          <h2 className="text-balance text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-ink sm:text-[2.5rem]">
+            Vender desde un Excel <span className="text-celeste">sale caro.</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-pretty text-lg leading-relaxed text-white/60">
-            Sin una sola fuente de disponibilidad, los errores se acumulan y tu equipo deja
-            de confiar en el sistema.
+          <p className="mt-3 text-pretty text-base leading-relaxed text-ink-soft sm:text-lg">
+            Sin una sola fuente de disponibilidad, cada venta depende de que alguien haya
+            actualizado la hoja a tiempo.
           </p>
         </Reveal>
 
-        <div className="mx-auto mt-14 grid max-w-5xl gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {problems.map((p, i) => {
-            const Icon = p.icon;
-            return (
-              <Reveal key={p.title} i={i}>
-                <div className="flex h-full flex-col items-center rounded-2xl border border-white/10 bg-white/[0.04] p-6 text-center backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/[0.07]">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-500/10 text-brand-300 ring-1 ring-inset ring-brand-400/20">
-                    <Icon className="h-5 w-5" />
-                  </span>
-                  <h3 className="mt-4 text-base font-semibold text-white">{p.title}</h3>
-                  <p className="mt-1.5 text-pretty text-sm leading-relaxed text-white/55">
-                    {p.description}
-                  </p>
-                </div>
-              </Reveal>
-            );
-          })}
-        </div>
+        <ul className="mt-10 grid gap-4 md:grid-cols-3">
+          {problems.map((p, i) => (
+            <Reveal as="li" key={p.title} i={i} className="card card-hover overflow-hidden p-6 text-center sm:p-7 sm:text-left">
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute -right-2 -top-4 select-none font-display text-[6.5rem] font-extrabold leading-none tracking-[-0.06em] text-brand-50"
+              >
+                0{i + 1}
+              </span>
+              <span className="icon-tile relative mx-auto sm:mx-0">
+                <p.Icon className="h-5 w-5" aria-hidden="true" strokeWidth={1.75} />
+              </span>
+              <h3 className="relative mt-5 text-lg font-semibold text-ink">{p.title}</h3>
+              <p className="relative mx-auto mt-2 max-w-[36ch] text-pretty text-[15px] leading-relaxed text-ink-soft sm:mx-0">
+                {p.description}
+              </p>
+            </Reveal>
+          ))}
+        </ul>
 
-        <Reveal className="mx-auto mt-10 max-w-2xl text-center">
-          <p className="text-pretty text-base text-white/70 sm:text-lg">
-            <span className="font-semibold text-white">El costo:</span> ventas caídas,
-            conflictos internos y clientes que pierden la confianza.
-          </p>
+        <Reveal className="mx-auto mt-10 max-w-3xl text-center sm:mx-0 sm:text-left">
+          <figure className="sm:border-l-2 sm:border-brand-600 sm:pl-6">
+            <blockquote className="text-balance font-display text-2xl font-semibold leading-snug tracking-[-0.02em] text-ink sm:text-[1.75rem]">
+              El problema no es vender. Es saber qué unidad está libre.
+            </blockquote>
+            <figcaption className="mt-3 text-[15px] text-ink-soft">
+              Sin eso: ventas caídas, conflictos internos y clientes que dejan de confiar.
+            </figcaption>
+          </figure>
         </Reveal>
       </div>
     </section>

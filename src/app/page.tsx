@@ -3,30 +3,33 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Hero from "./sections/Hero";
 import Problem from "./sections/Problem";
-import Solution from "./sections/Solution";
-import HowItWorks from "./sections/HowItWorks";
-import Features from "./sections/Features";
-import Differentiators from "./sections/Differentiators";
-import FinalCTA from "./sections/FinalCTA";
+import PlanoInteractivo from "./sections/PlanoInteractivo";
+import ProductTour from "./sections/ProductTour";
+import Flow from "./sections/Flow";
+import Capabilities from "./sections/Capabilities";
+import Comparison from "./sections/Comparison";
+import FAQ from "./sections/FAQ";
 import ContactForm from "@/components/sections/ContactForm";
 
 // Revalida cada hora para que la promo caduque sola sin necesidad de redesplegar
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Plataforma de Gestión para Parcelaciones y Urbanismos",
-  description: "Controla la disponibilidad de tus lotes, conecta a tu equipo comercial y técnico, y elimina las ventas duplicadas. El software especializado en proyectos de parcelación.",
+  title: "CRM para vender proyectos inmobiliarios por disponibilidad",
+  description:
+    "El CRM para vender por disponibilidad. Inventario de unidades en tiempo real, reservas con cronómetro, aprobación de ventas y reportes. Para vivienda en altura, parcelaciones y urbanismos en Colombia.",
   openGraph: {
-    title: "Parcy Digital - Gestión Inteligente de Parcelaciones",
-    description: "Controla la disponibilidad de tus lotes y elimina las ventas duplicadas. Plataforma especializada en proyectos de parcelación.",
+    title: "Parcy Digital, el CRM para vender por disponibilidad",
+    description:
+      "Inventario de unidades en tiempo real, reservas, ventas y equipo en un solo lugar.",
     url: "https://parcydigital.com",
     images: [
       {
-        url: "https://parcydigital.com/images/hero/dashboard_hero.png",
-        width: 1200,
-        height: 630,
-        alt: "Dashboard de Parcy Digital"
-      }
+        url: "https://parcydigital.com/images/picture_1.png",
+        width: 1742,
+        height: 907,
+        alt: "Parcy Digital: plano del proyecto y totales de unidades",
+      },
     ],
   },
   alternates: {
@@ -34,18 +37,25 @@ export const metadata: Metadata = {
   },
 };
 
+/*
+  Ritmo de la home: azul profundo → blanco → azul pálido → blanco → azul
+  profundo → azul pálido → blanco → azul pálido → azul profundo (contacto y pie).
+*/
 export default function Landing() {
   return (
     <>
       <Header />
-      <Hero />
-      <Problem />
-      <Solution />
-      <HowItWorks />
-      <Features />
-      <Differentiators />
-      <FinalCTA />
-      <ContactForm />
+      <main>
+        <Hero />
+        <Problem />
+        <PlanoInteractivo />
+        <ProductTour />
+        <Flow />
+        <Capabilities />
+        <Comparison />
+        <FAQ />
+        <ContactForm />
+      </main>
       <Footer />
     </>
   );

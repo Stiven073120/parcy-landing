@@ -1,72 +1,48 @@
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+
+const links = [
+  { href: "/", label: "Inicio" },
+  { href: "/pricing", label: "Precios" },
+  { href: "/why-parcy", label: "¿Por qué Parcy?" },
+  { href: "/#contacto", label: "Contacto" },
+];
 
 export default function NotFound() {
   return (
     <>
       <Header />
-      <div className="min-h-screen flex items-center justify-center bg-linear-to-b from-white to-gray-50 pt-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-
-          {/* Contenido */}
-          <div className="space-y-6 md:space-y-8">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900">
-              Página no encontrada
-            </h1>
-            
-            <div className="max-w-2xl mx-auto">
-              <p className="text-lg md:text-xl text-gray-600 mb-2">
-                Lo sentimos, la página que buscas no existe o ha sido movida.
-              </p>
-              <p className="text-base md:text-lg text-gray-500">
-                Pero no te preocupes, podemos ayudarte a encontrar lo que necesitas.
-              </p>
-            </div>
-
-            {/* Botones de acción */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-              <Button href="/" variant="primary" size="lg">
-                Volver al inicio
-              </Button>
-              <Button href="https://app.parcydigital.com" variant="secondary" size="lg">
-                Ir a la aplicación
-              </Button>
-            </div>
-
-            {/* Enlaces útiles */}
-            <div className="pt-8 md:pt-12 border-t border-gray-200">
-              <p className="text-sm text-gray-500 mb-4">Enlaces útiles:</p>
-              <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-                <Link
-                  href="/"
-                  className="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200"
-                >
-                  Inicio
-                </Link>
-                <Link
-                  href="/pricing"
-                  className="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200"
-                >
-                  Precios
-                </Link>
-                <Link
-                  href="/why-parcy"
-                  className="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200"
-                >
-                  ¿Por qué Parcy?
-                </Link>
-                <Link
-                  href="/#contacto"
-                  className="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200"
-                >
-                  Contacto
-                </Link>
-              </div>
-            </div>
+      <main className="flex min-h-[100dvh] items-center px-4 pt-20 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-2xl py-20">
+          <p className="text-sm font-medium text-ink-faint tnum">Error 404</p>
+          <h1 className="mt-3 text-balance text-4xl font-semibold tracking-[-0.02em] text-ink sm:text-5xl">
+            Esta página no existe.
+          </h1>
+          <p className="mt-4 max-w-md text-pretty text-lg leading-relaxed text-ink-soft">
+            Puede que el enlace esté roto o que la página se haya movido.
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Button href="/" size="lg">
+              Volver al inicio
+            </Button>
+            <Button href="https://app.parcydigital.com" variant="secondary" size="lg">
+              Ir a la aplicación
+            </Button>
           </div>
+          <ul className="mt-12 flex flex-wrap gap-x-6 gap-y-2 border-t border-line pt-6">
+            {links.map((l) => (
+              <li key={l.href}>
+                <Link href={l.href} className="text-sm font-medium text-ink-soft transition-colors hover:text-ink">
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
-      </div>
+      </main>
+      <Footer />
     </>
   );
 }

@@ -1,79 +1,78 @@
-import React from 'react';
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
+
+type Variant = "primary" | "secondary" | "ghost" | "inverse" | "white";
+type Size = "sm" | "md" | "lg";
 
 interface ButtonProps {
   children: React.ReactNode;
   href?: string;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  variant?: 'primary' | 'secondary' | 'outline';
-  size?: 'sm' | 'md' | 'lg';
+  variant?: Variant;
+  size?: Size;
   className?: string;
-  type?: 'button' | 'submit' | 'reset';
+  type?: "button" | "submit" | "reset";
   disabled?: boolean;
-  iconLeft?: React.ReactNode;
-  iconRight?: React.ReactNode;
 }
 
-const variantStyles = {
-  primary: 'bg-brand-600 text-white hover:bg-brand-700 shadow-sm hover:shadow-md focus:ring-brand-600/25',
-  secondary: 'bg-white text-blue-600 shadow-md border border-gray-200 hover:border-blue-600/30',
-  outline: 'border-2 border-blue-600 text-blue-600 hover:bg-blue-600/5',
+/*
+  Un solo botón para todo el sitio, en forma de pastilla.
+  - primary: azul de marca con una sombra azul suave. El único elemento "pesado" de cada vista.
+  - secondary: blanco con borde de 1px (fondos claros).
+  - ghost: solo texto (acciones terciarias).
+  - inverse: translúcido con borde claro, para las bandas de azul profundo.
+  - white: blanco con texto en tinta, alternativa al primario sobre azul profundo.
+  Feedback físico: scale(0.98) al presionar.
+*/
+const variantStyles: Record<Variant, string> = {
+  primary:
+    "bg-brand-600 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.15),0_10px_24px_-10px_rgba(11,110,245,0.65)] hover:bg-brand-700",
+  secondary: "bg-panel text-ink border border-line hover:border-line-strong hover:bg-surface",
+  ghost: "text-ink-soft hover:text-ink hover:bg-surface",
+  inverse: "border border-white/20 bg-white/10 text-white hover:border-white/35 hover:bg-white/15",
+  white: "bg-white text-ink shadow-[0_10px_24px_-10px_rgba(0,0,0,0.5)] hover:bg-brand-50",
 };
 
-const sizeStyles = {
-  sm: 'px-4 py-2 text-sm',
-  md: 'px-6 py-2.5 text-base',
-  lg: 'px-8 py-3 text-lg',
+const sizeStyles: Record<Size, string> = {
+  sm: "h-9 px-4 text-sm",
+  md: "h-10 px-5 text-sm",
+  lg: "h-12 px-6 text-base",
 };
+
+const baseStyles =
+  "inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full font-semibold transition-[background-color,border-color,color,transform,box-shadow] duration-150 ease-out active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50";
 
 export default function Button({
   children,
   href,
   onClick,
-  variant = 'primary',
-  size = 'md',
-  className = '',
-  type = 'button',
+  variant = "primary",
+  size = "md",
+  className = "",
+  type = "button",
   disabled = false,
-  iconLeft,
-  iconRight,
 }: ButtonProps) {
-  const baseStyles = 'inline-flex items-center justify-center rounded-full font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
-  const combinedClassName = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
-
-  const content = (
-    <>
-      {iconLeft && <span className="w-5 h-5 mr-2">{iconLeft}</span>}
-      {children}
-      {iconRight && <span className="w-5 h-5 ml-2">{iconRight}</span>}
-    </>
-  );
+  const cls = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
 
   if (href) {
-    // Si es una URL externa, usar <a> tag normal
-    if (href.startsWith('http://') || href.startsWith('https://')) {
+    // URL externa (la app) → <a>; ruta interna → <Link>
+    if (href.startsWith("http://") || href.startsWith("https://")) {
       return (
-        <a href={href} className={combinedClassName}>
-          {content}
+        <a href={href} className={cls}>
+          {children}
         </a>
       );
     }
-    // Si es una ruta interna, usar Link de Next.js
     return (
-      <Link href={href} className={combinedClassName}>
-        {content}
+      <Link href={href} className={cls}>
+        {children}
       </Link>
     );
   }
 
   return (
-    <button
-      type={type}
-      onClick={onClick}
-      className={combinedClassName}
-      disabled={disabled}
-    >
-      {content}
+    <button type={type} onClick={onClick} className={cls} disabled={disabled}>
+      {children}
     </button>
   );
 }

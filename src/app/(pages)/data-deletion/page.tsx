@@ -28,7 +28,7 @@ export default function DataDeletion() {
         eyebrow="Legal"
         title={
           <>
-            Cómo <span className="text-brand-600">eliminar tus datos</span> de Parcy
+            Cómo <span className="text-celeste">eliminar tus datos</span> de Parcy
           </>
         }
         description="Instrucciones claras para solicitar el borrado de tu información personal, qué eliminamos, qué debemos conservar por ley y en cuánto tiempo lo hacemos."

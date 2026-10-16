@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { Check, ArrowRight } from "lucide-react";
+import { Check } from "lucide-react";
+import Button from "@/components/ui/Button";
 import { PROMO, isPromoActive, promoPrice } from "@/data/promo";
 
 const APP_URL = "https://app.parcydigital.com";
 
-// Campaña vigente: 25% extra sobre el precio anual
 const promoOn = isPromoActive();
 
 type Plan = {
@@ -32,7 +32,7 @@ const plans: Plan[] = [
     features: [
       "Hasta 5 usuarios",
       "1 proyecto",
-      "Plano interactivo de lotes",
+      "Plano interactivo de unidades",
       "Reservas con cronómetro",
       "Aprobación de ventas",
       "Estados auditados",
@@ -93,55 +93,37 @@ export default function PricingPlans() {
   const [isAnnual, setIsAnnual] = useState(promoOn);
 
   return (
-    <section className="relative bg-white py-16 sm:py-20">
+    <section className="fade-b-surface bg-panel py-14 sm:py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Toggle Mensual / Anual */}
-        <div className="flex items-center justify-center gap-4">
-          <span
-            className={`text-sm font-medium transition-colors ${
-              !isAnnual ? "text-ink" : "text-ink-faint"
-            }`}
-          >
-            Mensual
-          </span>
-          <button
-            type="button"
-            onClick={() => setIsAnnual((v) => !v)}
-            role="switch"
-            aria-checked={isAnnual}
-            aria-label="Cambiar entre facturación mensual y anual"
-            className={`relative inline-flex h-7 w-12 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-brand-600/30 focus:ring-offset-2 ${
-              isAnnual ? "bg-brand-600" : "bg-line"
-            }`}
-          >
-            <span
-              className={`inline-block h-5 w-5 transform rounded-full bg-white shadow transition-transform ${
-                isAnnual ? "translate-x-6" : "translate-x-1"
-              }`}
-            />
-          </button>
-          <span
-            className={`text-sm font-medium transition-colors ${
-              isAnnual ? "text-ink" : "text-ink-faint"
-            }`}
-          >
-            Anual
-          </span>
-          <span
-            className={`ml-1 rounded-full px-2.5 py-1 text-xs font-semibold transition-colors ${
-              !isAnnual
-                ? "bg-line-soft text-ink-faint ring-1 ring-inset ring-line"
-                : promoOn
-                  ? "bg-amber-50 text-amber-800 ring-1 ring-inset ring-amber-200"
-                  : "bg-brand-50 text-brand-700"
-            }`}
-          >
-            {promoOn ? `2 meses gratis + ${PROMO.percent}% extra` : "2 meses gratis"}
+        {/* Mensual / Anual */}
+        <div className="flex flex-wrap items-center gap-3">
+          <div className="inline-flex rounded-full border border-line bg-panel p-1" role="group" aria-label="Periodo de facturación">
+            {(
+              [
+                ["Mensual", false],
+                ["Anual", true],
+              ] as const
+            ).map(([label, value]) => (
+              <button
+                key={label}
+                type="button"
+                onClick={() => setIsAnnual(value)}
+                aria-pressed={isAnnual === value}
+                className={`h-9 rounded-full px-4 text-sm font-medium transition-colors duration-150 ${
+                  isAnnual === value ? "bg-brand-600 text-white" : "text-ink-soft hover:text-ink"
+                }`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+          <span className="text-sm text-ink-soft">
+            {promoOn ? `Anual: 2 meses gratis + ${PROMO.percent}% extra` : "Anual: 2 meses gratis"}
           </span>
         </div>
 
         {/* Planes */}
-        <div className="mx-auto mt-12 grid max-w-6xl gap-6 lg:grid-cols-3">
+        <div className="mt-8 grid gap-4 lg:grid-cols-3">
           {plans.map((plan) => {
             const annualPromo = promoOn && isAnnual;
             const price = isAnnual
@@ -158,124 +140,63 @@ export default function PricingPlans() {
             return (
               <div
                 key={plan.name}
-                className={`relative flex h-full flex-col overflow-hidden rounded-3xl p-8 transition-all duration-300 ${
-                  plan.popular
-                    ? "bg-gradient-to-br from-brand-600 to-brand-800 text-white shadow-[0_24px_70px_-28px_rgba(0,136,204,0.7)]"
-                    : "border border-line bg-panel hover:border-brand-200 hover:shadow-[0_24px_60px_-30px_rgba(12,30,48,0.28)]"
+                className={`card card-hover flex h-full flex-col p-7 text-center sm:p-8 sm:text-left ${
+                  plan.popular ? "border-brand-600 shadow-[0_1px_2px_rgba(11,26,46,0.04),0_24px_60px_-24px_rgba(11,110,245,0.45)] ring-1 ring-brand-600" : ""
                 }`}
               >
-                {plan.popular && (
-                  <>
-                    <div className="pointer-events-none absolute -right-10 -top-10 h-44 w-44 rounded-full bg-brand-400/30 blur-2xl" />
-                    <span className="absolute right-6 top-8 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-white ring-1 ring-inset ring-white/25">
+                <div className="flex flex-col items-center gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-3">
+                  <div>
+                    <h3 className="text-xl font-semibold text-ink">{plan.name}</h3>
+                    <p className="mt-1 text-sm text-ink-soft">{plan.description}</p>
+                  </div>
+                  {plan.popular && (
+                    <span className="shrink-0 rounded-full bg-brand-600 px-2.5 py-1 text-xs font-medium text-white">
                       Más elegido
                     </span>
-                  </>
-                )}
+                  )}
+                </div>
 
-                <div className="relative">
-                  <h3
-                    className={`text-xl font-semibold ${
-                      plan.popular ? "text-white" : "text-ink"
-                    }`}
-                  >
-                    {plan.name}
-                  </h3>
-                  <p
-                    className={`mt-1.5 text-sm ${
-                      plan.popular ? "text-white/75" : "text-ink-soft"
-                    }`}
-                  >
-                    {plan.description}
-                  </p>
-
-                  {/* Precio */}
-                  <div className="mt-6">
-                    {original && (
-                      <div className="mb-1.5 flex items-center gap-2">
-                        <span
-                          className={`text-sm line-through ${
-                            plan.popular ? "text-white/55" : "text-ink-faint"
-                          }`}
-                        >
-                          {formatPrice(original)}
-                        </span>
-                        <span
-                          className={`rounded px-1.5 py-0.5 text-xs font-semibold ${
-                            plan.popular
-                              ? "bg-white/15 text-white"
-                              : "bg-brand-50 text-brand-700"
-                          }`}
-                        >
-                          −{discount(original, price)}%
-                        </span>
-                      </div>
-                    )}
-                    <div className="flex items-baseline gap-1">
-                      <span
-                        className={`text-4xl font-semibold tracking-tight ${
-                          plan.popular ? "text-white" : "text-ink"
-                        }`}
-                      >
-                        {formatPrice(price)}
+                {/* Precio: bloque de altura fija para alinear las listas entre tarjetas */}
+                <div className="mt-6 min-h-[92px]">
+                  {original && (
+                    <p className="mb-1 flex items-center justify-center gap-2 text-sm sm:justify-start">
+                      <span className="text-ink-faint line-through tnum">{formatPrice(original)}</span>
+                      <span className="rounded bg-surface px-1.5 py-0.5 text-xs font-medium text-ink">
+                        −{discount(original, price)}%
                       </span>
-                      <span
-                        className={`text-sm ${
-                          plan.popular ? "text-white/70" : "text-ink-soft"
-                        }`}
-                      >
-                        {isAnnual ? "/año" : "/mes"}
-                      </span>
-                    </div>
-                    {isAnnual && (
-                      <p
-                        className={`mt-1.5 text-sm ${
-                          plan.popular ? "text-white/70" : "text-ink-faint"
-                        }`}
-                      >
-                        Equivale a {formatPrice(Math.round(price / 12))} / mes
-                      </p>
-                    )}
-                  </div>
-
-                  {/* CTA */}
-                  <a
-                    href={APP_URL}
-                    className={`group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3 text-base font-semibold shadow-sm transition-all ${
-                      plan.popular
-                        ? "bg-white text-brand-700 hover:bg-brand-50"
-                        : "bg-brand-600 text-white hover:bg-brand-700 hover:shadow-md"
-                    }`}
-                  >
-                    Comenzar ahora
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                  </a>
-
-                  {/* Features */}
-                  {plan.inherits && (
-                    <p
-                      className={`mt-7 text-sm font-medium ${
-                        plan.popular ? "text-white/85" : "text-ink"
-                      }`}
-                    >
-                      Todo lo de {plan.inherits}, y además:
                     </p>
                   )}
-                  <ul className={`${plan.inherits ? "mt-4" : "mt-7"} space-y-3.5`}>
+                  <p className="flex items-baseline justify-center gap-1 sm:justify-start">
+                    <span className="text-[2rem] font-semibold tracking-[-0.02em] text-ink tnum">
+                      {formatPrice(price)}
+                    </span>
+                    <span className="text-sm text-ink-soft">{isAnnual ? "/año" : "/mes"}</span>
+                  </p>
+                  {isAnnual && (
+                    <p className="mt-1 text-sm text-ink-faint">
+                      Equivale a <span className="tnum">{formatPrice(Math.round(price / 12))}</span> / mes
+                    </p>
+                  )}
+                </div>
+
+                <Button
+                  href={APP_URL}
+                  variant={plan.popular ? "primary" : "secondary"}
+                  size="lg"
+                  className="mt-6 w-full"
+                >
+                  Comenzar ahora
+                </Button>
+
+                <div className="mt-7 border-t border-line-soft pt-6">
+                  {plan.inherits && (
+                    <p className="mb-3 text-sm font-medium text-ink">Todo lo de {plan.inherits}, y además:</p>
+                  )}
+                  <ul className="mx-auto w-fit space-y-3 sm:mx-0 sm:w-auto">
                     {plan.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-3">
-                        <Check
-                          className={`mt-0.5 h-4 w-4 shrink-0 ${
-                            plan.popular ? "text-white" : "text-brand-600"
-                          }`}
-                        />
-                        <span
-                          className={`text-sm ${
-                            plan.popular ? "text-white/90" : "text-ink-soft"
-                          }`}
-                        >
-                          {feature}
-                        </span>
+                      <li key={feature} className="flex items-start gap-3 text-left">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" aria-hidden="true" />
+                        <span className="text-sm text-ink-soft">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -285,13 +206,13 @@ export default function PricingPlans() {
           })}
         </div>
 
-        <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-ink-faint">
+        <p className="mt-6 max-w-2xl text-sm text-ink-faint">
           Precios en COP. Los planes anuales equivalen a 10 meses (2 meses gratis).
           {promoOn && (
             <>
               {" "}
-              Descuento del {PROMO.percent}% aplicable a planes anuales contratados
-              hasta el {PROMO.deadlineLabel}.
+              Descuento del {PROMO.percent}% aplicable a planes anuales contratados hasta el{" "}
+              {PROMO.deadlineLabel}.
             </>
           )}
         </p>
